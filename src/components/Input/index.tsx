@@ -4,9 +4,10 @@ import { UseFormRegisterReturn } from "react-hook-form";
 interface iInputProps {
   id: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
   disabled?: boolean;
   label?: string;
+  hidden?: boolean;
   register?: UseFormRegisterReturn;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -20,11 +21,14 @@ export const Input = ({
   label,
   register,
   value,
+  hidden,
   onChange,
 }: iInputProps) => {
   return (
     <>
-      <label htmlFor={id}>{label}</label>
+      <label hidden={hidden} htmlFor={id}>
+        {label}
+      </label>
       <input
         onChange={onChange}
         value={value}
