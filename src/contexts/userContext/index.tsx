@@ -19,6 +19,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [dashboardLoading, setDashboardLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
@@ -96,28 +97,20 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitRegisterStudent = (data: iFormRegisterStudentData) => {
-    const { name, email, age, password, type } = data;
+    const { name, email, age, password } = data;
     const newData = {
       name: name,
       email: email,
       age: age,
       password: password,
-      type: type,
+      type: "student",
     };
     userRegister(newData);
   };
 
   const submitRegisterTeacher = (data: iFormRegisterTeacherData) => {
-    const {
-      name,
-      email,
-      password,
-      age,
-      bio,
-      school_year_preference,
-      grades,
-      type,
-    } = data;
+    const { name, email, password, age, bio, school_year_preference, grades } =
+      data;
 
     const newData = {
       name: name,
@@ -127,7 +120,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       bio: bio,
       school_year_preference: school_year_preference,
       grades: grades,
-      type: type,
+      type: "teacher",
     };
     userRegister(newData);
   };
@@ -148,6 +141,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const submitEditProfile = (data: iUserState, id: number) => {
     editProfile(data, id);
   };
+
   const logout = () => {
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@USERID");

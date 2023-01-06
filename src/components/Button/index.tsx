@@ -3,12 +3,13 @@ import React from "react";
 interface iButtonProps {
   children: React.ReactNode;
   type: "button" | "submit" | "reset";
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-export const Button = ({ children, onClick, type }: iButtonProps) => {
+export const Button = ({ disabled, children, onClick, type }: iButtonProps) => {
   return (
-    <button type={type} onClick={onClick}>
+    <button disabled={disabled} type={type} onClick={onClick}>
       {children}
     </button>
   );
