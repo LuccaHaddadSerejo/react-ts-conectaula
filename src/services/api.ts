@@ -1,8 +1,6 @@
 import axios from "axios";
 import { iUserState } from "../contexts/userContext/types";
 
-const staticURL = "https://api-conectaula.onrender.com";
-
 export interface iGradesObj {
   id: number;
   schooling: string;
@@ -18,72 +16,80 @@ export interface iMessagesObj {
 
 export const api = axios.create({
   baseURL: "https://api-conectaula.onrender.com",
-  timeout: 10000,
+  timeout: 20000,
 });
 
-export const getGradeByid = async (id: number) => {
+export const getGradeByid = async (id: number, token: string) => {
   try {
-    const response = await api.get<iGradesObj[]>(`${staticURL}/grade?id=${id}`);
+    const response = await api.get<iGradesObj[]>(`/grade?id=${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getAllGrades = async () => {
+export const getAllGrades = async (token: string) => {
   try {
-    const response = await api.get<iGradesObj[]>(`${staticURL}/grades`);
+    const response = await api.get<iGradesObj[]>("/grades", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getAllTeachers = async () => {
+export const getAllTeachers = async (token: string) => {
   try {
-    const response = await api.get<iUserState[]>(
-      `${staticURL}/users?type=teacher`
-    );
+    const response = await api.get<iUserState[]>("/users?type=teacher", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getAllMessages = async () => {
+export const getAllMessages = async (token: string) => {
   try {
-    const response = await api.get<iMessagesObj[]>(`${staticURL}/messages`);
+    const response = await api.get<iMessagesObj[]>("/messages", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getMessageById = async (id: number) => {
+export const getMessageById = async (id: number, token: string) => {
   try {
-    const response = await api.get<iMessagesObj[]>(
-      `${staticURL}/messages/${id}`
-    );
+    const response = await api.get<iMessagesObj[]>(`/messages/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getAllStudents = async () => {
+export const getAllStudents = async (token: string) => {
   try {
-    const response = await api.get<iUserState[]>(
-      `${staticURL}/users?type=student`
-    );
+    const response = await api.get<iUserState[]>("/users?type=student", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-export const getStudentById = async (id: number) => {
+export const getStudentById = async (id: number, token: string) => {
   try {
-    const response = await api.get<iUserState[]>(`${staticURL}/users/${id}`);
+    const response = await api.get<iUserState[]>(`/users/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error) {
     console.error(error);

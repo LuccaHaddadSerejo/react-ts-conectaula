@@ -22,8 +22,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
-      const id = JSON.parse(localStorage.getItem("@USERID") || "");
+      const token = localStorage.getItem("@TOKEN");
+      const id = localStorage.getItem("@USERID");
 
       if (!token) {
         setDashboardLoading(false);
@@ -88,7 +88,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         formData
       );
       toast.success("Conta criada com sucesso");
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (error) {
       console.error(error);
     } finally {
