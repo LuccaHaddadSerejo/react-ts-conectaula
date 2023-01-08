@@ -2,13 +2,13 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   :root {
-    /* --color-primary:;
-    --color-secondary:; */
+    --color-primary: #70BCE5;
+    --color-secondary: #889BE5;
     --color-gray1000:#000000;
     --color-gray900:#191919;
     --color-gray800:#333333;
     --color-gray700:#4C4C4C;
-    --color-gray600:#666666;
+    --color-gray600:#666666; 
     --color-gray500:#7F7F7F;
     --color-gray400:#999999;
     --color-gray300:#B2B2B2;
