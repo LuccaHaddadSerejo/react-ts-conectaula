@@ -1,20 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  :root {
-    --color-primary: #70BCE5;
-    --color-secondary: #889BE5;
+  :root {   
+    --color-primary:#66bce6;
+    --color-secondary:#a995e8;
+    --color-tertiary:#e6828b;
+    
     --color-gray1000:#000000;
     --color-gray900:#191919;
-    --color-gray800:#333333;
     --color-gray700:#4C4C4C;
-    --color-gray600:#666666; 
+    --color-gray600:#333333;
     --color-gray500:#7F7F7F;
     --color-gray400:#999999;
-    --color-gray300:#B2B2B2;
+    --color-gray300:#64748b;
     --color-gray200:#CCCCCC;
-    --color-gray100:#E5E5E5;
-    --color-gray0:#FFFFFF;
+    --color-gray100:#D9D9D9;
+    --color-gray0:#F5F5F5;
+    --color-white:#FFFFFF;
+
     --color-success: #3FE864;
     --color-error: #E83F5B;
     --color-warning: #FFCD07;
@@ -43,17 +46,24 @@ export default createGlobalStyle`
     --text-size10: 0.5rem; /*8px*/
 
     --radius1: 16px;
-    --radius2: 12px
-    --radius3: 10px
+    --radius2: 12px;
+    --radius3: 10px;
+
+    --font-family1: "Nunito", sans-serif;
+    --font-family2: "Roboto slab", sans-serif;
+    --font-family3: "Open sans", sans-serif;
   }  
+
   * {
     margin:0;
-    padding: 0;
-    outline:0;
-    list-style: none;
+    padding: 0;       
     box-sizing: border-box;
-    /* font-family:; */
+    font-family: var(--font-family1)
   }
+
+  ul, ol, li{
+    list-style: none;
+  } 
 
   body,html{
     width: 100%;
@@ -65,7 +75,7 @@ export default createGlobalStyle`
     text-decoration: none;
   }
   
-  button {
+  button, a{
     cursor: pointer;
   }
 `;
