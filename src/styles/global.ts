@@ -5,7 +5,9 @@ export default createGlobalStyle`
     --color-primary:#66bce6;
     --color-secondary:#a995e8;
     --color-tertiary:#e6828b;
-
+    --color-gray1000:#000000;
+    --color-gray900:#191919;
+    --color-gray700:#4C4C4C
     --color-gray600:#333333;
     --color-gray500:#7F7F7F;
     --color-gray400:#999999;
@@ -74,5 +76,9 @@ export default createGlobalStyle`
   
   button, a{
     cursor: pointer;
+  }
+
+  #root{
+    min-height: 100vh;
   }
 `;

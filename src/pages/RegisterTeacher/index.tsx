@@ -8,6 +8,8 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
 import { TextArea } from "../../components/TextArea";
+import arrowIcon from "../../assets/img/registerArrowIcon.svg";
+import backArrowIcon from "../../assets/img/registerBackArrow.svg";
 
 interface iFormRegisterTeacherValues {
   email: string;
@@ -31,6 +33,7 @@ const RegisterTeacher = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<iFormRegisterTeacherValues>({
+    mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
 
@@ -113,7 +116,9 @@ const RegisterTeacher = () => {
                     Próximo
                   </Button>
                   <div>
-                    <Link to={"/login"}>Ir para o login</Link>
+                    <Link to={"/login"}>
+                      Ir para o login <img src={arrowIcon} alt="ArrowIcon" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -121,6 +126,7 @@ const RegisterTeacher = () => {
               <>
                 <div>
                   <Button type={"button"} onClick={handleClick}>
+                    <img src={backArrowIcon} alt="backArrowIcon" />
                     Voltar
                   </Button>
                 </div>
