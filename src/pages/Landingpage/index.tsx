@@ -7,33 +7,32 @@ import { StyledLandingPage } from "./style";
 const Landingpage = () => {
   return (
     <StyledLandingPage>
-      <div className="dashboardContent">
-        <img
-          src={logo}
-          alt="Logo com nome e uma imagem representando pessoas conectadas"
-        />
-        <p>
-          <span>Aprenda</span> ou <span>ensine</span> de qualquer lugar do
-          Brasil com o <span>ConectAulas</span>
-        </p>
-        <p>Escolha se você é professor ou aluno e cadastre-se!</p>
-        <div className="dashboardSelection">
-          <Link to={"/register/student"}>Aluno</Link>
-          <Link to={"/register/teacher"}>Professor</Link>
+      <div className="landingContentContainer">
+        <div className="landingContent">
+          <img
+            src={logo}
+            alt="Logo com nome e uma imagem representando pessoas conectadas"
+          />
+          <p className="landingTitle">
+            <span className="brandSpan">Aprenda</span> ou <span className="teachSpan">ensine</span> <br /> 
+            de qualquer lugar do Brasil com o <br /> 
+            <span className="brandSpan">ConectAulas</span>
+          </p>
+          <p className="landingParagraph">Cadastre-se como:</p>
+          <div className="landingSelection">
+            <Link to={"/register/student"} className="studentLink" >Aluno</Link>
+            <p className="landingParagraph">ou</p>
+            <Link to={"/register/teacher"} className="teacherLink">Professor</Link>
+          </div>
+          <p className="landingParagraph">
+            Já possui uma conta? Entre 
+            <span className="brandSpan">
+              <Link to={"/login"}> aqui.</Link>
+            </span>
+          </p>
         </div>
-        <p>
-          Já possui cadastro? Faça seu login{" "}
-          <span>
-            <Link to={"/login"}>aqui</Link>
-          </span>
-        </p>
       </div>
-      <div className="dashboardImg">
-        <img
-          src={landingImg}
-          alt="Foto de estudante tendo aula pelo computador"
-        />
-      </div>
+      <div className="landingImg"></div>
     </StyledLandingPage>
   );
 };
