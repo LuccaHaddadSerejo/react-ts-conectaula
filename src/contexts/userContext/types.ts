@@ -1,16 +1,18 @@
 import { iMessagesObj } from "../../services/api";
+import React, { SetStateAction } from "react";
 
 export interface iUserProviderValue {
   submitLogin: (data: iFormLoginData) => void;
   submitRegisterStudent: (data: iFormRegisterStudentData) => void;
   submitRegisterTeacher: (data: iFormRegisterTeacherData) => void;
-  submitEditProfile: (data: iUserState, id: number) => void;
-  submitMessage: (data: iMessagesObj) => void;
-  deleteUser: (id: number) => void;
+  submitEditProfile: (data: iUserState, id: number, token: string) => void;
+  submitMessage: (data: iMessagesObj, token: string) => void;
+  deleteUser: (id: number, token: string) => void;
   logout: () => void;
   globalLoading: boolean;
   dashboardLoading: boolean;
   user: null | iUserState;
+  setGlobalLoading: React.Dispatch<SetStateAction<boolean>>;
 }
 
 export interface iUserProviderProps {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import loginWave1 from "../../assets/img/waveLogin1.svg"
-import loginWave2 from "../../assets/img/waveLogin2.svg"
-import { Form } from "../../components/Form"
+import loginWave1 from "../../assets/img/wavesDesktop/waveLogin1.svg";
+import loginWave2 from "../../assets/img/wavesDesktop/waveLogin2.svg";
+import { Form } from "../../components/Form";
 import { UserContext } from "../../contexts/userContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,7 +17,7 @@ interface iFormLoginFormValues {
 }
 
 const Login = () => {
-  const { submitLogin } = useContext(UserContext)
+  const { submitLogin } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -33,35 +33,35 @@ const Login = () => {
         <div className="loginContent">
           <img src={loginWave1} alt="Vetor de onda lilás" className="topWave" />
           <h1 className="loginTitle">Faça seu login</h1>
-          <Form
-            noValidate={true}
-            onSubmit={handleSubmit(submitLogin)}  
-          >
-            <Input 
+          <Form noValidate={true} onSubmit={handleSubmit(submitLogin)}>
+            <Input
               id="userEmail"
               type="email"
               placeholder="Email"
               register={register("email")}
             />
             {errors.email?.message && <p>{errors.email.message}</p>}
-            <Input 
+            <Input
               id="userPassword"
               type="password"
               placeholder="Senha"
               register={register("password")}
             />
             {errors.password?.message && <p>{errors.password.message}</p>}
-            <Button
-              type="submit"
-            >Login</Button>
+            <Button type="submit">Login</Button>
           </Form>
           <div className="registerOption">
             <p>Não tem conta ainda?</p>
-            <Link to={"/"}>Cadastre-se 
+            <Link to={"/"}>
+              Cadastre-se
               <span> aqui</span>
             </Link>
           </div>
-          <img src={loginWave2} alt="Vetor de onda lilás" className="bottomWave"/>
+          <img
+            src={loginWave2}
+            alt="Vetor de onda lilás"
+            className="bottomWave"
+          />
         </div>
       </div>
     </StyledLoginPage>
