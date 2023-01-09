@@ -1,7 +1,6 @@
 import axios from "axios";
 import { iUserState } from "../contexts/userContext/types";
 import { AxiosError } from "axios";
-import { toast } from "react-toastify";
 
 export interface iGradesObj {
   id: number;
@@ -22,10 +21,11 @@ export interface iErrorMessage {
 
 export const api = axios.create({
   baseURL: "https://api-conectaula.onrender.com",
-  timeout: 30000,
+  timeout: 20000,
 });
 
-export const getGradeByid = async (id: number, token: string) => {
+export const getGradeByid = async (id: number) => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iGradesObj[]>(`/grade?id=${id}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -33,11 +33,12 @@ export const getGradeByid = async (id: number, token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };
 
-export const getAllGrades = async (token: string) => {
+export const getAllGrades = async () => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iGradesObj[]>("/grades", {
       headers: { Authorization: `Bearer ${token}` },
@@ -45,11 +46,12 @@ export const getAllGrades = async (token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };
 
-export const getAllTeachers = async (token: string) => {
+export const getAllTeachers = async () => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iUserState[]>("/users?type=teacher", {
       headers: { Authorization: `Bearer ${token}` },
@@ -57,11 +59,12 @@ export const getAllTeachers = async (token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };
 
-export const getAllMessages = async (token: string) => {
+export const getAllMessages = async () => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iMessagesObj[]>("/messages", {
       headers: { Authorization: `Bearer ${token}` },
@@ -69,11 +72,12 @@ export const getAllMessages = async (token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };
 
-export const getMessageById = async (id: number, token: string) => {
+export const getMessageById = async (id: number) => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iMessagesObj[]>(`/messages/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -81,11 +85,12 @@ export const getMessageById = async (id: number, token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };
 
-export const getAllStudents = async (token: string) => {
+export const getAllStudents = async () => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iUserState[]>("/users?type=student", {
       headers: { Authorization: `Bearer ${token}` },
@@ -93,11 +98,12 @@ export const getAllStudents = async (token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };
 
-export const getStudentById = async (id: number, token: string) => {
+export const getStudentById = async (id: number) => {
+  const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
   try {
     const response = await api.get<iUserState[]>(`/users/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -105,6 +111,6 @@ export const getStudentById = async (id: number, token: string) => {
     return response.data;
   } catch (error) {
     const currentError = error as AxiosError<iErrorMessage>;
-    toast.error(currentError.message + "");
+    console.error(currentError);
   }
 };

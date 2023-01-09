@@ -47,7 +47,13 @@ export const StyledMain = styled.main`
       width: 100%;
       display: flex;
       flex-direction: column;
+      .linksPage404 {
+        text-decoration: underline;
 
+        :hover {
+          color: var(--color-gray500);
+        }
+      }
       span {
         font-weight: 700;
         font-size: 22px;
