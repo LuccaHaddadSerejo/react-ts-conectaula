@@ -11,4 +11,19 @@ export const StyledEditProfile = styled.aside`
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
+
+    button {
+        height: 29px;
+        width: 90px;
+        border-radius: 15px;
+        color: var(--color-secondary);
+        border: 1px solid var(--color-secondary);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        img {
+           position: relative;
+           top: 2px;
+        }
+    }
 `
