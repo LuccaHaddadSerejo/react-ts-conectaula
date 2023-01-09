@@ -10,6 +10,7 @@ interface iInputProps {
   hidden?: boolean;
   register?: UseFormRegisterReturn;
   value?: string;
+  defaultValue?: number | string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -22,6 +23,7 @@ export const Input = ({
   register,
   value,
   hidden,
+  defaultValue,
   onChange,
 }: iInputProps) => {
   return (
@@ -30,6 +32,7 @@ export const Input = ({
         {label}
       </label>
       <input
+        defaultValue={defaultValue}
         onChange={onChange}
         value={value}
         type={type}

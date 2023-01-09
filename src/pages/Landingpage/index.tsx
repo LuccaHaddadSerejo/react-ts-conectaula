@@ -14,18 +14,23 @@ const Landingpage = () => {
             alt="Logo com nome e uma imagem representando pessoas conectadas"
           />
           <p className="landingTitle">
-            <span className="brandSpan">Aprenda</span> ou <span className="teachSpan">ensine</span> <br /> 
-            de qualquer lugar do Brasil com o <br /> 
+            <span className="brandSpan">Aprenda</span> ou{" "}
+            <span className="teachSpan">ensine</span> <br />
+            de qualquer lugar do Brasil com o <br />
             <span className="brandSpan">ConectAulas</span>
           </p>
           <p className="landingParagraph">Cadastre-se como:</p>
           <div className="landingSelection">
-            <Link to={"/register/student"} className="studentLink" >Aluno</Link>
+            <Link to={"/register/student"} className="studentLink">
+              Aluno
+            </Link>
             <p className="landingParagraph">ou</p>
-            <Link to={"/register/teacher"} className="teacherLink">Professor</Link>
+            <Link to={"/register/teacher"} className="teacherLink">
+              Professor
+            </Link>
           </div>
           <p className="landingParagraph">
-            Já possui uma conta? Entre 
+            Já possui uma conta? Entre
             <span className="brandSpan">
               <Link to={"/login"}> aqui.</Link>
             </span>

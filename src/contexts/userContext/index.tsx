@@ -43,7 +43,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         }
       } catch (error) {
         const currentError = error as AxiosError<iErrorMessage>;
-        console.log(currentError.message + "");
+        console.error(currentError.message);
       } finally {
         setDashboardLoading(false);
       }
@@ -69,7 +69,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       }
     } catch (error) {
       const currentError = error as AxiosError<iErrorMessage>;
-      console.log(currentError.message + "");
+      console.error(currentError.message);
       toast.error("Email ou senha inválidos");
     } finally {
       setGlobalLoading(false);
@@ -131,11 +131,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     userRegister(newData);
   };
 
-  const editProfile = async (
-    formData: iUserState,
-    id: number,
-    token: string
-  ) => {
+  const editProfile = async (formData: iUserState, id: number) => {
+    const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
       const response = await api.patch<iUserState>(`/users/${id}`, formData, {
@@ -151,8 +148,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const submitEditProfile = (data: iUserState, id: number, token: string) => {
-    editProfile(data, id, token);
+  const submitEditProfile = (data: iUserState, id: number) => {
+    editProfile(data, id);
   };
 
   const logout = () => {
@@ -162,7 +159,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-  const deleteUser = async (id: number, token: string) => {
+  const deleteUser = async (id: number) => {
+    const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -179,7 +177,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const createMessage = async (formData: iMessagesObj, token: string) => {
+  const createMessage = async (formData: iMessagesObj) => {
+    const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -195,8 +194,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const submitMessage = (data: iMessagesObj, token: string) => {
-    createMessage(data, token);
+  const submitMessage = (data: iMessagesObj) => {
+    createMessage(data);
   };
 
   return (

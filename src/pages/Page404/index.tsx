@@ -21,8 +21,12 @@ const Page404 = () => {
         <div>
           <span>Ao invés disso, tente uma dessas:</span>
           <div>
-            <Link to={"/"}>Ir para a Home</Link>
-            <Link to={"/login"}>Ir para o Login</Link>
+            <Link className="linksPage404" to={"/"}>
+              Ir para a Home
+            </Link>
+            <Link className="linksPage404" to={"/login"}>
+              Ir para o Login
+            </Link>
           </div>
         </div>
       </div>

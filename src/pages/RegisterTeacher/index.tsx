@@ -61,15 +61,20 @@ const RegisterTeacher = () => {
                   label={"Nome"}
                   type={"text"}
                   register={register("name")}
+                  placeholder={"Nome"}
                 />
                 {errors.name?.message && <p>{errors.name.message}</p>}
+
                 <Input
                   id={"teacherAge"}
                   hidden={true}
                   label={"Idade"}
                   type={"number"}
                   register={register("age")}
+                  defaultValue={0}
+                  placeholder={"Idade"}
                 />
+
                 {errors.age?.message && <p>{errors.age.message}</p>}
                 <Input
                   id={"teacherPhoto"}
@@ -77,6 +82,7 @@ const RegisterTeacher = () => {
                   label={"Foto"}
                   type={"url"}
                   register={register("photo_url")}
+                  placeholder={"Foto "}
                 />
                 {errors.photo_url?.message && <p>{errors.photo_url.message}</p>}
                 <Input
@@ -85,6 +91,7 @@ const RegisterTeacher = () => {
                   label={"Email"}
                   type={"email"}
                   register={register("email")}
+                  placeholder={"Email"}
                 />
                 {errors.email?.message && <p>{errors.email.message}</p>}
                 <Input
@@ -93,6 +100,7 @@ const RegisterTeacher = () => {
                   label={"Senha"}
                   type={"password"}
                   register={register("password")}
+                  placeholder={"Senha"}
                 />
                 {errors.password?.message && <p>{errors.password.message}</p>}
                 <Input
@@ -101,6 +109,7 @@ const RegisterTeacher = () => {
                   label={"Confirmar senha"}
                   type={"password"}
                   register={register("confirm_password")}
+                  placeholder={"Confirmar senha"}
                 />
                 {errors.confirm_password?.message && (
                   <p>{errors.confirm_password.message}</p>
