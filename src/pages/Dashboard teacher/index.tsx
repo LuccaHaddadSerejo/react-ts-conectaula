@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher";
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
 import MainStyledContainer from "../../components/MainContainer/style";
@@ -24,6 +25,7 @@ const DashBoardTeacher = () => {
 
   return (
     <>
+
     {
       modalIsOpen === true && 
     <ModalEditTeacher OpenModal={OpenModal}/>
@@ -38,8 +40,8 @@ const DashBoardTeacher = () => {
         </div>
         <div className="divEdit">
       <EditProfileTeacher OpenModal={OpenModal}/>
+      <EditPreferencesTeacher />
         </div>
-
       </StyledContent>
       </MainStyledContainer>
     </>
