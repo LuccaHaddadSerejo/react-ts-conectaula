@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
-import { api, iMessagesObj } from "../../services/api";
+import { api, iErrorMessage, iMessagesObj } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,6 +11,7 @@ import {
   iFormRegisterTeacherData,
   iFormRegisterStudentData,
 } from "./types";
+import { AxiosError } from "axios";
 
 export const UserContext = createContext({} as iUserProviderValue);
 
@@ -22,8 +23,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const token = localStorage.getItem("@TOKEN");
-      const id = localStorage.getItem("@USERID");
+      const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
+      const id = JSON.parse(localStorage.getItem("@USERID") || "");
 
       if (!token) {
         setDashboardLoading(false);
@@ -41,7 +42,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
           navigate(`/dashboard/teacher/${response.data.name}`);
         }
       } catch (error) {
-        console.error(error);
+        const currentError = error as AxiosError<iErrorMessage>;
+        console.log(currentError.message + "");
       } finally {
         setDashboardLoading(false);
       }
@@ -66,8 +68,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         navigate(`/dashboard/teacher/${response.data.user.name}`);
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Email ou login inválidos");
+      const currentError = error as AxiosError<iErrorMessage>;
+      console.log(currentError.message + "");
+      toast.error("Email ou senha inválidos");
     } finally {
       setGlobalLoading(false);
     }
@@ -92,7 +95,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         navigate("/login");
       }, 2000);
     } catch (error) {
-      console.error(error);
+      const currentError = error as AxiosError<iErrorMessage>;
+      toast.error(currentError.message + "");
     } finally {
       setGlobalLoading(false);
     }
@@ -127,21 +131,28 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     userRegister(newData);
   };
 
-  const editProfile = async (formData: iUserState, id: number) => {
+  const editProfile = async (
+    formData: iUserState,
+    id: number,
+    token: string
+  ) => {
     try {
       setGlobalLoading(true);
-      const response = await api.patch<iUserState>(`/users/${id}`, formData);
+      const response = await api.patch<iUserState>(`/users/${id}`, formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setUser(response.data);
       toast.success("Perfil atualizado com sucesso");
     } catch (error) {
-      console.error(error);
+      const currentError = error as AxiosError<iErrorMessage>;
+      toast.error(currentError.message + "");
     } finally {
       setGlobalLoading(false);
     }
   };
 
-  const submitEditProfile = (data: iUserState, id: number) => {
-    editProfile(data, id);
+  const submitEditProfile = (data: iUserState, id: number, token: string) => {
+    editProfile(data, id, token);
   };
 
   const logout = () => {
@@ -151,40 +162,47 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-  const deleteUser = async (id: number) => {
+  const deleteUser = async (id: number, token: string) => {
     try {
       setGlobalLoading(true);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const response = await api.delete(`/users/${id}`);
+      const response = await api.delete(`/users/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       toast.success("Usuário deletado com sucesso!");
       logout();
     } catch (error) {
-      console.error(error);
+      const currentError = error as AxiosError<iErrorMessage>;
+      toast.error(currentError.message + "");
     } finally {
       setGlobalLoading(false);
     }
   };
 
-  const createMessage = async (formData: iMessagesObj) => {
+  const createMessage = async (formData: iMessagesObj, token: string) => {
     try {
       setGlobalLoading(true);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const response = await api.post<iMessagesObj>("/messages", formData);
+      const response = await api.post<iMessagesObj>("/messages", formData, {
+        headers: { Authorizarion: `Bearer ${token}` },
+      });
       toast.success("Mensagem enviada com sucesso");
     } catch (error) {
-      console.error(error);
+      const currentError = error as AxiosError<iErrorMessage>;
+      toast.error(currentError.message + "");
     } finally {
       setGlobalLoading(false);
     }
   };
 
-  const submitMessage = (data: iMessagesObj) => {
-    createMessage(data);
+  const submitMessage = (data: iMessagesObj, token: string) => {
+    createMessage(data, token);
   };
 
   return (
     <UserContext.Provider
       value={{
+        setGlobalLoading,
         submitLogin,
         submitRegisterStudent,
         submitRegisterTeacher,
