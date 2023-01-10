@@ -14,7 +14,8 @@ export interface iUserProviderValue {
   user: null | iUserState;
   setGlobalLoading: React.Dispatch<SetStateAction<boolean>>;
   editProfile: (formData: iEditProfileTeacher, id: number | string | null) => void;
-  
+  modalLoading: boolean;
+  setModalLoading: any;
 }
 
 export interface iUserProviderProps {

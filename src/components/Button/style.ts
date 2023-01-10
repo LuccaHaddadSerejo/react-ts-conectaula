@@ -87,8 +87,6 @@ export const StyledButton = styled.button<iStyledButtonProps>`
         return css`
           display: flex;
           gap: 10px;
-          font-family: "Inter";
-          font-style: normal;
           font-weight: var(--weight1);
           font-size: var(--text-size8: 0.75rem);
           line-height: 15px;
