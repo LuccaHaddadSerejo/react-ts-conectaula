@@ -231,6 +231,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         globalLoading,
         dashboardLoading,
         user,
+        modalLoading,
+        setModalLoading
       }}
     >
       {children}

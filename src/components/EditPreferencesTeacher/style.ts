@@ -20,7 +20,7 @@ export const StyledPrefTeacher = styled.div `
         font-family: 'Roboto Slab';
         font-style: normal;
         font-weight: var(--weight1);
-        font-size: var(--text-size6);
+        font-size: var(--text-size5);
         line-height: 21px;
         color: var(--color-gray1000);
    }
@@ -28,23 +28,29 @@ export const StyledPrefTeacher = styled.div `
    .schoolYearPreference {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
    }
 
    .schoolYearPreference h3 {
         font-family: 'Roboto Slab';
         font-style: normal;
         font-weight: var(--weight1);
-        font-size: var(--text-size8);
+        font-size: var(--text-size7);
         line-height: 16px;
         color: var(--color-gray1000);
+   }
+
+   .schoolYearPreference div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
    }
 
    .schoolYearPreference div p {
         font-family: 'Nunito';
         font-style: normal;
         font-weight: var(--weight2);
-        font-size: var(--text-size9);
+        font-size: var(--text-size8);
         line-height: 14px;
         cursor: default;
    }
@@ -52,14 +58,15 @@ export const StyledPrefTeacher = styled.div `
    .prefGradeTeacher {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
+        margin-top: 10px;
    }
 
    .prefGradeTeacher h3 {
         font-family: 'Roboto Slab';
         font-style: normal;
         font-weight: var(--weight1);
-        font-size: var(--text-size8);
+        font-size: var(--text-size7);
         line-height: 16px;
         color: var(--color-gray1000);
    }
@@ -79,7 +86,7 @@ export const StyledPrefTeacher = styled.div `
         font-family: 'Nunito';
         font-style: normal;
         font-weight: var(--weight1);
-        font-size: var(--text-size9);
+        font-size: var(--text-size8);
         line-height: 14px;
         color: var(--color-tertiary);
         cursor: default;
