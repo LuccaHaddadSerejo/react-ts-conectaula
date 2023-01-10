@@ -10,6 +10,7 @@ import {
   iUserState,
   iFormRegisterTeacherData,
   iFormRegisterStudentData,
+  iEditProfileTeacher,
 } from "./types";
 import { AxiosError } from "axios";
 
@@ -131,15 +132,17 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     userRegister(newData);
   };
 
-  const editProfile = async (formData: iUserState, id: number) => {
+  const editProfile = async (formData: iEditProfileTeacher, id: number | string | null) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
+  
     try {
       setGlobalLoading(true);
       const response = await api.patch<iUserState>(`/users/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(response.data);
-      toast.success("Perfil atualizado com sucesso");
+      toast.success("Perfil atualizado com sucesso"); 
+
     } catch (error) {
       const currentError = error as AxiosError<iErrorMessage>;
       toast.error(currentError.message + "");
@@ -148,8 +151,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const submitEditProfile = (data: iUserState, id: number) => {
+  const submitEditProfile = (data: iEditProfileTeacher, id: number) => {
     editProfile(data, id);
+    console.log(data)
   };
 
   const logout = () => {
@@ -205,10 +209,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         submitLogin,
         submitRegisterStudent,
         submitRegisterTeacher,
-        submitEditProfile,
+        // submitEditProfile,
         submitMessage,
         deleteUser,
         logout,
+        editProfile,
         globalLoading,
         dashboardLoading,
         user,

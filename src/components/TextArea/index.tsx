@@ -8,6 +8,7 @@ interface iTextAreaProps {
   rows?: string;
   cols?: string;
   children?: React.ReactNode;
+  defaultValue?: string;
 }
 
 export const TextArea = ({
@@ -17,11 +18,12 @@ export const TextArea = ({
   rows,
   cols,
   children,
+  defaultValue,
 }: iTextAreaProps) => {
   return (
     <>
       <label htmlFor={id}>{label}</label>
-      <textarea id={id} {...register}></textarea>
+      <textarea id={id} {...register} defaultValue={defaultValue}></textarea>
     </>
   );
 };

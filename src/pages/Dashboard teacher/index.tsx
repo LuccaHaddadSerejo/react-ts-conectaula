@@ -18,6 +18,7 @@ export interface iEditProps {
 
 const DashBoardTeacher = () => {
   const [modalIsOpen, setModalIsOpen] = useState<iModalProps | boolean>(false);
+  
 
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean)
