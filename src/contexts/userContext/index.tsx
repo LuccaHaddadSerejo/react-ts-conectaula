@@ -19,6 +19,8 @@ export const UserContext = createContext({} as iUserProviderValue);
 export const UserProvider = ({ children }: iUserProviderProps) => {
   const [globalLoading, setGlobalLoading] = useState(false);
   const [dashboardLoading, setDashboardLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
   const navigate = useNavigate();
 
@@ -116,8 +118,16 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitRegisterTeacher = (data: iFormRegisterTeacherData) => {
-    const { name, email, password, age, bio, school_year_preference, grades, photo_url} =
-      data;
+    const {
+      name,
+      email,
+      password,
+      age,
+      bio,
+      school_year_preference,
+      grades,
+      photo_url,
+    } = data;
 
     const newData = {
       name: name,
@@ -133,29 +143,32 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     userRegister(newData);
   };
 
-  const editProfile = async (formData: iEditProfileTeacher, id: number | string | null) => {
+  const editProfile = async (
+    formData: iEditProfileTeacher,
+    id: number | string | null
+  ) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
-  
+
     try {
       setGlobalLoading(true);
       const response = await api.patch<iUserState>(`/users/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(response.data);
-      toast.success("Perfil atualizado com sucesso"); 
-
+      toast.success("Perfil atualizado com sucesso");
     } catch (error) {
       const currentError = error as AxiosError<iErrorMessage>;
       toast.error(currentError.message + "");
     } finally {
+      setModalLoading(false);
       setGlobalLoading(false);
     }
   };
 
-  const submitEditProfile = (data: iEditProfileTeacher, id: number) => {
+  /*const submitEditProfile = (data: iEditProfileTeacher, id: number) => {
     editProfile(data, id);
-    console.log(data)
-  };
+    console.log(data);
+  };*/
 
   const logout = () => {
     localStorage.removeItem("@TOKEN");
@@ -218,6 +231,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         globalLoading,
         dashboardLoading,
         user,
+        modalLoading,
+        setModalLoading
       }}
     >
       {children}
