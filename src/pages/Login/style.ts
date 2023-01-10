@@ -4,6 +4,7 @@ import loginImg from "../../assets/img/LoginImg.svg"
 export const StyledLoginPage = styled.div`
     display: flex;
     justify-content: space-between;
+    color: var(--color-gray300);
 
     .loginImg {
         height: 100vh;
