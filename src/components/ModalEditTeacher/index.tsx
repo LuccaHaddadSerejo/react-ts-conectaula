@@ -12,58 +12,103 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { modalEditTeacherSchema } from "./modalEditTeacherSchema";
 import { iEditProfileTeacher } from "../../contexts/userContext/types";
 
+export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
+  const { user, editProfile, globalLoading } = useContext(UserContext);
 
-export const ModalEditTeacher = ({OpenModal}:iEditProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iEditProfileTeacher>({
+    mode: "onBlur",
+    resolver: yupResolver(modalEditTeacherSchema),
+  });
 
-    const {user, editProfile, globalLoading} = useContext(UserContext);
+  const submit: SubmitHandler<iEditProfileTeacher> = (data) => {
+    const userId = localStorage.getItem("@USERID");
+    editProfile(data, userId);
+  };
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm<iEditProfileTeacher>({
-        mode: "onBlur",
-        resolver: yupResolver(modalEditTeacherSchema),
-      });
+  const submitForm = (data: iEditProfileTeacher) => {
+    submit(data);
+    setTimeout(() => {
+      OpenModal(false);
+    }, 2500);
+  };
 
-      const submit: SubmitHandler<iEditProfileTeacher> = (data) => {
-          const userId = localStorage.getItem("@USERID");
-          editProfile(data, userId);
-      }
-     
-      const submitForm = (data: iEditProfileTeacher) => {
-         OpenModal(false)
-         submit(data)
-      }
-
-
-
-    return (
-        <StyledModalContainer>
-            <StyledModalContent>
-                <header>
-                    <h3>Editar Perfil</h3>
-                    <Button type={"button"} buttonVariation="closeModal" onClick={() => OpenModal(false)}>X</Button>
-                </header>
-                <Form onSubmit={handleSubmit(submitForm)}>
-                    <Input id="imgInput" type="link" placeholder="Foto" defaultValue={user?.photo_url} register={register("photo_url")}/>
-                    {errors.photo_url?.message && <p>{errors.photo_url.message}</p>}
-                    <Input id="emailInput" type="email" placeholder="Email" defaultValue={user?.email}  register={register("email")}/>
-                    {errors.email?.message && <p>{errors.email.message}</p>}
-                    <Input id="passwordInput" type="password" placeholder="Senha"  register={register("password")}/>
-                    {errors.password?.message && <p>{errors.password.message}</p>}
-                    <Input id="confirmPasswordInput" type="password" placeholder="Confirmar senha" register={register("confirm_password")}/>
-                    {errors.confirm_password?.message && ( <p>{errors.confirm_password.message}</p>)}
-                    <label htmlFor="teacherBio" className="labelInput">Biografia</label>
-                    <TextArea id="teacherBio" defaultValue={user?.bio} register={register("bio")}/>
-                    {errors.bio?.message && <p>{errors.bio.message}</p>}
-                    <div className="divButton">
-                    <Button type={"button"} buttonVariation="cancelEditions" onClick={() => OpenModal(false)}>Cancelar</Button>
-                    <Button type={"submit"} disabled={globalLoading} buttonVariation="saveEditions">{globalLoading ? "Salvando..." : "Salvar alterações"}</Button>
-                    </div>
-                </Form>
-        
-            </StyledModalContent>
-        </StyledModalContainer>
-    )
-}
+  return (
+    <StyledModalContainer>
+      <StyledModalContent>
+        <header>
+          <h3>Editar Perfil</h3>
+          <Button
+            type={"button"}
+            buttonVariation="closeModal"
+            onClick={() => OpenModal(false)}
+          >
+            X
+          </Button>
+        </header>
+        <Form onSubmit={handleSubmit(submitForm)}>
+          <Input
+            id="imgInput"
+            type="link"
+            placeholder="Foto"
+            defaultValue={user?.photo_url}
+            register={register("photo_url")}
+          />
+          {errors.photo_url?.message && <p>{errors.photo_url.message}</p>}
+          <Input
+            id="emailInput"
+            type="email"
+            placeholder="Email"
+            defaultValue={user?.email}
+            register={register("email")}
+          />
+          {errors.email?.message && <p>{errors.email.message}</p>}
+          <Input
+            id="passwordInput"
+            type="password"
+            placeholder="Senha"
+            register={register("password")}
+          />
+          {errors.password?.message && <p>{errors.password.message}</p>}
+          <Input
+            id="confirmPasswordInput"
+            type="password"
+            placeholder="Confirmar senha"
+            register={register("confirm_password")}
+          />
+          {errors.confirm_password?.message && (
+            <p>{errors.confirm_password.message}</p>
+          )}
+          <label htmlFor="teacherBio" className="labelInput">
+            Biografia
+          </label>
+          <TextArea
+            id="teacherBio"
+            defaultValue={user?.bio}
+            register={register("bio")}
+          />
+          {errors.bio?.message && <p>{errors.bio.message}</p>}
+          <div className="divButton">
+            <Button
+              type={"button"}
+              buttonVariation="cancelEditions"
+              onClick={() => OpenModal(false)}
+            >
+              Cancelar
+            </Button>
+            <Button
+              type={"submit"}
+              disabled={globalLoading}
+              buttonVariation="saveEditions"
+            >
+              {globalLoading ? "Salvando..." : "Salvar alterações"}
+            </Button>
+          </div>
+        </Form>
+      </StyledModalContent>
+    </StyledModalContainer>
+  );
+};
