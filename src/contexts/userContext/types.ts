@@ -5,7 +5,7 @@ export interface iUserProviderValue {
   submitLogin: (data: iFormLoginData) => void;
   submitRegisterStudent: (data: iFormRegisterStudentData) => void;
   submitRegisterTeacher: (data: iFormRegisterTeacherData) => void;
-  submitEditProfile: (data: iUserState, id: number, token: string) => void;
+  // submitEditProfile: (data: iUserState, id: number, token: string) => void;
   submitMessage: (data: iMessagesObj, token: string) => void;
   deleteUser: (id: number, token: string) => void;
   logout: () => void;
@@ -13,6 +13,8 @@ export interface iUserProviderValue {
   dashboardLoading: boolean;
   user: null | iUserState;
   setGlobalLoading: React.Dispatch<SetStateAction<boolean>>;
+  editProfile: (formData: iEditProfileTeacher, id: number | string | null) => void;
+  
 }
 
 export interface iUserProviderProps {
@@ -56,6 +58,7 @@ export interface iFormRegisterTeacherData {
   school_year_preference: string[];
   grades: string[];
   type: string;
+  id?: number | undefined;
 }
 
 export interface iFormRegisterStudentData {
@@ -64,5 +67,16 @@ export interface iFormRegisterStudentData {
   age: number;
   password: string;
   confirm_password?: string;
+  type: string;
+}
+
+export interface iEditProfileTeacher {
+  email: string;
+  password: string;
+  bio: string;
+  confirm_password?: string;
+  photo_url: string;
+  school_year_preference: string[];
+  grades: string[];
   type: string;
 }

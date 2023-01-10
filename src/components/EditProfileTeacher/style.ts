@@ -12,6 +12,12 @@ export const StyledEditProfile = styled.aside`
     flex-direction: column;
     justify-content: space-evenly;
 
+   .imgProfile {
+        height: 145px;
+        width: 140px;
+        border-radius: 100px;
+    }
+
     button {
         height: 29px;
         width: 90px;

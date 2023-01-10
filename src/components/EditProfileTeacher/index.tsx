@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledEditProfile } from "./style";
-import imgProfile from"../../assets/img/imgProfile.svg";
 import { Button } from "../Button";
 import { iEditProps } from "../../pages/Dashboard teacher";
 import editIcon from "../../assets/img/edit.svg";
+import { UserContext } from "../../contexts/userContext";
+
 
 
 const EditProfileTeacher = ({OpenModal}:iEditProps) => {  
-    console.log(OpenModal) 
+
+   const {user} = useContext(UserContext);
+   console.log(user)
+
     return (
         <StyledEditProfile>
-        <img src={imgProfile} alt="" />
-        <h2>Roberta Silva</h2>
-        <p>Professor</p>
+        <img src={user?.photo_url} alt="" className="imgProfile" />
+        <h2>{user?.name}</h2>
+        <p>{user?.type}</p>
         <Button type={"button"} onClick={() => OpenModal(true)}>Perfil <span><img src={editIcon} alt=""></img></span></Button>
         </StyledEditProfile>
     )
