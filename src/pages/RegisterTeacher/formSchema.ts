@@ -34,11 +34,13 @@ export const registerSchema = yup.object().shape({
     .url("Formato inválido"),
   school_year_preference: yup
     .array()
+    .min(1, "Marque ao menos uma opção!")
     .of(yup.string())
     .required("Marque ao menos uma opção!")
     .nullable(),
   grades: yup
     .array()
+    .min(1, "Marque ao menos uma opção!")
     .of(yup.string())
     .required("Marque ao menos uma opção!")
     .nullable(),

@@ -26,8 +26,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
-      const id = JSON.parse(localStorage.getItem("@USERID") || "");
+      const token = localStorage.getItem("@TOKEN") || "";
+      const id = localStorage.getItem("@USERID") || "";
 
       if (!token) {
         setDashboardLoading(false);
@@ -40,8 +40,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         });
         setUser(response.data);
         if (response.data.type === "student") {
+          setDashboardLoading(false);
           navigate(`/dashboard/student/${response.data.name}`);
         } else {
+          setDashboardLoading(false);
           navigate(`/dashboard/teacher/${response.data.name}`);
         }
       } catch (error) {
