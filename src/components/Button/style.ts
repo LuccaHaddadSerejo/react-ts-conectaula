@@ -25,6 +25,22 @@ export const StyledButton = styled.button<iStyledButtonProps>`
             filter: brightness(1.2);
           }
         `;
+      case "registerStudent":
+        return css`
+          width: 100%;
+          height: 40px;
+          border-radius: var(--radius3);
+          border: none;
+          background: linear-gradient(
+            180deg,
+            rgba(102, 188, 230, 1) 0%,
+            rgba(169, 149, 232, 1) 100%
+          );
+          color: var(--color-white);
+          font-size: var(--text-size7);
+          font-weight: var(--weight2);
+          font-family: var(--font-family3);
+        `;
 
       case "saveEditions":
         return css`
