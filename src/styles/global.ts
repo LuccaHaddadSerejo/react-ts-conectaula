@@ -33,6 +33,7 @@ export default createGlobalStyle`
     --title-size4: 2.125rem; /*34px*/
     --title-size5: 2rem; /*32px*/
     --title-size6: 1.875rem; /*30px*/
+    --title-size7: 1.5rem; /*24px*/
 
     --text-size1: 1.625rem; /*26px*/
     --text-size2: 1.5rem; /*24px*/

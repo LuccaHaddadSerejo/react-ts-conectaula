@@ -6,6 +6,7 @@ export const StyledLandingPage = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--color-gray600);
 
     @media (max-width: 800px) {
         justify-content: center;
@@ -33,14 +34,30 @@ export const StyledLandingPage = styled.div`
             padding: 1em;
             background-color: rgba(255, 255, 255, 0.81);
             border-radius: 8px;
-            & img {
-                display: none;
-            }
+           
         }
     }
 
     .landingContent > img {
         height: 146px;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        margin: 2.5em 0 1em 0;
+    }
+
+    .logo > img {
+        height: 145px;
+    }
+
+    .logoText {
+        font-family: 'Roboto Slab';
+        font-size: var(--title-size5);
+        font-weight: 700;
+        color: var(--color-secondary);
+
     }
 
     .landingTitle {
@@ -49,7 +66,11 @@ export const StyledLandingPage = styled.div`
         font-weight: 500;
         text-align: center;
         line-height: 2.625rem;
-        color: var(--color-gray800);
+        
+
+        @media (max-width: 1000px) {
+            font-size: var(--title-size7);
+        }
     }
 
     .brandSpan {
@@ -96,10 +117,11 @@ export const StyledLandingPage = styled.div`
 
     .studentLink, .teacherLink {
         width: 100%;
+        max-width: 350px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1em;
+        padding: 0.8em;
         border-radius: 10px;
         color: var(--color-gray0);
         font-family: 'Inter', sans-serif;
