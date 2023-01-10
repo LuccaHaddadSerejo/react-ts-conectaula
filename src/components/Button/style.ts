@@ -33,7 +33,11 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-size: var(--text-size7);
           gap: 0.5rem;
           color: var(--color-white);
-          background-image: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%) ;
+          background-image: linear-gradient(
+            180deg,
+            var(--color-primary) 0%,
+            var(--color-secondary) 100%
+          );
           border-radius: 10px;
           width: 173px;
           height: 50px;
@@ -46,8 +50,8 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-weight: var(--weight1);
           font-size: var(--text-size7);
           gap: 0.5rem;
-          color: #64748B;
-          background: #E4E4E4;
+          color: #64748b;
+          background: #e4e4e4;
           border-radius: 10px;
           width: 173px;
           height: 50px;
@@ -66,7 +70,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
         return css`
           display: flex;
           gap: 10px;
-          font-family: 'Inter';
+          font-family: "Inter";
           font-style: normal;
           font-weight: var(--weight1);
           font-size: var(--text-size8: 0.75rem);
@@ -78,18 +82,54 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           border: 2px solid var(--color-secondary);
           border-radius: 15px;
         `;
-        
-        case "defaultButton":
+
+      case "defaultButton":
+        return css`
+          padding: 0.5em;
+          border: none;
+          border-radius: 10px;
+          background: linear-gradient(
+            180deg,
+            var(--color-primary) 0%,
+            var(--color-secondary) 100%
+          );
+          color: var(--color-white);
+          font-size: var(--text-size4);
+          font-weight: 700;
+          font-family: "Open Sans";
+        `;
+      case "showMore":
+        return css`
+          height: 30px;
+          width: 100px;
+          border-radius: 30px;
+          border: none;
+          background: linear-gradient(
+            180deg,
+            var(--color-primary) 0%,
+            var(--color-secondary) 100%
+          );
+          color: var(--color-white);
+          font-size: var(--text-size8);
+          font-weight: 700;
+          font-family: "Open Sans";
+        `;
+         case "conclude":
           return css`
-            padding: 0.5em;
+            height: 40px;
+            width: 135px;
+            border-radius: 30px;
             border: none;
-            border-radius: 10px;
-            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            background: linear-gradient(
+              180deg,
+              var(--color-primary) 0%,
+              var(--color-secondary) 100%
+            );
             color: var(--color-white);
-            font-size: var(--text-size4);
+            font-size: var(--text-size8);
             font-weight: 700;
-            font-family: 'Open Sans';
-          `
+            font-family: "Open Sans";
+          `;
     }
   }}
 `;

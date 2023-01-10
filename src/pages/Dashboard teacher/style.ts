@@ -15,6 +15,11 @@ export const StyledContent = styled.section`
         width: 100%;
         height: 100%;
         padding-left: 23px ;
+
+        
+        ul{
+           margin-top: 30px;
+        }
     }
 
     .divEdit {
