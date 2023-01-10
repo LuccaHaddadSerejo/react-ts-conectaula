@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
+import { StyledInput } from "./style";
 
 interface iInputProps {
   id: string;
@@ -26,8 +27,9 @@ export const Input = ({
   defaultValue,
   onChange,
 }: iInputProps) => {
+
   return (
-    <>
+    <StyledInput>
       <label hidden={hidden} htmlFor={id}>
         {label}
       </label>
@@ -41,6 +43,6 @@ export const Input = ({
         disabled={disabled}
         {...register}
       />
-    </>
+    </StyledInput>
   );
 };
