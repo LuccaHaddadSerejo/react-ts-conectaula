@@ -116,7 +116,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitRegisterTeacher = (data: iFormRegisterTeacherData) => {
-    const { name, email, password, age, bio, school_year_preference, grades } =
+    const { name, email, password, age, bio, school_year_preference, grades, photo_url} =
       data;
 
     const newData = {
@@ -128,6 +128,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       school_year_preference: school_year_preference,
       grades: grades,
       type: "teacher",
+      photo_url: photo_url,
     };
     userRegister(newData);
   };

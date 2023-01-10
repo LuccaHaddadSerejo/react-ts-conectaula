@@ -14,9 +14,9 @@ const EditProfileTeacher = ({OpenModal}:iEditProps) => {
 
     return (
         <StyledEditProfile>
-        <img src={user?.photo_url} alt="" className="imgProfile" />
+        <img src={user?.photo_url} alt="Foto de perfil" className="imgProfile"/>
         <h2>{user?.name}</h2>
-        <p>{user?.type}</p>
+        <p>Professor</p>
         <Button type={"button"} onClick={() => OpenModal(true)}>Perfil <span><img src={editIcon} alt=""></img></span></Button>
         </StyledEditProfile>
     )

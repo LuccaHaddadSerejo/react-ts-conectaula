@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import MainStyledContainer from "../../components/MainContainer/style";
 import { StyledContent } from "./style";
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
+import GradeFilter from "../../components/GradeFilter";
 
 export interface iModalProps {
   OpenModal: (boolean: boolean) => void;
@@ -36,7 +37,7 @@ const DashBoardTeacher = () => {
       <StyledContent>
         <div className="divDate">
           <h2 className="h2Solicitation">Solicitações de alunos</h2>
-          <p>filtro</p>
+          <GradeFilter/>
           <p>card</p> 
         </div>
         <div className="divEdit">
