@@ -48,7 +48,7 @@ const Login = () => {
               register={register("password")}
             />
             {errors.password?.message && <p>{errors.password.message}</p>}
-            <Button type="submit">Login</Button>
+            <Button type="submit" buttonVariation="defaultButton">Login</Button>
           </Form>
           <div className="registerOption">
             <p>Não tem conta ainda?</p>
