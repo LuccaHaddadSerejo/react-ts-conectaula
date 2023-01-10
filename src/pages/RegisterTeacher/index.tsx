@@ -80,9 +80,9 @@ const RegisterTeacher = () => {
                   id={"teacherPhoto"}
                   hidden={true}
                   label={"Foto"}
-                  type={"url"}
+                  type={"text"}
                   register={register("photo_url")}
-                  placeholder={"Foto "}
+                  placeholder={"Foto"}
                 />
                 {errors.photo_url?.message && <p>{errors.photo_url.message}</p>}
                 <Input

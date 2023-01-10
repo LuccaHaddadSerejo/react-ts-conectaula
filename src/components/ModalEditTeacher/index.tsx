@@ -15,7 +15,7 @@ import { iEditProfileTeacher } from "../../contexts/userContext/types";
 
 export const ModalEditTeacher = ({OpenModal}:iEditProps) => {
 
-    const {user, editProfile} = useContext(UserContext);
+    const {user, editProfile, globalLoading} = useContext(UserContext);
 
     const {
         register,
@@ -26,11 +26,18 @@ export const ModalEditTeacher = ({OpenModal}:iEditProps) => {
         resolver: yupResolver(modalEditTeacherSchema),
       });
 
-      const submit: SubmitHandler<iEditProfileTeacher> = (data, id) => {
+      const submit: SubmitHandler<iEditProfileTeacher> = (data) => {
           const userId = localStorage.getItem("@USERID");
           editProfile(data, userId);
       }
      
+      const submitForm = (data: iEditProfileTeacher) => {
+         OpenModal(false)
+         submit(data)
+      }
+
+
+
     return (
         <StyledModalContainer>
             <StyledModalContent>
@@ -38,7 +45,7 @@ export const ModalEditTeacher = ({OpenModal}:iEditProps) => {
                     <h3>Editar Perfil</h3>
                     <Button type={"button"} buttonVariation="closeModal" onClick={() => OpenModal(false)}>X</Button>
                 </header>
-                <Form onSubmit={handleSubmit(submit)}>
+                <Form onSubmit={handleSubmit(submitForm)}>
                     <Input id="imgInput" type="link" placeholder="Foto" defaultValue={user?.photo_url} register={register("photo_url")}/>
                     {errors.photo_url?.message && <p>{errors.photo_url.message}</p>}
                     <Input id="emailInput" type="email" placeholder="Email" defaultValue={user?.email}  register={register("email")}/>
@@ -52,7 +59,7 @@ export const ModalEditTeacher = ({OpenModal}:iEditProps) => {
                     {errors.bio?.message && <p>{errors.bio.message}</p>}
                     <div className="divButton">
                     <Button type={"button"} buttonVariation="cancelEditions" onClick={() => OpenModal(false)}>Cancelar</Button>
-                    <Button type={"submit"} buttonVariation="saveEditions">Salvar alterações</Button>
+                    <Button type={"submit"} disabled={globalLoading} buttonVariation="saveEditions">{globalLoading ? "Salvando..." : "Salvar alterações"}</Button>
                     </div>
                 </Form>
         
