@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/img/logo.svg";
-import landingImg from "../../assets/img/landingImg.svg";
+import logo from "../../assets/img/headerLogo.svg";
 import { StyledLandingPage } from "./style";
 
 const Landingpage = () => {
@@ -9,10 +8,15 @@ const Landingpage = () => {
     <StyledLandingPage>
       <div className="landingContentContainer">
         <div className="landingContent">
-          <img
-            src={logo}
-            alt="Logo com nome e uma imagem representando pessoas conectadas"
-          />
+          <div className="logo">
+            <img
+              src={logo}
+              alt="Logo com nome e uma imagem representando pessoas conectadas"
+            />
+            <p className="logoText">
+              ConectAula
+            </p>
+          </div>
           <p className="landingTitle">
             <span className="brandSpan">Aprenda</span> ou{" "}
             <span className="teachSpan">ensine</span> <br />
