@@ -4,7 +4,7 @@ import logoutIcon from "../../assets/img/logoutImg.svg";
 import headerLogo from "../../assets/img/headerLogo.svg";
 import { StyledContainer, StyledHeader } from "./style";
 import { UserContext } from "../../contexts/userContext";
-const Header = () => {
+ const Header = () => {
   const { logout } = useContext(UserContext);
 
   return (

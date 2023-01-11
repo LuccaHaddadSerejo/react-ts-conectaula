@@ -22,6 +22,7 @@ const DashboardStudent = () => {
     <EditProfileStudent OpenModalStudent={OpenModalStudent}/>
     </>
   )
+
 };
 
 export default DashboardStudent;
