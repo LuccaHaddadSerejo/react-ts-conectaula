@@ -25,7 +25,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
             filter: brightness(1.2);
           }
         `;
-      case "registerStudent":
+      case "register":
         return css`
           width: 100%;
           height: 40px;
