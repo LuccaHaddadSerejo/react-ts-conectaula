@@ -6,6 +6,7 @@ export const StyledDashContainer = styled(MainStyledContainer)`
   padding: 30px 0;
   flex-direction: column;
   background-image: none;
+  overflow-y: scroll;
   background: linear-gradient(
     90deg,
     rgba(102, 188, 230, 1) 0%,
