@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { Button } from "../Button";
 import { StyledModalContainer } from "../ModalContainer/style";
 import { UserContext } from "../../contexts/userContext";
-import { StyledModalContentDelet } from "./style";
+import { StyledModalContentDelet } from "../ModalDeletStudent/style";
 
-export const ModalDeletStudent = ({closeModal}:any) => {
+
+export const ModalDeletTeacher = ({closeModal}:any) => {
 
     const {deleteUser} = useContext(UserContext)
 
