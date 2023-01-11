@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import { api, iErrorMessage, iMessagesObj } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -17,15 +17,18 @@ import { AxiosError } from "axios";
 export const UserContext = createContext({} as iUserProviderValue);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
+  const [studentMessage, setStudentMessage] = useState([] as iMessagesObj[]);
   const [globalLoading, setGlobalLoading] = useState(false);
   const [dashboardLoading, setDashboardLoading] = useState(true);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
+  const [modalStudant,setModalStudant]=useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
+
       const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
       const id = localStorage.getItem("@USERID") || "";
 
@@ -179,7 +182,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-  const deleteUser = async (id: number) => {
+  const deleteUser = async (id: number | string | null) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
@@ -196,6 +199,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       setGlobalLoading(false);
     }
   };
+
+  // ----------------
 
   const createMessage = async (formData: iMessagesObj) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
@@ -233,6 +238,12 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         globalLoading,
         dashboardLoading,
         user,
+        modalLoading,
+        setModalLoading,
+        setStudentMessage,
+        studentMessage,
+        modalStudant,
+        setModalStudant
       }}
     >
       {children}

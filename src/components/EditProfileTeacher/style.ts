@@ -18,7 +18,32 @@ export const StyledEditProfile = styled.aside`
         border-radius: 100px;
     }
 
-    button {
+    h2 {
+        font-family: 'Roboto Slab';
+        font-style: normal;
+        font-weight: var(--weight1);
+        font-size: var(--text-size3);
+        line-height: 21px;
+        color: var(--color-gray1000);
+    }
+
+    p {
+        font-family: 'Roboto Slab';
+        font-style: normal;
+        font-weight: var(--weight3);
+        font-size: var(--text-size7);
+        line-height: 16px;
+        color: var(--color-gray1000); 
+    }
+
+    .divButton {
+        display: flex;
+        justify-content:space-between;
+        gap: 20px;
+        align-items:center;
+    }
+
+    button:nth-child(1) {
         height: 29px;
         width: 90px;
         border-radius: 15px;
@@ -31,5 +56,17 @@ export const StyledEditProfile = styled.aside`
            position: relative;
            top: 2px;
         }
+
+    }
+
+    button:nth-child(2) {
+        border: none;
+        width: 25px;
+        height: 25px;
+        img {
+           width: 25px;
+           height: 25px;  
+        }
+
     }
 `

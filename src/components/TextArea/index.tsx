@@ -1,5 +1,6 @@
 import React from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
+import { StyledTextArea } from "./style";
 
 interface iTextAreaProps {
   id: string;
@@ -21,10 +22,10 @@ export const TextArea = ({
   defaultValue,
 }: iTextAreaProps) => {
   return (
-    <>
+    <StyledTextArea>
       <label htmlFor={id}>{label}</label>
       <textarea id={id} {...register} defaultValue={defaultValue}></textarea>
-    </>
+    </StyledTextArea>
   );
 };
 
