@@ -16,23 +16,19 @@ export const StyledHeader = styled.header`
   align-items: center;
   margin: 0 auto;
   padding: 0 15px;
-
   @media (min-width: 800px) {
     padding: none;
   }
-
   div {
     height: 100%;
     display: flex;
     align-items: center;
-
     h1 {
       font-weight: var(--weight1);
       font-size: var(--text-size4);
       color: #a995e8;
     }
   }
-
   nav {
     display: flex;
     align-items: center;

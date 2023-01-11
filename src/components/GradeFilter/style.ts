@@ -7,7 +7,8 @@ const StyledSelect = styled.select`
   border-radius: 8px;
   border: 2px solid var(--color-gray300);
 
-  &, & > option {
+  &,
+  & > option {
     color: var(--color-gray300);
     font-size: 14px;
     font-weight: bold;

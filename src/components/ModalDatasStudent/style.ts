@@ -5,7 +5,6 @@ export const StyledModalStudentContent = styled.div`
   width: 464px;
   border-radius: 10px;
   background-color: var(--color-white);
-
   header {
     display: flex;
     justify-content: space-between;
@@ -31,17 +30,14 @@ export const StyledCardOpenModal = styled.li`
       border-radius: 10px 0 0 10px;
     }
   }
-
   .dataUserModal {
     display: flex;
     gap: 10px;
     flex-direction: column;
     width: 100%;
-
     p {
       font-size: var(--text-size7);
     }
-
     .messageStudentModal {
       width: 100%;
       max-width: 240px;

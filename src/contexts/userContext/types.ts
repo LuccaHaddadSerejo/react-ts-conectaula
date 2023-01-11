@@ -73,6 +73,7 @@ export interface iFormRegisterStudentData {
   password: string;
   confirm_password?: string;
   type: string;
+  photo_url?: string;
 }
 
 export interface iEditProfileTeacher {
