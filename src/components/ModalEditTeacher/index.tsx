@@ -50,45 +50,47 @@ export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
           </Button>
         </header>
         <Form onSubmit={handleSubmit(submitForm)}>
-          <Input
-            id="imgInput"
-            type="link"
-            placeholder="Foto"
-            defaultValue={user?.photo_url}
-            register={register("photo_url")}
-          />
-          {errors.photo_url?.message && <span>{errors.photo_url.message}</span>}
-          <Input
-            id="emailInput"
-            type="email"
-            placeholder="Email"
-            defaultValue={user?.email}
-            register={register("email")}
-          />
-          {errors.email?.message && <span>{errors.email.message}</span>}
-          <Input
-            id="passwordInput"
-            type="password"
-            placeholder="Senha"
-            register={register("password")}
-          />
-          {errors.password?.message && <span>{errors.password.message}</span>}
-          <Input
-            id="confirmPasswordInput"
-            type="password"
-            placeholder="Confirmar senha"
-            register={register("confirm_password")}
-          />
+          <div className="inputDiv">
+            <Input
+              id="imgInput"
+              type="link"
+              placeholder="Foto"
+              defaultValue={user?.photo_url}
+              register={register("photo_url")}
+            />
+            {errors.photo_url?.message && (
+              <span>{errors.photo_url.message}</span>
+            )}
+            <Input
+              id="emailInput"
+              type="email"
+              placeholder="Email"
+              defaultValue={user?.email}
+              register={register("email")}
+            />
+            {errors.email?.message && <span>{errors.email.message}</span>}
+            <Input
+              id="passwordInput"
+              type="password"
+              placeholder="Senha"
+              register={register("password")}
+            />
+            {errors.password?.message && <span>{errors.password.message}</span>}
+            <Input
+              id="confirmPasswordInput"
+              type="password"
+              placeholder="Confirmar senha"
+              register={register("confirm_password")}
+            />
+          </div>
           {errors.confirm_password?.message && (
             <span>{errors.confirm_password.message}</span>
           )}
-          <label htmlFor="teacherBio" className="labelInput">
-            Biografia
-          </label>
           <TextArea
             id="teacherBio"
             defaultValue={user?.bio}
             register={register("bio")}
+            label="Biografia"
           />
           {errors.bio?.message && <span>{errors.bio.message}</span>}
           <div className="divButton">

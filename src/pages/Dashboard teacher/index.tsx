@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher";
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
-import MainStyledContainer from "../../components/MainContainer/style";
 import { StyledContent, StyledDashContainer } from "./style";
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
@@ -10,7 +9,6 @@ import { CardStudent } from "../../components/CardStudent";
 import { ModalDatasStudent } from "../../components/ModalDatasStudent";
 import { getAllMessages } from "../../services/api";
 import { UserContext } from "../../contexts/userContext";
-import { title } from "process";
 
 export interface iModalProps {
   OpenModal: (boolean: boolean) => void;
@@ -66,12 +64,13 @@ const DashBoardTeacher = () => {
     <>
       {modalIsOpen === true && <ModalEditTeacher OpenModal={OpenModal} />}
       <Header />
-      <MainStyledContainer>
+      <StyledDashContainer>
         <StyledContent>
           <div className="divDate">
             <h2 className="h2Solicitation">Solicitações de alunos</h2>
             <GradeFilter />
             <ul>
+
               {studentMessage.length === 0 ? (
                 <h2 className="h2Solicitation">Você ainda não possui nenhuma solicitação de aluno</h2>
               ) : (
@@ -102,7 +101,7 @@ const DashBoardTeacher = () => {
             <EditPreferencesTeacher />
           </div>
         </StyledContent>
-      </MainStyledContainer>
+      </StyledDashContainer>
     </>
   );
 };

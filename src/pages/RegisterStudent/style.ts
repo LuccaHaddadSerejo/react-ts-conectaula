@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import StyledFormContainer from "../../components/FormContainer/style";
+import { StyledFormContainer } from "../../components/FormContainer/style";
 
 const StyledRegisterContainer = styled(StyledFormContainer)`
   & p {
@@ -21,29 +21,6 @@ const StyledRegisterContainer = styled(StyledFormContainer)`
     color: var(--color-gray300);
   }
 
-  & a {
-    width: 100%;
-    padding: 15px 0;
-    display: inline-block;
-    font-size: var(--text-size6);
-    font-weight: var(--weight1);
-    color: var(--color-secondary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    > span {
-      display: inline-block;
-
-      > img {
-        width: 15px;
-        position: relative;
-        top: 3px;
-      }
-    }
-  }
-
   @media (min-width: 600px) {
     padding: 40px 50px;
   }
@@ -57,7 +34,6 @@ const StyledRegisterContainer = styled(StyledFormContainer)`
     width: 50vw;
     height: 80%;
     align-self: center;
-    
   }
 
   @media (min-width: 1100px) {
