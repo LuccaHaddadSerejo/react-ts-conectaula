@@ -49,15 +49,14 @@ export const StyledInput = styled.div`
     font-size: var(--text-size7);
   }
 
-
   @media (min-width: 1000px) {
     input,
     input::placeholder {
       font-size: var(--text-size6);
     }
 
-    input[type=checkbox] {
-      
+    label {
+      font-size: var(--font-size6);
     }
   }
 `;

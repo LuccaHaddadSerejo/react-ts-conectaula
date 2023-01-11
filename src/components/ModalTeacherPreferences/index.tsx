@@ -86,15 +86,15 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
                 />
               </div>
               {errors.school_year_preference?.message && (
-                <p className="erroYupSchool">
+                <span className="erroYupSchool">
                   {errors.school_year_preference.message}
-                </p>
+                </span>
               )}
             </div>
             <hr />
           </div>
           <div className="modalTeacherGrades">
-            <h3>Escolha de metériaa</h3>
+            <h3>Escolha de matérias</h3>
             <div className="modalTeacherGradesCheckbox">
               <div>
                 <Input
@@ -238,7 +238,7 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
               </div>
             </div>
             {errors.grades?.message && (
-              <p className="erroYupGrades">{errors.grades.message}</p>
+              <span className="erroYupGrades">{errors.grades.message}</span>
             )}
             <div className="modalTeacherPrefButtons">
               <Button onClick={closeModal} type="button">
