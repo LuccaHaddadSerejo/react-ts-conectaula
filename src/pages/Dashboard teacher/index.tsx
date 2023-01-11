@@ -21,8 +21,6 @@ export interface iModalProps {
   OpenModalStudent: (boolean: boolean) => void;
   modalStudentIsOpen: boolean;
   setModalStudentIsOpen: (value: boolean) => void;
-
-  
 }
 
 export interface iEditProps {
@@ -36,8 +34,8 @@ const DashBoardTeacher = () => {
   const [modalIsOpen, setModalIsOpen] = useState<iModalProps | boolean>(false);
   const [modalCardOpen, setModalCard] = useState(false);
 
-
-  const { studentMessage, setStudentMessage,modalStudant,setModalStudant } = useContext(UserContext);
+  const { studentMessage, setStudentMessage, modalStudant, setModalStudant } =
+    useContext(UserContext);
 
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean);
@@ -64,11 +62,8 @@ const DashBoardTeacher = () => {
     fillterMessages();
   }, []);
 
-
-
   return (
     <>
-
       {modalIsOpen === true && <ModalEditTeacher OpenModal={OpenModal} />}
       <Header />
       <MainStyledContainer>
@@ -77,12 +72,29 @@ const DashBoardTeacher = () => {
             <h2 className="h2Solicitation">Solicitações de alunos</h2>
             <GradeFilter />
             <ul>
-              {studentMessage.map((elem) => (
-                modalStudant ?  (  <ModalDatasStudent  message={elem.message} title={elem.title} email={elem.email} name={elem.name} grades={elem.grades}  />):(
-                  <CardStudent  message={elem.message} title={elem.title} email={elem.email} name={elem.name} grades={elem.grades}  />
+              {studentMessage.length === 0 ? (
+                <h2 className="h2Solicitation">Você ainda não possui nenhuma solicitação de aluno</h2>
+              ) : (
+                studentMessage.map((elem) =>
+                  modalStudant ? (
+                    <ModalDatasStudent
+                      message={elem.message}
+                      title={elem.title}
+                      email={elem.email}
+                      name={elem.name}
+                      grades={elem.grades}
+                    />
+                  ) : (
+                    <CardStudent
+                      message={elem.message}
+                      title={elem.title}
+                      email={elem.email}
+                      name={elem.name}
+                      grades={elem.grades}
+                    />
+                  )
                 )
-                
-              ))}
+              )}
             </ul>
           </div>
           <div className="divEdit">

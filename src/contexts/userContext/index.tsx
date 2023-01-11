@@ -29,11 +29,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   useEffect(() => {
     (async () => {
 
-
-      const token = JSON.parse(localStorage.getItem("@TOKEN") || ""); 
-      const id = JSON.parse(localStorage.getItem("@USERID") || "") ;
-
-
+      const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
+      const id = localStorage.getItem("@USERID") || "";
 
       if (!token) {
         setDashboardLoading(false);
@@ -114,13 +111,14 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitRegisterStudent = (data: iFormRegisterStudentData) => {
-    const { name, email, age, password } = data;
+    const { name, email, age, password, photo_url} = data;
     const newData = {
       name: name,
       email: email,
       age: age,
       password: password,
       type: "student",
+      photo_url: photo_url,
     };
     userRegister(newData);
   };

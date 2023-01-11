@@ -117,7 +117,22 @@ export const StyledButton = styled.button<iStyledButtonProps>`
             font-weight: 700;
             font-family: 'Open Sans';
             
-          `
+          `;
+          case "defaultRound": 
+            return css`
+              padding: 0.5em;
+              border: none;
+              border-radius: 25px;
+              background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+              color: var(--color-white);
+              font-size: var(--text-size8);
+              font-weight: 700;
+              font-family: 'Open Sans';
+              position: absolute;
+              bottom: 11px;
+              right: 11px;
+            `;
+
           case "deletUser":
             return css`
               width: 173px;
