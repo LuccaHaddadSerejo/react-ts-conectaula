@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import { api, iErrorMessage, iMessagesObj } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -194,6 +194,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       setGlobalLoading(false);
     }
   };
+
+  // ----------------
 
   const createMessage = async (formData: iMessagesObj) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");

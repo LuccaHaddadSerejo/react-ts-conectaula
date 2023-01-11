@@ -40,6 +40,12 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-size: var(--text-size7);
           font-weight: var(--weight2);
           font-family: var(--font-family3);
+
+          @media (min-width: 1000px) {
+            max-width: 250px;
+            height: 60px;
+            font-size: var(--text-size5);
+          }
         `;
 
       case "saveEditions":

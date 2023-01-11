@@ -3,7 +3,7 @@ import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher"
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
 import MainStyledContainer from "../../components/MainContainer/style";
-import { StyledContent } from "./style";
+import { StyledContent, StyledDashContainer } from "./style";
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
 
@@ -33,7 +33,7 @@ const DashBoardTeacher = () => {
     <ModalEditTeacher OpenModal={OpenModal}/>
     }
       <Header/>
-      <MainStyledContainer>
+      <StyledDashContainer>
       <StyledContent>
         <div className="divDate">
           <h2 className="h2Solicitation">Solicitações de alunos</h2>
@@ -45,7 +45,7 @@ const DashBoardTeacher = () => {
       <EditPreferencesTeacher />
         </div>
       </StyledContent>
-      </MainStyledContainer>
+      </StyledDashContainer>
     </>
   ) 
 
