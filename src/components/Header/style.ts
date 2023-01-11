@@ -3,23 +3,17 @@ import styled from "styled-components";
 export const StyledContainer = styled.div`
   width: 100%;
   height: 90px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  background-color: var(--color-white);
+  margin: 0 auto;
 `;
 
 export const StyledHeader = styled.header`
-  width: 100%;
+  width: 90%;
   height: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 0 15px;
-
-  @media (min-width: 800px) {
-    padding: none;
-  }
 
   div {
     height: 100%;
@@ -36,5 +30,17 @@ export const StyledHeader = styled.header`
   nav {
     display: flex;
     align-items: center;
+  }
+
+  @media (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media (min-width: 850px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1050px) {
+    width: 80%;
   }
 `;
