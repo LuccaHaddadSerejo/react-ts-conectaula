@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledModalContent = styled.div`
-    height: 550px;
     width: 453px;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -15,6 +14,14 @@ export const StyledModalContent = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    h3{
+        font-family: 'Roboto Slab';
+        font-style: normal;
+        font-weight: --weight4;
+        font-size: var(--text-size4);
+        line-height: 26px;
     }
 
     form {

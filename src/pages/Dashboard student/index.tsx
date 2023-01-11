@@ -6,9 +6,10 @@ import Header from "../../components/Header";
 import MainStyledContainer from "../../components/MainContainer/style";
 import { StyledContent } from "../Dashboard teacher/style";
 import GradeFilter from "../../components/GradeFilter";
-import { CardStudent } from "../../components/CardStudent";
 import { ModalDatasTeacher } from "../../components/ModalDatasTeacher";
 import { Button } from "../../components/Button";
+import { EditPreferencesStudent } from "../../components/EditPreferencesStudent";
+
 
 export interface iModalEditProps {
   OpenModalStudent: (boolean: boolean) => void;
@@ -25,10 +26,12 @@ const DashboardStudent = () => {
 
   const OpenModalStudent = (boolean: boolean) => {
     setModalStudentIsOpen(boolean);
+
   };
 
   const OpenModalTeacher = (boolean: boolean) => {
     setModalCardTeacherOpen(boolean);
+
   };
 
   return (
@@ -62,13 +65,15 @@ const DashboardStudent = () => {
             </ul>
           </div>
           <div className="divEdit">
-            {/* <EditProfileStudent
+            <EditProfileStudent
               OpenModalStudent={OpenModalStudent}
               OpenModalTeacher={function (boolean: boolean): void {}}
-            /> */}
+            />
+            <EditPreferencesStudent/>
           </div>
         </StyledContent>
       </MainStyledContainer>
+
     </>
   );
 };

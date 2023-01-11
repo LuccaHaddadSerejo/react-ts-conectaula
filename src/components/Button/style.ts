@@ -116,7 +116,22 @@ export const StyledButton = styled.button<iStyledButtonProps>`
             font-size: var(--text-size4);
             font-weight: 700;
             font-family: 'Open Sans';
+            
           `
+          case "deletUser":
+            return css`
+              width: 173px;
+              height: 50px;
+              border: none;
+              border-radius: 10px;
+              background: var(--color-error);
+              color: var(--color-white);
+              font-size: var(--text-size7);
+              font-weight: 700;
+              font-family: 'Open Sans'; 
+            `
+
+          
     }
   }}
 `;
