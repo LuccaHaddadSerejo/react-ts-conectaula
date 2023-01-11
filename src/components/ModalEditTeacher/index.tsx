@@ -57,7 +57,7 @@ export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
             defaultValue={user?.photo_url}
             register={register("photo_url")}
           />
-          {errors.photo_url?.message && <p>{errors.photo_url.message}</p>}
+          {errors.photo_url?.message && <span>{errors.photo_url.message}</span>}
           <Input
             id="emailInput"
             type="email"
@@ -65,14 +65,14 @@ export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
             defaultValue={user?.email}
             register={register("email")}
           />
-          {errors.email?.message && <p>{errors.email.message}</p>}
+          {errors.email?.message && <span>{errors.email.message}</span>}
           <Input
             id="passwordInput"
             type="password"
             placeholder="Senha"
             register={register("password")}
           />
-          {errors.password?.message && <p>{errors.password.message}</p>}
+          {errors.password?.message && <span>{errors.password.message}</span>}
           <Input
             id="confirmPasswordInput"
             type="password"
@@ -80,7 +80,7 @@ export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
             register={register("confirm_password")}
           />
           {errors.confirm_password?.message && (
-            <p>{errors.confirm_password.message}</p>
+            <span>{errors.confirm_password.message}</span>
           )}
           <label htmlFor="teacherBio" className="labelInput">
             Biografia
@@ -90,7 +90,7 @@ export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
             defaultValue={user?.bio}
             register={register("bio")}
           />
-          {errors.bio?.message && <p>{errors.bio.message}</p>}
+          {errors.bio?.message && <span>{errors.bio.message}</span>}
           <div className="divButton">
             <Button
               type={"button"}
