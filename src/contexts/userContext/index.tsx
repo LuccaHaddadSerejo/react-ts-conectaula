@@ -23,12 +23,13 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
+  const [modalStudant,setModalStudant]=useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-      const token = localStorage.getItem("@TOKEN") || "";
-      const id = localStorage.getItem("@USERID") || "";
+      const token =JSON.parse( localStorage.getItem("@TOKEN") || "")
+      const id = JSON.parse(localStorage.getItem("@USERID") || "")
 
       if (!token) {
         setDashboardLoading(false);
@@ -237,7 +238,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         modalLoading,
         setModalLoading,
         setStudentMessage,
-        studentMessage
+        studentMessage,
+        modalStudant,
+        setModalStudant
       }}
     >
       {children}

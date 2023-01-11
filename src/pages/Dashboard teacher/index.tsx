@@ -8,8 +8,9 @@ import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
 import { CardStudent } from "../../components/CardStudent";
 import { ModalDatasStudent } from "../../components/ModalDatasStudent";
-import { getAllMessages, iMessagesObj } from "../../services/api";
+import { getAllMessages } from "../../services/api";
 import { UserContext } from "../../contexts/userContext";
+import { title } from "process";
 
 export interface iModalProps {
   OpenModal: (boolean: boolean) => void;
@@ -20,6 +21,8 @@ export interface iModalProps {
   OpenModalStudent: (boolean: boolean) => void;
   modalStudentIsOpen: boolean;
   setModalStudentIsOpen: (value: boolean) => void;
+
+  
 }
 
 export interface iEditProps {
@@ -29,21 +32,20 @@ export interface iDatasStudent {
   OpenModalCardStudent: (boolean: boolean) => void;
 }
 
-
 const DashBoardTeacher = () => {
   const [modalIsOpen, setModalIsOpen] = useState<iModalProps | boolean>(false);
-  const [modalCardOpen, setModalCard] = useState<iModalProps | boolean>(false);
+  const [modalCardOpen, setModalCard] = useState(false);
 
-  const { studentMessage, setStudentMessage } = useContext(UserContext);
+
+  const { studentMessage, setStudentMessage,modalStudant,setModalStudant } = useContext(UserContext);
 
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean);
   };
 
-  const OpenModalCardStudent = (boolean: boolean) => {
-    setModalCard(boolean);
+  const OpenModalCardStudent = () => {
+    setModalCard(true);
   };
-
 
   useEffect(() => {
     const fillterMessages = async () => {
@@ -62,13 +64,8 @@ const DashBoardTeacher = () => {
     fillterMessages();
   }, []);
 
-
-
   return (
     <>
-      {modalCardOpen === true && (
-        <ModalDatasStudent OpenModalCardStudent={OpenModalCardStudent} />
-      )}
 
       {modalIsOpen === true && <ModalEditTeacher OpenModal={OpenModal} />}
       <Header />
@@ -79,9 +76,10 @@ const DashBoardTeacher = () => {
             <GradeFilter />
             <ul>
               {studentMessage.map((elem) => (
-                <CardStudent
-                 
-                />
+                modalStudant ?  (  <ModalDatasStudent  message={elem.message} title={elem.title} email={elem.email} name={elem.name} grades={elem.grades}  />):(
+                  <CardStudent  message={elem.message} title={elem.title} email={elem.email} name={elem.name} grades={elem.grades}  />
+                )
+                
               ))}
             </ul>
           </div>
