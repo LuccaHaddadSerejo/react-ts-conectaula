@@ -7,7 +7,7 @@ export interface iUserProviderValue {
   submitRegisterTeacher: (data: iFormRegisterTeacherData) => void;
   // submitEditProfile: (data: iUserState, id: number, token: string) => void;
   submitMessage: (data: iMessagesObj, token: string) => void;
-  deleteUser: (id: number, token: string) => void;
+  deleteUser: (id: number | string | null) => void;
   logout: () => void;
   globalLoading: boolean;
   dashboardLoading: boolean;
@@ -95,4 +95,5 @@ export interface iEditProfileStudent {
   school_year_preference: string[];
   grades: string[];
   type: string;
+  age:number;
 }

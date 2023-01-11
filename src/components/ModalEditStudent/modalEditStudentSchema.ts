@@ -8,8 +8,7 @@ export const modalEditStudentSchema  = yup.object().shape({
   age: yup
     .number()
     .positive("A idade precisa ser positiva")
-    .integer()
-    .moreThan(17, "É necessário ter 18 anos ou mais para se registrar"),
+    .integer(),
   password: yup
     .string()
     .required("A senha é obrigatória")
