@@ -33,4 +33,22 @@ export const StyledRegisterTeacher = styled(StyledRegisterContainer)`
     padding: 0;
   }
 
+  @media (min-width: 1100px) {
+    width: 100%;
+    max-width: 600px;
+  }
+
+`;
+
+export const StyledBottomDiv = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: 1000px) {
+    flex-direction: row;
+  }
+
 `;

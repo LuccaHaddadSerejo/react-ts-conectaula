@@ -46,7 +46,6 @@ const MainStyledContainer = styled.main`
   }
 
   @media (min-width: 1400px) {
-    /* max-width: 1400px; */
     margin: 0 auto;
     & > div.imgDiv {
       width: 65vw;

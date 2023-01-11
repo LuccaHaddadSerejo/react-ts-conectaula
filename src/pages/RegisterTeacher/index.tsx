@@ -11,7 +11,7 @@ import { TextArea } from "../../components/TextArea";
 import arrowIcon from "../../assets/img/linkArrow.svg";
 import backArrowIcon from "../../assets/img/registerBackArrow.svg";
 import RegisterHeading from "../../components/RegisterHeading";
-import { StyledRegisterTeacher, StyledTeacherRegisterContainer } from "./style";
+import { StyledBottomDiv, StyledRegisterTeacher, StyledTeacherRegisterContainer } from "./style";
 
 interface iFormRegisterTeacherValues {
   email: string;
@@ -118,7 +118,7 @@ const RegisterTeacher = () => {
                 register={register("bio")}
               ></TextArea>
               {errors.bio?.message && <span>{errors.bio.message}</span>}
-              <div>
+              <StyledBottomDiv>
                 <Button
                   type={"button"}
                   onClick={handleClick}
@@ -131,7 +131,7 @@ const RegisterTeacher = () => {
                     Ir para o login <img src={arrowIcon} alt="ArrowIcon" />
                   </Link>
                 </div>
-              </div>
+              </StyledBottomDiv>
             </div>
           ) : (
             <>
@@ -302,7 +302,7 @@ const RegisterTeacher = () => {
 
                   {errors.grades?.message && <span>{errors.grades.message}</span>}
                 </div>
-                <div>
+                <StyledBottomDiv>
                   <p className="warning">
                     Não se preocupe, os dados de escolaridade e as matérias
                     escolhidas podem ser modificadas depois
@@ -314,7 +314,7 @@ const RegisterTeacher = () => {
                   >
                     {globalLoading ? "Cadastrando..." : "Finalizar Cadastro"}
                   </Button>
-                </div>
+                </StyledBottomDiv>
               </div>
             </>
           )}
