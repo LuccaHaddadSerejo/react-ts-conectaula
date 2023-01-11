@@ -3,6 +3,7 @@ import { GradesContext } from "../../contexts/gradesContext"
 import { iUserState } from "../../contexts/userContext/types"
 import { getAllTeachers } from "../../services/api"
 import { TeacherCard } from "../TeacherCard"
+import { StyledAvailableTeachersList } from "./style"
 
 export const AvailableTeachersList = () => {
     const { grade } = useContext(GradesContext)
@@ -38,8 +39,8 @@ export const AvailableTeachersList = () => {
     const filteredTeachersList = parseteachers(filteredTeachers)
 
     return (
-        <ul>
+        <StyledAvailableTeachersList>
             {grade ? filteredTeachersList : teachersList}
-        </ul>
+        </StyledAvailableTeachersList>
     )
 }
