@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledModalContent = styled.div`
-    width: 453px;
+    width: 90%;
     border: 1px solid transparent;
     border-radius: 10px;
     background-color: var(--color-white);
@@ -51,7 +51,13 @@ export const StyledModalContent = styled.div`
 
     .divButton {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 20px;
+
+        button {
+            width: 100%;
+        }
     }
 
     span {
@@ -60,6 +66,16 @@ export const StyledModalContent = styled.div`
         font-size: var(--text-size8);
         font-weight: bold;
         color: var(--color-tertiary);
+    }
+
+    @media (min-width: 500px) {
+        .divButton {
+            flex-direction: row;
+        }
+    }
+
+    @media (min-width: 600px) {
+        max-width: 500px;
     }
 
 `

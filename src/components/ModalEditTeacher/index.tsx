@@ -82,13 +82,11 @@ export const ModalEditTeacher = ({ OpenModal }: iEditProps) => {
           {errors.confirm_password?.message && (
             <span>{errors.confirm_password.message}</span>
           )}
-          <label htmlFor="teacherBio" className="labelInput">
-            Biografia
-          </label>
           <TextArea
             id="teacherBio"
             defaultValue={user?.bio}
             register={register("bio")}
+            label="Biografia"
           />
           {errors.bio?.message && <span>{errors.bio.message}</span>}
           <div className="divButton">
