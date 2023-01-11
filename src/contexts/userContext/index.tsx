@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import { api, iErrorMessage, iMessagesObj } from "../../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -28,8 +28,12 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const token =JSON.parse( localStorage.getItem("@TOKEN") || "")
-      const id = JSON.parse(localStorage.getItem("@USERID") || "")
+
+
+      const token = JSON.parse(localStorage.getItem("@TOKEN") || ""); 
+      const id = JSON.parse(localStorage.getItem("@USERID") || "") ;
+
+
 
       if (!token) {
         setDashboardLoading(false);
@@ -198,6 +202,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       setGlobalLoading(false);
     }
   };
+
+  // ----------------
 
   const createMessage = async (formData: iMessagesObj) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");

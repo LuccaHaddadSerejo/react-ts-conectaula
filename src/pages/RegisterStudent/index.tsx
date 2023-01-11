@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import MainStyledContainer from "../../components/MainContainer/style";
 import linkArrow from "../../assets/img/linkArrow.svg";
 import StyledRegisterContainer from "./style";
+import RegisterHeading from "../../components/RegisterHeading";
 
 interface iFormRegisterStudentValues {
   name: string;
@@ -33,14 +34,9 @@ const RegisterStudent = () => {
   return (
     <MainStyledContainer>
       <StyledRegisterContainer>
-        <div>
-          <h1>Faça seu cadastro!</h1>
-        </div>
-        <div>
-          <p className="subHeading">
-            E comece a reforçar seu aprendizado agora mesmo!
-          </p>
-        </div>
+        <RegisterHeading>
+          <p>E comece a reforçar seu aprendizado agora mesmo!</p>
+        </RegisterHeading>
         <Form noValidate={true} onSubmit={handleSubmit(submitRegisterStudent)}>
           <Input
             id={"studentName"}
