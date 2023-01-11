@@ -7,6 +7,7 @@ import RegisterStudent from "../pages/RegisterStudent";
 import RegisterTeacher from "../pages/RegisterTeacher";
 import Page404 from "../pages/Page404";
 import ProtectedRoute from "../components/ProtectedRoute";
+import  AboutUs  from "../pages/AboutUs";
 
 export const RoutesMain = () => {
   return (
@@ -19,6 +20,7 @@ export const RoutesMain = () => {
         <Route path="/dashboard/student/:name" element={<DashboardStudent />} />
         <Route path="/dashboard/teacher/:name" element={<DashBoardTeacher />} />
       </Route>
+      <Route path="/about" element={<AboutUs />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   );

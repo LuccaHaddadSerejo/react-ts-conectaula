@@ -11,7 +11,7 @@ export const StyledModalStudentContent = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    border-bottom: solid 2px;
+    border-bottom: solid 1px;
   }
   .containerButtonModal {
     width: 100%;

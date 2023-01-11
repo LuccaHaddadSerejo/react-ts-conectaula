@@ -18,6 +18,8 @@ export interface iUserProviderValue {
   setModalLoading: any;
   setStudentMessage: React.Dispatch<SetStateAction<iMessagesObj[]>>;
   studentMessage:iMessagesObj[]
+  modalStudant:boolean,
+  setModalStudant: React.Dispatch<SetStateAction<boolean>>;
 }
 
 export interface iUserProviderProps {

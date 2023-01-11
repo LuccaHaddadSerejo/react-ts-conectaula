@@ -8,11 +8,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { modalEditStudentSchema } from "./modalEditStudentSchema";
 import { iEditProfileStudent } from "../../contexts/userContext/types";
-import { iEditStudentProps } from "../../pages/Dashboard student";
+import {  iModalEditProps } from "../../pages/Dashboard student";
 import { Form } from "../Form";
 
 
-export const ModalEditStudent = ({ OpenModalStudent }: iEditStudentProps) => {
+export const ModalEditStudent = ({ OpenModalStudent }: iModalEditProps) => {
 
     const { user, editProfile, globalLoading } = useContext(UserContext);
 
