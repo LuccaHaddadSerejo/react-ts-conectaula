@@ -38,6 +38,7 @@ const Landingpage = () => {
               <Link to={"/login"}> aqui.</Link>
             </span>
           </p>
+          <Link to="/about" className="aboutUs" >Sobre nós</Link>
         </div>
       </div>
       <div className="landingImg"></div>

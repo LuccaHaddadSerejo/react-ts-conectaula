@@ -139,4 +139,9 @@ export const StyledLandingPage = styled.div`
         background-color: var(--color-secondary);
         border: 1px solid var(--color-secondary);
     }
+
+    .aboutUs {
+        color: var(--color-secondary);
+        text-decoration: underline;
+    }
 `
