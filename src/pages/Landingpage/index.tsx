@@ -12,16 +12,13 @@ const Landingpage = () => {
               src={logo}
               alt="Logo com nome e uma imagem representando pessoas conectadas"
             />
-            <p className="logoText">
-              ConectAula
-            </p>
+            <p className="logoText">ConectAula</p>
           </div>
           <p className="landingTitle">
-            <span className="brandSpan">Aprenda</span> ou{" "}
-            <span className="teachSpan">ensine</span> <br />
-            de qualquer lugar do Brasil com o <br />
-            <span className="brandSpan">ConectAulas</span>
+            <span className="brandSpan">Aprenda</span> ou {" "}
+            <span className="teachSpan">ensine</span>
           </p>
+          <p className="landingTitle">de qualquer lugar do Brasil</p>
           <p className="landingParagraph">Cadastre-se como:</p>
           <div className="landingSelection">
             <Link to={"/register/student"} className="studentLink">
@@ -38,7 +35,9 @@ const Landingpage = () => {
               <Link to={"/login"}> aqui.</Link>
             </span>
           </p>
-          <Link to="/about" className="aboutUs" >Sobre nós</Link>
+          <Link to="/about" className="aboutUs">
+            Sobre nós
+          </Link>
         </div>
       </div>
       <div className="landingImg"></div>
