@@ -3,12 +3,12 @@ import EditProfileStudent from "../../components/EditProfileStudent";
 import { iModalProps } from "../Dashboard teacher";
 import { ModalEditStudent } from "../../components/ModalEditStudent";
 import Header from "../../components/Header";
-import MainStyledContainer from "../../components/MainContainer/style";
 import { StyledContent } from "../Dashboard teacher/style";
 import GradeFilter from "../../components/GradeFilter";
 import { ModalDatasTeacher } from "../../components/ModalDatasTeacher";
 import { Button } from "../../components/Button";
 import { EditPreferencesStudent } from "../../components/EditPreferencesStudent";
+import { StyledDashContainer } from "./style";
 
 
 export interface iModalEditProps {
@@ -49,7 +49,7 @@ const DashboardStudent = () => {
         />
       )}
       <Header />
-      <MainStyledContainer>
+      <StyledDashContainer>
         <StyledContent>
           <div className="divDate">
             <h2 className="h2Solicitation">Solicitações de alunos</h2>
@@ -72,7 +72,7 @@ const DashboardStudent = () => {
             <EditPreferencesStudent/>
           </div>
         </StyledContent>
-      </MainStyledContainer>
+      </StyledDashContainer>
 
     </>
   );
