@@ -7,6 +7,7 @@ import { StyledModalStudentPreferences } from "./style"
 import { editPrefStudentSchema } from "./editPrefStudentSchema";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
+import { StyledModalContainer } from "../ModalContainer/style";
 
 interface iEditPreferencesStudent {
   email: string;
@@ -40,6 +41,7 @@ export const ModalStudentPreferences = ({closeModal}: any) => {
     }
 
     return (
+      <StyledModalContainer>
         <StyledModalStudentPreferences>
             <div className="modalStudentBox">
                 <Form onSubmit={handleSubmit(submit)}>
@@ -59,7 +61,7 @@ export const ModalStudentPreferences = ({closeModal}: any) => {
                           <div>
                               <Input id="3" label="Ensino medio" type="checkbox" register={register("school_year_preference")} value={"Ensino médio"}/>
                           </div>
-                          {errors.school_year_preference?.message && (<p className="erroYupSchool">{errors.school_year_preference.message}</p>)}
+                          {errors.school_year_preference?.message && (<span className="erroYupSchool">{errors.school_year_preference.message}</span>)}
                       </div>
                       <hr />
                   </div>
@@ -207,7 +209,7 @@ export const ModalStudentPreferences = ({closeModal}: any) => {
                               />
                           </div>
                       </div>
-                      {errors.grades?.message && <p className="erroYupGrades">{errors.grades.message}</p>}
+                      {errors.grades?.message && <span className="erroYupGrades">{errors.grades.message}</span>}
                       <div className="modalStudentPrefButtons">
                           <Button onClick={closeModal} type="button">Cancelar</Button>
                           <Button disabled={globalLoading} type="submit">{globalLoading ? "Salvando..." : "Salvar alterações"}</Button>
@@ -216,5 +218,6 @@ export const ModalStudentPreferences = ({closeModal}: any) => {
                 </Form>
             </div>
         </StyledModalStudentPreferences>
+      </StyledModalContainer>
     )
 }
