@@ -95,7 +95,7 @@ const RegisterStudent = () => {
           </div>
 
           <div>
-            <Button disabled={globalLoading} type={"submit"} buttonVariation="registerStudent">
+            <Button disabled={globalLoading} type={"submit"} buttonVariation="register">
               {globalLoading ? "Cadastrando..." : "Finalizar Cadastro"}
             </Button>
             <Link to={"/login"}>Ir para o login <span><img src={linkArrow} alt="" /></span></Link>
