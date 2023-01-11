@@ -32,7 +32,7 @@ export const StyledLandingPage = styled.div`
         @media (max-width: 800px) {
             width: 90%;
             padding: 1em;
-            background-color: rgba(255, 255, 255, 0.81);
+            background-color: #fff;
             border-radius: 8px;
            
         }

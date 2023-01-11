@@ -27,22 +27,41 @@ export const Input = ({
   defaultValue,
   onChange,
 }: iInputProps) => {
-
   return (
     <StyledInput>
-      <label hidden={hidden} htmlFor={id}>
-        {label}
-      </label>
-      <input
-        defaultValue={defaultValue}
-        onChange={onChange}
-        value={value}
-        type={type}
-        id={id}
-        placeholder={placeholder}
-        disabled={disabled}
-        {...register}
-      />
+      {type === "checkbox" ? (
+        <>
+          <input
+            defaultValue={defaultValue}
+            onChange={onChange}
+            value={value}
+            type={type}
+            id={id}
+            placeholder={placeholder}
+            disabled={disabled}
+            {...register}
+          />
+          <label hidden={hidden} htmlFor={id}>
+            {label}
+          </label>
+        </>
+      ) : (
+        <>
+          <label hidden={hidden} htmlFor={id}>
+            {label}
+          </label>
+          <input
+            defaultValue={defaultValue}
+            onChange={onChange}
+            value={value}
+            type={type}
+            id={id}
+            placeholder={placeholder}
+            disabled={disabled}
+            {...register}
+          />
+        </>
+      )}
     </StyledInput>
   );
 };

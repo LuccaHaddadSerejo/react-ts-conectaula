@@ -37,30 +37,17 @@ export const StyledModalContent = styled.div`
         padding: 0 10px;
     }
 
-    input::placeholder {
-        color: var( --color-gray500);
-    }
-
-    input, textarea, label {
+    /* input, textarea, label {
         font-family: var(--font-family3);
         font-size: var(--text-size6);
         font-weight: var( --weight2);
-    }
+    } */
 
-    textarea {
-        border: 1.5px solid  var(--color-primary);
-        outline: none;
-        padding: 10px;
-        border-radius: var( --radius3);
-        height: 100px;
-        resize: none;
-    }
-
-    .labelInput {
+    /* .labelInput {
         padding: 5px 10px 0;
         color: var( --color-gray500);
        
-    }
+    } */
 
     .divButton {
         display: flex;
