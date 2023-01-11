@@ -29,7 +29,28 @@ export const StyledContent = styled.section`
 
   .divEdit {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-`;
+    justify-content: space-between;
+
+    .h2Solicitation {
+        color: var(--color-gray0);
+    }
+
+    .divDate {
+        width: 100%;
+        height: 100%;
+        padding-left: 23px ;
+
+        
+        ul{
+           margin-top: 30px;
+        }
+    }
+
+    .divEdit {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+`

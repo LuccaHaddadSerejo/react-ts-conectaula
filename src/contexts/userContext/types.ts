@@ -16,6 +16,8 @@ export interface iUserProviderValue {
   editProfile: (formData: iEditProfileTeacher, id: number | string | null) => void;
   modalLoading: boolean;
   setModalLoading: any;
+  setStudentMessage: React.Dispatch<SetStateAction<iMessagesObj[]>>;
+  studentMessage:iMessagesObj[]
 }
 
 export interface iUserProviderProps {
@@ -72,6 +74,17 @@ export interface iFormRegisterStudentData {
 }
 
 export interface iEditProfileTeacher {
+  email: string;
+  password: string;
+  bio: string;
+  confirm_password?: string;
+  photo_url: string;
+  school_year_preference: string[];
+  grades: string[];
+  type: string;
+}
+
+export interface iEditProfileStudent {
   email: string;
   password: string;
   bio: string;

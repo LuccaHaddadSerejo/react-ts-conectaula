@@ -17,6 +17,7 @@ import { AxiosError } from "axios";
 export const UserContext = createContext({} as iUserProviderValue);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
+  const [studentMessage, setStudentMessage] = useState([] as iMessagesObj[]);
   const [globalLoading, setGlobalLoading] = useState(false);
   const [dashboardLoading, setDashboardLoading] = useState(true);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,8 +27,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
-      const id = JSON.parse(localStorage.getItem("@USERID") || "");
+
+      const token = JSON.parse(localStorage.getItem("@TOKEN") || ""); 
+      const id = JSON.parse(localStorage.getItem("@USERID") || "") ;
+
 
       if (!token) {
         setDashboardLoading(false);
@@ -40,8 +43,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         });
         setUser(response.data);
         if (response.data.type === "student") {
+          setDashboardLoading(false);
           navigate(`/dashboard/student/${response.data.name}`);
         } else {
+          setDashboardLoading(false);
           navigate(`/dashboard/teacher/${response.data.name}`);
         }
       } catch (error) {
@@ -234,7 +239,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         dashboardLoading,
         user,
         modalLoading,
-        setModalLoading
+        setModalLoading,
+        setStudentMessage,
+        studentMessage
       }}
     >
       {children}
