@@ -51,4 +51,4 @@ export const StyledContent = styled.section`
       gap: 10px;
     }
   }
-`;
+`
