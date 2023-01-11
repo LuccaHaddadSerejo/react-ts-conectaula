@@ -70,23 +70,28 @@ const DashBoardTeacher = () => {
             <h2 className="h2Solicitation">Solicitações de alunos</h2>
             <GradeFilter />
             <ul>
-              {studentMessage.map((elem) =>
-                modalStudant ? (
-                  <ModalDatasStudent
-                    message={elem.message}
-                    title={elem.title}
-                    email={elem.email}
-                    name={elem.name}
-                    grades={elem.grades}
-                  />
-                ) : (
-                  <CardStudent
-                    message={elem.message}
-                    title={elem.title}
-                    email={elem.email}
-                    name={elem.name}
-                    grades={elem.grades}
-                  />
+
+              {studentMessage.length === 0 ? (
+                <h2 className="h2Solicitation">Você ainda não possui nenhuma solicitação de aluno</h2>
+              ) : (
+                studentMessage.map((elem) =>
+                  modalStudant ? (
+                    <ModalDatasStudent
+                      message={elem.message}
+                      title={elem.title}
+                      email={elem.email}
+                      name={elem.name}
+                      grades={elem.grades}
+                    />
+                  ) : (
+                    <CardStudent
+                      message={elem.message}
+                      title={elem.title}
+                      email={elem.email}
+                      name={elem.name}
+                      grades={elem.grades}
+                    />
+                  )
                 )
               )}
             </ul>

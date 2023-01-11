@@ -104,34 +104,72 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           border: 2px solid var(--color-secondary);
           border-radius: 15px;
         `;
+        case "defaultButton":
+          return css`
+            padding: 0.5em;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            font-size: var(--text-size4);
+            font-weight: 700;
+            font-family: 'Open Sans';
+            
+          `;
+          case "defaultRound": 
+            return css`
+              padding: 0.5em;
+              border: none;
+              border-radius: 25px;
+              background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+              color: var(--color-white);
+              font-size: var(--text-size8);
+              font-weight: 700;
+              font-family: 'Open Sans';
+              position: absolute;
+              bottom: 11px;
+              right: 11px;
+            `;
 
-      case "defaultButton":
-        return css`
-          padding: 0.5em;
-          border: none;
-          border-radius: 10px;
-          background: linear-gradient(
-            180deg,
-            var(--color-primary) 0%,
-            var(--color-secondary) 100%
-          );
-          color: var(--color-white);
-          font-size: var(--text-size4);
-          font-weight: 700;
-          font-family: "Open Sans";
-        `;
-      case "deletUser":
-        return css`
-          width: 173px;
-          height: 50px;
-          border: none;
-          border-radius: 10px;
-          background: var(--color-error);
-          color: var(--color-white);
-          font-size: var(--text-size7);
-          font-weight: 700;
-          font-family: "Open Sans";
-        `;
+          case "deletUser":
+            return css`
+              width: 173px;
+              height: 50px;
+              border: none;
+              border-radius: 10px;
+              background: var(--color-error);
+              color: var(--color-white);
+              font-size: var(--text-size7);
+              font-weight: 700;
+              font-family: 'Open Sans'; 
+            `
+         case "defaultButton":
+          return css`
+            padding: 0.5em;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(
+              180deg,
+              var(--color-primary) 0%,
+              var(--color-secondary) 100%
+            );
+            color: var(--color-white);
+            font-size: var(--text-size4);
+            font-weight: 700;
+            font-family: "Open Sans";
+          `;
+        case "deletUser":
+          return css`
+            width: 173px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: var(--color-error);
+            color: var(--color-white);
+            font-size: var(--text-size7);
+            font-weight: 700;
+            font-family: "Open Sans";
+          `;
     }
   }}
 `;

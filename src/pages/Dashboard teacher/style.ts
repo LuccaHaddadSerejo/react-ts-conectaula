@@ -86,5 +86,6 @@ export const StyledContent = styled.section`
         text-align: left;
       }
     }
+   
   }
 `;
