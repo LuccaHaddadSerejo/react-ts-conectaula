@@ -42,7 +42,10 @@ export const StyledContent = styled.section`
 
       ul {
         margin-top: 30px;
+    
+       
       }
+
     }
 
     .divEdit {
@@ -50,5 +53,6 @@ export const StyledContent = styled.section`
       flex-direction: column;
       gap: 10px;
     }
+   
   }
 `
