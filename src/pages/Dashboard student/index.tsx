@@ -1,28 +1,28 @@
-import React from "react";
-import GradeFilter from "../../components/GradeFilter";
-import Header from "../../components/Header";
-import MainStyledContainer from "../../components/MainContainer/style";
+import React, { useState } from "react";
+import EditProfileStudent from "../../components/EditProfileStudent";
+import { iModalProps } from "../Dashboard teacher";
+import { ModalEditStudent } from "../../components/ModalEditStudent";
+
+export interface iEditStudentProps {
+  OpenModalStudent: (boolean: boolean) => void;
+}
+
 
 const DashboardStudent = () => {
+  const [modalStudentIsOpen, setModalStudentIsOpen] = useState<iModalProps | boolean>(false);
+
+  const OpenModalStudent = (boolean: boolean) => {
+    setModalStudentIsOpen(boolean);
+    console.log("aberto")
+  };
+
   return (
     <>
-      <Header />
-      <MainStyledContainer>
-        <section>
-          <div>
-            <h2>Professores disponíveis</h2>
-            <GradeFilter />
-
-            <ul>{/* <CardTeacher/> */}</ul>
-          </div>
-          <div>
-            {/* <EditProfileStudent/> */}
-            {/* <EditPreferenceStudent/> */}
-          </div>
-        </section>
-      </MainStyledContainer>
+    {modalStudentIsOpen === true && <ModalEditStudent OpenModalStudent={OpenModalStudent} />}
+    <EditProfileStudent OpenModalStudent={OpenModalStudent}/>
     </>
-  );
+  )
+
 };
 
 export default DashboardStudent;
