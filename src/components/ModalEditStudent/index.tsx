@@ -61,6 +61,16 @@ export const ModalEditStudent = ({ OpenModalStudent }: iEditStudentProps) => {
             />
             {errors.photo_url?.message && <span>{errors.photo_url.message}</span>}
             <Input
+            id={"studentAge"}
+            hidden={true}
+            label={"Idade"}
+            type={"number"}
+            defaultValue={user?.age}
+            register={register("age")}
+            placeholder={"Idade"}
+          />
+          {errors.age?.message && <span>{errors.age.message}</span>}
+            <Input
               id="emailInput"
               type="email"
               placeholder="Email"

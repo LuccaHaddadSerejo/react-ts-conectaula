@@ -182,7 +182,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-  const deleteUser = async (id: number) => {
+  const deleteUser = async (id: number | string | null) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);

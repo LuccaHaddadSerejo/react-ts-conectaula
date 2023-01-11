@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditProfileStudent from "../../components/EditProfileStudent";
 import { iModalProps } from "../Dashboard teacher";
 import { ModalEditStudent } from "../../components/ModalEditStudent";
+import { EditPreferencesStudent } from "../../components/EditPreferencesStudent";
 
 export interface iEditStudentProps {
   OpenModalStudent: (boolean: boolean) => void;
@@ -13,13 +14,13 @@ const DashboardStudent = () => {
 
   const OpenModalStudent = (boolean: boolean) => {
     setModalStudentIsOpen(boolean);
-    console.log("aberto")
   };
 
   return (
     <>
     {modalStudentIsOpen === true && <ModalEditStudent OpenModalStudent={OpenModalStudent} />}
     <EditProfileStudent OpenModalStudent={OpenModalStudent}/>
+    <EditPreferencesStudent/>
     </>
   )
 
