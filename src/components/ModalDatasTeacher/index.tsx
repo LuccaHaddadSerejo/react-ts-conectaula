@@ -1,14 +1,12 @@
 import { Button } from "../Button";
 import { StyledModalContainer } from "../ModalContainer/style";
-import { StyledCardOpenModal, StyledModalStudentContent } from "./style";
-import AlunoModal from "../../assets/img/AlunoModal.jpg";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/userContext"
-import { imessageInfo } from "../CardStudent";
-
-export const ModalDatasStudent = ({name,email,grades,message,title}:imessageInfo) => {
-
-  const {setModalStudant}=useContext(UserContext)
+import {
+  StyledCardOpenModal,
+  StyledModalStudentContent,
+} from "../ModalDatasStudent/style";
+import AlunoModal from  "../../assets/img/AlunoModal.jpg"
+import {  iModalEditProps } from "../../pages/Dashboard student";
+export const ModalDatasTeacher = ({OpenModalTeacher}:iModalEditProps) => {
   return (
     <StyledModalContainer>
       <StyledModalStudentContent>
@@ -17,7 +15,7 @@ export const ModalDatasStudent = ({name,email,grades,message,title}:imessageInfo
           <Button
             type={"button"}
             buttonVariation="closeModal"
-            onClick={() => setModalStudant(false)}
+            onClick={() => OpenModalTeacher(false)}
           >
             X
           </Button>
@@ -25,17 +23,16 @@ export const ModalDatasStudent = ({name,email,grades,message,title}:imessageInfo
 
         <ul>
           <StyledCardOpenModal>
-            <div>
-              <img src={AlunoModal} alt="Foto do estudante" />
-            </div>
+            <div><img src={AlunoModal} alt="Foto do estudante" /></div>
             <div className="dataUserModal">
-              <h3>{name}</h3>
-              <span>{email}</span>
-              <span>{grades}</span>
-              <h3>{title}</h3>
-              
+              <h3>Nome</h3>
+              <span>Email</span>
+              <p>Matéria</p>
               <p className="messageStudentModal">
-               {message}
+                Olá, eu gostaria de contratar o seu seviço, para reforçar meu
+                aprendizado em algumas matérias que estou com dificuldade em
+                assimilar,sou dedicada e gosto muito de estudar, aguardo seu
+                retorno
               </p>
             </div>
           </StyledCardOpenModal>
@@ -44,7 +41,7 @@ export const ModalDatasStudent = ({name,email,grades,message,title}:imessageInfo
           <Button
             buttonVariation="conclude"
             type={"button"}
-            onClick={() => setModalStudant(false)}
+            // onClick={() => OpenModalCardStudent(false)}
           >
             Concluir
           </Button>

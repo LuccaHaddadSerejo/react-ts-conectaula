@@ -11,6 +11,9 @@ export interface iGradesObj {
 export interface iMessagesObj {
   id?: number | string;
   teacher_id: number | string;
+  email:string;
+  name:string;
+  grades:string;
   userId: number | string;
   message: string;
   title:string;
