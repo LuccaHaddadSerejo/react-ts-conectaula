@@ -26,8 +26,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     (async () => {
-      const token = localStorage.getItem("@TOKEN") || "";
-      const id = localStorage.getItem("@USERID") || "";
+      const token = JSON.parse(localStorage.getItem("@TOKEN") || ""); 
+      const id = JSON.parse(localStorage.getItem("@USERID") || "") ;
 
       if (!token) {
         setDashboardLoading(false);

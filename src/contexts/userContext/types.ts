@@ -81,3 +81,14 @@ export interface iEditProfileTeacher {
   grades: string[];
   type: string;
 }
+
+export interface iEditProfileStudent {
+  email: string;
+  password: string;
+  bio: string;
+  confirm_password?: string;
+  photo_url: string;
+  school_year_preference: string[];
+  grades: string[];
+  type: string;
+}

@@ -60,4 +60,12 @@ export const StyledModalContent = styled.div`
         justify-content: space-between;
     }
 
+    span {
+        padding: 5px 0;
+        display: block;
+        font-size: var(--text-size8);
+        font-weight: bold;
+        color: var(--color-tertiary);
+    }
+
 `
