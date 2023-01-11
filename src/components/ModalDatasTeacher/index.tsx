@@ -4,9 +4,9 @@ import {
   StyledCardOpenModal,
   StyledModalStudentContent,
 } from "../ModalDatasStudent/style";
-import AlunoModal from  "../../assets/img/AlunoModal.jpg"
-import {  iModalEditProps } from "../../pages/Dashboard student";
-export const ModalDatasTeacher = ({OpenModalTeacher}:iModalEditProps) => {
+import AlunoModal from "../../assets/img/AlunoModal.jpg";
+import { iModalEditProps } from "../../pages/Dashboard student";
+export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
   return (
     <StyledModalContainer>
       <StyledModalStudentContent>
@@ -23,7 +23,9 @@ export const ModalDatasTeacher = ({OpenModalTeacher}:iModalEditProps) => {
 
         <ul>
           <StyledCardOpenModal>
-            <div><img src={AlunoModal} alt="Foto do estudante" /></div>
+            <div>
+              <img src={AlunoModal} alt="Foto do estudante" />
+            </div>
             <div className="dataUserModal">
               <h3>Nome</h3>
               <span>Email</span>
