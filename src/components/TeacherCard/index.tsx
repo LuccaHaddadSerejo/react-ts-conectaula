@@ -1,28 +1,39 @@
 import { Button } from "../Button"
 import { StyledTeacherCard } from "./style"
-import julianaPic from "../../assets/img/JulianaPic.jpg"
+import { iUserState } from "../../contexts/userContext/types";
+import { useState } from "react";
+import { iModalProps } from "../../pages/Dashboard teacher";
 
-export const TeacherCard = () => {
+interface iTeacherCardProps {
+    user: iUserState;
+}
+
+export const TeacherCard = ({user} : iTeacherCardProps) => {
+   /* const [modalCardTeacherOpen, setModalCardTeacherOpen] = useState<
+    iModalProps | boolean
+  >(false);
+
+    const OpenModalTeacher = (boolean: boolean) => {
+        setModalCardTeacherOpen(boolean);
+    };*/
+    
+    const teacherGrades = user.grades?.map(grade => <li>{grade}</li>)
+
     return (
         <StyledTeacherCard>
-                <img src={julianaPic} alt="" />
+                <img src={user.photo_url} alt="foto do professor" />
             <div className="teacherInfo">
                 <div className="teacherNameEmail">
-                    <h2>Roberta Silva</h2>
-                    <p>email@email.com</p>
+                    <h2>{user.name}</h2>
+                    <p>{user.email}</p>
                 </div>
                 <p>Matérias relacionadas:</p>
                 <ul className="teacherGrades">
-                    <li>Inglês</li>
-                    <li>Português</li>
-                    <li>Redação</li>
-                    <li>Redação</li>
-                    <li>Redação</li>
-                    <li>Redação</li>
+                    {teacherGrades}
                 </ul>
                 <div className="teacherBio">
                     <p>Biografia:</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores quae, aut velit laborum iste autem, sequi saepe perspiciatis nobis omnis repudiandae quas possimus at neque quis assumenda quibusdam voluptatum nulla!</p>
+                    <p>{user.bio}</p>
                 </div>
             </div>
             <Button type="button" buttonVariation="defaultRound">Mostrar mais</Button>

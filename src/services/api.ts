@@ -56,8 +56,9 @@ export const getAllGrades = async () => {
 
 export const getAllTeachers = async () => {
   const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
+
   try {
-    const response = await api.get<iUserState[]>("/users?type=teacher", {
+    const response = await api.get("/users?type=teacher", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -65,6 +66,7 @@ export const getAllTeachers = async () => {
     const currentError = error as AxiosError<iErrorMessage>;
     console.error(currentError);
   }
+  
 };
 
 export const getAllMessages = async () => {
