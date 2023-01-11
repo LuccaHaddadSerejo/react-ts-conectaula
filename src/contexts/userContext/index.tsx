@@ -20,6 +20,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [studentMessage, setStudentMessage] = useState([] as iMessagesObj[]);
   const [globalLoading, setGlobalLoading] = useState(false);
   const [dashboardLoading, setDashboardLoading] = useState(true);
+  const [modalStudant, setModalStudant] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
@@ -237,6 +238,12 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         globalLoading,
         dashboardLoading,
         user,
+        modalLoading,
+        setModalLoading,
+        setStudentMessage,
+        studentMessage,
+        modalStudant,
+        setModalStudant,
       }}
     >
       {children}
