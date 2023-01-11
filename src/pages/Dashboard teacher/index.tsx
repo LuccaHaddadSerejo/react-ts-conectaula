@@ -17,6 +17,9 @@ export interface iModalProps {
   setModalIsOpen: (value: boolean) => void;
   OpenModalCardStudent: (boolean: boolean) => void;
   modalCardOpen: boolean;
+  OpenModalStudent: (boolean: boolean) => void;
+  modalStudentIsOpen: boolean;
+  setModalStudentIsOpen: (value: boolean) => void;
 }
 
 export interface iEditProps {
@@ -25,6 +28,7 @@ export interface iEditProps {
 export interface iDatasStudent {
   OpenModalCardStudent: (boolean: boolean) => void;
 }
+
 
 const DashBoardTeacher = () => {
   const [modalIsOpen, setModalIsOpen] = useState<iModalProps | boolean>(false);
@@ -39,6 +43,7 @@ const DashBoardTeacher = () => {
   const OpenModalCardStudent = (boolean: boolean) => {
     setModalCard(boolean);
   };
+
 
   useEffect(() => {
     const fillterMessages = async () => {
@@ -56,6 +61,8 @@ const DashBoardTeacher = () => {
     };
     fillterMessages();
   }, []);
+
+
 
   return (
     <>
