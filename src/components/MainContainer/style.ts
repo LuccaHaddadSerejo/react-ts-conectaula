@@ -28,11 +28,36 @@ const MainStyledContainer = styled.main`
 
   @media (min-width: 1000px) {
     & {
+      padding: 0;
       background-image: none;
+      display: flex;
     }
 
     & > div.imgDiv {
+      width: 50vw;
       display: inline-block;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    & > div.imgDiv {
+      width: 60vw;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    /* max-width: 1400px; */
+    margin: 0 auto;
+    & > div.imgDiv {
+      width: 65vw;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 1920px;
+    margin: 0 auto;
+    & > div.imgDiv {
+      width: 65vw;
     }
   }
 `;

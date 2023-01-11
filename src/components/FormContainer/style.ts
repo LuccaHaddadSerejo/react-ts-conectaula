@@ -10,6 +10,8 @@ const StyledFormContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 
+  
+
 `;
 
 export default StyledFormContainer;
