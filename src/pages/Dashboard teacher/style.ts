@@ -51,6 +51,6 @@ export const StyledContent = styled.section`
         flex-direction: column;
         gap: 10px;
     }
-
-
+  }
+  
 `
