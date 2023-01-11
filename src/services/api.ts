@@ -9,10 +9,14 @@ export interface iGradesObj {
 }
 
 export interface iMessagesObj {
-  id?: number;
-  teacher_id: number;
-  student_id: number;
+  id?: number | string;
+  teacher_id: number | string;
+  email:string;
+  name:string;
+  grades:string;
+  userId: number | string;
   message: string;
+  title:string;
 }
 
 export interface iErrorMessage {
