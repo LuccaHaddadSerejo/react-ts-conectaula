@@ -40,6 +40,7 @@ const DashBoardTeacher = () => {
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean);
   };
+  console.log(studentMessage);
 
   const OpenModalCardStudent = () => {
     setModalCard(true);
@@ -73,11 +74,14 @@ const DashBoardTeacher = () => {
             <GradeFilter />
             <ul>
               {studentMessage.length === 0 ? (
-                <h2 className="h2Solicitation">Você ainda não possui nenhuma solicitação de aluno</h2>
+                <h2 className="h2Solicitation">
+                  Você ainda não possui nenhuma solicitação de aluno
+                </h2>
               ) : (
                 studentMessage.map((elem) =>
                   modalStudant ? (
                     <ModalDatasStudent
+                      photo_url={elem.photo_url}
                       message={elem.message}
                       title={elem.title}
                       email={elem.email}
@@ -86,6 +90,7 @@ const DashBoardTeacher = () => {
                     />
                   ) : (
                     <CardStudent
+                      photo_url={elem.photo_url}
                       message={elem.message}
                       title={elem.title}
                       email={elem.email}

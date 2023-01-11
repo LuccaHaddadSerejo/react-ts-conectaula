@@ -17,6 +17,7 @@ export interface iMessagesObj {
   userId: number | string;
   message: string;
   title:string;
+  photo_url:string;
 }
 
 export interface iErrorMessage {
