@@ -2,10 +2,10 @@ import styled from "styled-components";
 import MainStyledContainer from "../../components/MainContainer/style";
 
 export const StyledDashContainer = styled(MainStyledContainer)`
-  min-height: 100vh;
+  height: 100%;
   padding: 30px 0;
+  display: flex;
   flex-direction: column;
-  background-image: none;
   background: linear-gradient(
     90deg,
     rgba(102, 188, 230, 1) 0%,
@@ -41,6 +41,7 @@ export const StyledContent = styled.section`
       gap: 2em;
       padding-bottom: 2em;
       overflow-y: auto;
+      max-width: 100%;
 
       @media (max-width: 1045px) {
           height: 90%;
@@ -66,6 +67,7 @@ export const StyledContent = styled.section`
   }
 
   @media (min-width: 700px) {
+    top: 480px;
     width: 80%;
     .divEdit {
       width: 100%;
@@ -80,6 +82,7 @@ export const StyledContent = styled.section`
   }
 
   @media (min-width: 1050px) {
+    position: static;
     width: 80%;
     max-width: 1200px;
     flex-direction: row;
