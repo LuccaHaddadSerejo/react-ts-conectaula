@@ -24,6 +24,7 @@ export const CardStudent = ({ data, setDataStudent }: any) => {
       grades: data.grades,
       title: data.title,
       message: data.message,
+      photo_url: data.photo_url,
     });
     setModalStudant(true);
   };

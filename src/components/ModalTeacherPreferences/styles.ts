@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const StyledModalTeacherPreferences = styled.div`
+
   width: 90%;
   background-color: var(--color-white);
   border-radius: var(--radius3);
   padding: 0 0 15px;
   max-width: 600px;
+
 
   .modalTeacherBox label {
     font-family: "Roboto Slab";
