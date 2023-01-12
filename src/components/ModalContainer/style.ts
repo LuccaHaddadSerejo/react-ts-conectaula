@@ -10,4 +10,5 @@ export const StyledModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(18, 18, 20, 0.5);
+  z-index: 1;
 `;

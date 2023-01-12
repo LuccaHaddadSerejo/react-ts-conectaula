@@ -55,6 +55,7 @@ export const ModalEditStudent = ({ OpenModalStudent }: iModalEditProps) => {
             placeholder="Foto"
             defaultValue={user?.photo_url}
             register={register("photo_url")}
+            hidden={true}
           />
           {errors.photo_url?.message && <span>{errors.photo_url.message}</span>}
           <Input
@@ -73,6 +74,7 @@ export const ModalEditStudent = ({ OpenModalStudent }: iModalEditProps) => {
             placeholder="Email"
             defaultValue={user?.email}
             register={register("email")}
+            hidden={true}
           />
           {errors.email?.message && <span>{errors.email.message}</span>}
           <Input
@@ -80,6 +82,7 @@ export const ModalEditStudent = ({ OpenModalStudent }: iModalEditProps) => {
             type="password"
             placeholder="Senha"
             register={register("password")}
+            hidden={true}
           />
           {errors.password?.message && <span>{errors.password.message}</span>}
           <Input
@@ -87,6 +90,7 @@ export const ModalEditStudent = ({ OpenModalStudent }: iModalEditProps) => {
             type="password"
             placeholder="Confirmar senha"
             register={register("confirm_password")}
+            hidden={true}
           />
           {errors.confirm_password?.message && (
             <span>{errors.confirm_password.message}</span>

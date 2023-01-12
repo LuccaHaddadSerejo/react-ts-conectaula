@@ -2,11 +2,10 @@ import styled from "styled-components";
 import MainStyledContainer from "../../components/MainContainer/style";
 
 export const StyledDashContainer = styled(MainStyledContainer)`
-  height: 100%;
+  min-height: 100vh;
   padding: 30px 0;
   flex-direction: column;
   background-image: none;
-  overflow-y: scroll;
   background: linear-gradient(
     90deg,
     rgba(102, 188, 230, 1) 0%,
@@ -16,7 +15,6 @@ export const StyledDashContainer = styled(MainStyledContainer)`
 
 export const StyledContent = styled.section`
   width: 90%;
-  height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
@@ -38,6 +36,17 @@ export const StyledContent = styled.section`
 
     ul {
       margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding-bottom: 2em;
+      overflow-y: auto;
+
+      @media (max-width: 1045px) {
+          height: 90%;
+          width: 100%;
+          justify-content: center;
+      }
     }
 
     .h2Solicitation {
