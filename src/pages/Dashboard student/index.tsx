@@ -14,25 +14,17 @@ import { StyledDashContainer } from "./style";
 export interface iModalEditProps {
   OpenModalStudent: (boolean: boolean) => void;
   OpenModalTeacher: (boolean: boolean) => void;
+  CloseModalTeacher: (boolean: boolean) => void;
 }
 
 const DashboardStudent = () => {
   const [modalStudentIsOpen, setModalStudentIsOpen] = useState<
     iModalProps | boolean
   >(false);
-  /*const [modalCardTeacherOpen, setModalCardTeacherOpen] = useState<
-    iModalProps | boolean
-  >(false);*/
 
   const OpenModalStudent = (boolean: boolean) => {
     setModalStudentIsOpen(boolean);
-
   };
-
-  /*const OpenModalTeacher = (boolean: boolean) => {
-    setModalCardTeacherOpen(boolean);
-
-  };*/
 
   return (
     <>
@@ -40,14 +32,10 @@ const DashboardStudent = () => {
         <ModalEditStudent
           OpenModalStudent={OpenModalStudent}
           OpenModalTeacher={function (boolean: boolean): void {}}
+          CloseModalTeacher={function (): void {}}
         />
       )}
-      {/*modalCardTeacherOpen === true && (
-        <ModalDatasTeacher
-          OpenModalTeacher={OpenModalTeacher}
-          OpenModalStudent={function (boolean: boolean): void {}}
-        />
-      )*/}
+
       <Header />
       <StyledDashContainer>
         <StyledContent>
@@ -60,12 +48,14 @@ const DashboardStudent = () => {
             <EditProfileStudent
               OpenModalStudent={OpenModalStudent}
               OpenModalTeacher={function (boolean: boolean): void {}}
+              CloseModalTeacher={function (): void {
+                throw new Error("Function not implemented.");
+              }}
             />
-            <EditPreferencesStudent/>
+            <EditPreferencesStudent />
           </div>
         </StyledContent>
       </StyledDashContainer>
-
     </>
   );
 };

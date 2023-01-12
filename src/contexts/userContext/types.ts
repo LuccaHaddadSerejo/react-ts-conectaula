@@ -20,7 +20,7 @@ export interface iUserProviderValue {
   studentMessage:iMessagesObj[]
   modalStudant:boolean,
   setModalStudant: React.Dispatch<SetStateAction<boolean>>;
-  createMessage:(formData :iMessagesObj,token :string | null)=>void;
+  createMessage:(formData :iMessagesObj)=>void;
  
 
 }
@@ -103,5 +103,6 @@ export interface iEditProfileStudent {
   type: string;
   age:number;
 }
+
 
 

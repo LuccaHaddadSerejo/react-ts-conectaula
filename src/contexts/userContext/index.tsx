@@ -204,11 +204,13 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   const createMessage = async (formData: iMessagesObj ) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
+    const token2 = token.replaceAll("\"", "\\\"");
+ 
     try {
       setGlobalLoading(true);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const response = await api.post<iMessagesObj>("/messages", formData, {
-        headers: { Authorizarion: `Bearer ${token}` },
+      const response = await api.post("/messages", formData, {
+        headers: { Authorization: `Bearer ${token2}` },
       });
       toast.success("Mensagem enviada com sucesso");
     } catch (error) {
