@@ -171,11 +171,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  /*const submitEditProfile = (data: iEditProfileTeacher, id: number) => {
-    editProfile(data, id);
-    console.log(data);
-  };*/
-
   const logout = () => {
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@USERID");
@@ -201,12 +196,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  // ----------------
-
   const createMessage = async (formData: iMessagesObj) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
-    const token2 = token.replaceAll("\"", "\\\"");
- 
+    const token2 = token.replaceAll('"', '\\"');
+
     try {
       setGlobalLoading(true);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -214,7 +207,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         headers: { Authorization: `Bearer ${token2}` },
       });
       toast.success("Mensagem enviada com sucesso");
-      setModalLoading(false)
+      setModalLoading(false);
     } catch (error) {
       const currentError = error as AxiosError<iErrorMessage>;
       toast.error(currentError.message + "");
@@ -233,8 +226,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       title: title,
       userId: userData?.id,
     };
-
-    // createMessage(newData);
   };
 
   return (

@@ -24,11 +24,11 @@ export const ModalDatasStudent = ({ data }: any) => {
         <ul>
           <StyledCardOpenModal>
             <div>
-            {!data.photo_url ? (
-          <img src={avatarImgCard} alt="" className="imgAvatarCard" />
-        ) : (
-          <img src={data.photo_url} alt="" className="imgAvatarCard" />
-        )}
+              {!data.photo_url ? (
+                <img src={avatarImgCard} alt="" className="imgAvatarCard" />
+              ) : (
+                <img src={data.photo_url} alt="" className="imgAvatarCard" />
+              )}
             </div>
             <div className="dataUserModal">
               <h3>{data.name}</h3>
@@ -42,7 +42,7 @@ export const ModalDatasStudent = ({ data }: any) => {
         </ul>
         <div className="containerButtonModal">
           <Button
-            buttonVariation="conclude"
+            buttonVariation="concludeStudentMessage"
             type={"button"}
             onClick={() => setModalStudant(false)}
           >

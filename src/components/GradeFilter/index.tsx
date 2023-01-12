@@ -1,16 +1,13 @@
-// import { useState } from "react";
-
 import React, { useContext } from "react";
 import { GradesContext } from "../../contexts/gradesContext";
 import StyledSelect from "./style";
 
 const GradeFilter = () => {
-  // const [dashType, setDashType] = useState('');
-  const { setGrade } = useContext(GradesContext)
+  const { setGrade } = useContext(GradesContext);
 
-  const getGrade = ({target}: React.ChangeEvent<HTMLSelectElement>) => {
-    setGrade(target.value)
-  }
+  const getGrade = ({ target }: React.ChangeEvent<HTMLSelectElement>) => {
+    setGrade(target.value);
+  };
 
   return (
     <StyledSelect name="" id="" onChange={getGrade}>

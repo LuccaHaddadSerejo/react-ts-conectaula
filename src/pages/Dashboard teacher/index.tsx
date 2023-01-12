@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher";
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
-import MainStyledContainer from "../../components/MainContainer/style";
 import { StyledContent, StyledDashContainer } from "./style";
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
@@ -21,9 +20,8 @@ export interface iModalProps {
   OpenModalStudent: (boolean: boolean) => void;
   modalStudentIsOpen: boolean;
   setModalStudentIsOpen: (value: boolean) => void;
-  OpenModalTeacher:(value:boolean)=>void;
-  setModalCardTeacherOpen:(value:boolean)=>void;
-  
+  OpenModalTeacher: (value: boolean) => void;
+  setModalCardTeacherOpen: (value: boolean) => void;
 }
 
 export interface iEditProps {
@@ -39,13 +37,13 @@ const DashBoardTeacher = () => {
   const [modalCardOpen, setModalCard] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dataStudent, setDataStudent] = useState<any>(null);
-  const { studentMessage, setStudentMessage, modalStudant } = useContext(UserContext);
-  const { grade } = useContext(GradesContext)
+  const { studentMessage, setStudentMessage, modalStudant } =
+    useContext(UserContext);
+  const { grade } = useContext(GradesContext);
 
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean);
   };
-  console.log(studentMessage);
 
   const OpenModalCardStudent = () => {
     setModalCard(true);
@@ -60,7 +58,7 @@ const DashBoardTeacher = () => {
         const idString = elem.teacher_id.toString();
         return idTeste === idString;
       });
-    
+
       if (filtrado) {
         setStudentMessage(filtrado);
       }
@@ -68,22 +66,26 @@ const DashBoardTeacher = () => {
     fillterMessages();
   }, []);
 
-  const parseMessage = (studentMessageParam : iMessagesObj[]) => {
-    return studentMessageParam.map(message => <CardStudent
-      photo_url={message.photo_url}
-      message={message.message}
-      title={message.title}
-      email={message.email}
-      name={message.name}
-      grades={message.grades}
-      data={message}
-      setDataStudent={setDataStudent}
-    />)
-  }
+  const parseMessage = (studentMessageParam: iMessagesObj[]) => {
+    return studentMessageParam.map((message) => (
+      <CardStudent
+        photo_url={message.photo_url}
+        message={message.message}
+        title={message.title}
+        email={message.email}
+        name={message.name}
+        grades={message.grades}
+        data={message}
+        setDataStudent={setDataStudent}
+      />
+    ));
+  };
 
-  const filteredMessagesByGrade = studentMessage.filter(message => message.grades === grade)
-  const studentMessagesList = parseMessage(studentMessage)
-  const filteredMessagesList = parseMessage(filteredMessagesByGrade)
+  const filteredMessagesByGrade = studentMessage.filter(
+    (message) => message.grades === grade
+  );
+  const studentMessagesList = parseMessage(studentMessage);
+  const filteredMessagesList = parseMessage(filteredMessagesByGrade);
 
   return (
     <>
@@ -100,8 +102,10 @@ const DashBoardTeacher = () => {
                 <h2 className="h2Solicitation">
                   Você ainda não possui nenhuma solicitação de aluno
                 </h2>
+              ) : grade ? (
+                filteredMessagesList
               ) : (
-                grade ? filteredMessagesList : studentMessagesList
+                studentMessagesList
               )}
             </ul>
           </div>
