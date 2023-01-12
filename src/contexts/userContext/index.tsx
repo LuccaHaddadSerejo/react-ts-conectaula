@@ -203,7 +203,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   // ----------------
 
-  const createMessage = async (formData: iMessagesObj ) => {
+  const createMessage = async (formData: iMessagesObj) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
