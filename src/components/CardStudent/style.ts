@@ -36,5 +36,6 @@ export const StyledCard = styled.li`
       height: 190px;
       width: 90px;
       border-radius: 10px 0 0 10px;
+      border: none;
     }
 `;
