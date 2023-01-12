@@ -44,8 +44,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
   } = useForm<iMessagesObj>({});
 
   const submitMessageTeacher: SubmitHandler<iMessagesObj> = (data) => {
-
-    createMes(data);
+    createMessage(data);
   };
 
   if(!modalLoading){
@@ -105,7 +104,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
             defaultValue={user?.email}
             register={register("email")}
           />
-          <Input
+           <Input
             type={"hidden"}
             id={""}
             defaultValue={userProps.grades}
