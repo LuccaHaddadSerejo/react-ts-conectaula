@@ -46,7 +46,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
   const submitMessageTeacher: SubmitHandler<iMessagesObj> = (data) => {
     const userToken = localStorage.getItem("@TOKEN");
     console.log(data);
-    console.log(userToken)
+    console.log(userToken);
     createMessage(data);
   };
 
@@ -102,7 +102,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
             defaultValue={user?.email}
             register={register("email")}
           />
-           <Input
+          <Input
             type={"hidden"}
             id={""}
             defaultValue={userProps.grades}

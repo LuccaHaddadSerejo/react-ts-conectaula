@@ -1,23 +1,40 @@
 import styled from "styled-components";
 
 export const StyledModalStudentContent = styled.div`
-  /* height: 660px; */
-  width: 90%;
-  max-width: 600px;
+  height: 680px;
+  width: 604px;
   border-radius: 10px;
   background-color: var(--color-white);
-
   padding: 20px;
-
+ul{
+ 
+}
   form {
-    label{
+    label {
       display: none;
     }
     display: flex;
     flex-direction: column;
     gap: 10px;
+    div:nth-child(1) {
+      display: none;
+    }
+    div:nth-child(2) {
+      display: none;
+    }
+    div:nth-child(3) {
+      display: none;
+    }
+    div:nth-child(4) {
+      display: none;
+    }
+    div:nth-child(5) {
+      display: none;
+    }
+        div:nth-child(6){
+        display: none;
+      }
   }
-
   header {
     display: flex;
     justify-content: space-between;
@@ -40,20 +57,23 @@ export const StyledCardOpenModal = styled.li`
 
   div {
     img {
-      width: 100%;
       height: 250px;
-      border-radius: 10px;
-      object-fit: cover;
+      border-radius: 10px 0 0 10px;
+      width: 100%;
     }
+    width: 400px;
   }
+
   .dataUserModal {
     display: flex;
     gap: 10px;
     flex-direction: column;
     width: 100%;
+
     p {
       font-size: var(--text-size7);
     }
+
     .messageStudentModal {
       width: 100%;
       max-width: 240px;
