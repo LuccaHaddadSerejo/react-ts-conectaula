@@ -3,12 +3,10 @@ import { StyledModalContainer } from "../ModalContainer/style";
 import { StyledCardOpenModal, StyledModalStudentContent } from "./style";
 import AlunoModal from "../../assets/img/AlunoModal.jpg";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/userContext"
-import { imessageInfo } from "../CardStudent";
+import { UserContext } from "../../contexts/userContext";
 
-export const ModalDatasStudent = ({name,email,grades,message,title}:imessageInfo) => {
-
-  const {setModalStudant}=useContext(UserContext)
+export const ModalDatasStudent = ({ data }: any) => {
+  const { setModalStudant } = useContext(UserContext);
   return (
     <StyledModalContainer>
       <StyledModalStudentContent>
@@ -29,14 +27,12 @@ export const ModalDatasStudent = ({name,email,grades,message,title}:imessageInfo
               <img src={AlunoModal} alt="Foto do estudante" />
             </div>
             <div className="dataUserModal">
-              <h3>{name}</h3>
-              <span>{email}</span>
-              <span>{grades}</span>
-              <h3>{title}</h3>
-              
-              <p className="messageStudentModal">
-               {message}
-              </p>
+              <h3>{data.name}</h3>
+              <span>{data.email}</span>
+              <span>{data.grades}</span>
+              <h3>{data.title}</h3>
+
+              <p className="messageStudentModal">{data.message}</p>
             </div>
           </StyledCardOpenModal>
         </ul>

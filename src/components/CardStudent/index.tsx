@@ -1,9 +1,8 @@
 import { StyledCard } from "./style";
 import avatarImgCard from "../../assets/img/avatarImgCard.gif"
 import { Button } from "../Button";
-import { useContext} from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
-
 
 export interface imessageInfo {
   photo_url:string;
@@ -14,21 +13,21 @@ export interface imessageInfo {
   grades: string;
   teacher_id?: number;
   userId?: number;
-  
 }
 
-export const CardStudent = ({
-  photo_url,
-  message,
-  title,
-  email,
-  name,
-  grades,
-  userId
-}: imessageInfo) => {
 
-  const {setModalStudant}=useContext(UserContext)
-
+export const CardStudent = ({ data, setDataStudent }: any) => {
+  const { setModalStudant } = useContext(UserContext);
+  const getData = () => {
+    setDataStudent({
+      name: data.name,
+      email: data.email,
+      grades: data.grades,
+      title: data.title,
+      message: data.message,
+    });
+    setModalStudant(true);
+  };
 
   return (
     <StyledCard>
@@ -39,14 +38,18 @@ export const CardStudent = ({
    
       </div>
       <div className="dataUser">
-        <h3>{name}</h3>
-        <span>{email}</span>
-        <span>{grades}</span>
-        <h3>{title}</h3>
-        <p>{message}</p>
+        <h3>{data.name}</h3>
+        <span>{data.email}</span>
+        <span>{data.grades}</span>
+        <h3>{data.title}</h3>
+        <p>{data.message}</p>
         <p className="messageStudent">{""}</p>
         <div className="containerButton">
-          <Button buttonVariation="showMore" type={"button"} onClick={()=>setModalStudant(true) }>
+          <Button
+            buttonVariation="showMore"
+            type={"button"}
+            onClick={() => getData()}
+          >
             Mostrar mais
           </Button>
         </div>

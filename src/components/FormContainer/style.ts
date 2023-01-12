@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
+
 export const StyledFormContainer = styled.div`
+
   width: 100%;
   padding: 40px 25px;
   background-color: var(--color-white);
@@ -10,7 +12,8 @@ export const StyledFormContainer = styled.div`
   gap: 20px;
 `;
 
-export const StyledBottomDiv = styled.div`
+
+ export const StyledBottomDiv = styled.div`
   margin: 10px 0;
   display: flex;
   flex-direction: column;
@@ -51,3 +54,4 @@ export const StyledBottomDiv = styled.div`
     }
   }
 `;
+

@@ -1,3 +1,4 @@
+
 import { Button } from "../Button"
 import { StyledTeacherCard } from "./style"
 import { iUserState } from "../../contexts/userContext/types";
@@ -40,3 +41,4 @@ export const TeacherCard = ({user} : iTeacherCardProps) => {
         </StyledTeacherCard>
     )
 }
+

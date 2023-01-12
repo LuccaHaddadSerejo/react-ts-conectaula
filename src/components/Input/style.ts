@@ -36,7 +36,7 @@ export const StyledInput = styled.div`
     }
   }
 
-  input[type=checkbox] {
+  input[type="checkbox"] {
     width: auto;
     display: inline;
     vertical-align: middle;
@@ -54,6 +54,7 @@ export const StyledInput = styled.div`
     input::placeholder {
       font-size: var(--text-size6);
     }
+
 
     label {
       font-size: var(--font-size6);

@@ -5,6 +5,7 @@ export const StyledModalStudentContent = styled.div`
   width: 604px;
   border-radius: 10px;
   background-color: var(--color-white);
+
   padding: 20px;
 
   form {
@@ -15,6 +16,7 @@ export const StyledModalStudentContent = styled.div`
     flex-direction: column;
     gap: 10px;
   }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -41,17 +43,14 @@ export const StyledCardOpenModal = styled.li`
       border-radius: 10px 0 0 10px;
     }
   }
-
   .dataUserModal {
     display: flex;
     gap: 10px;
     flex-direction: column;
     width: 100%;
-
     p {
       font-size: var(--text-size7);
     }
-
     .messageStudentModal {
       width: 100%;
       max-width: 240px;

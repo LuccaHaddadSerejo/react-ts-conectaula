@@ -46,6 +46,7 @@ export const StyledEditProfile = styled.aside`
   button:nth-child(1) {
     height: 29px;
     width: 90px;
+
     background-color: var(--color-white);
     border-radius: 15px;
     color: var(--color-secondary);
@@ -57,6 +58,7 @@ export const StyledEditProfile = styled.aside`
     font-weight: var(--weight1);
     img {
       vertical-align: middle;
+
     }
   }
 

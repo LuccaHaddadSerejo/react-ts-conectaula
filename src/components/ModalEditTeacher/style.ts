@@ -10,6 +10,7 @@ export const StyledModalContent = styled.div`
   flex-direction: column;
   gap: 20px;
 
+
   header {
     display: flex;
     justify-content: space-between;
@@ -68,5 +69,6 @@ export const StyledModalContent = styled.div`
 
   @media (min-width: 600px) {
     max-width: 500px;
+
   }
 `;

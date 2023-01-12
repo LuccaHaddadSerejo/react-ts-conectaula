@@ -18,7 +18,6 @@ const StyledHeading = styled.div`
   }
 
   @media (min-width: 1000px) {
-    
     & h1 {
       font-size: var(--title-size3);
     }
@@ -26,9 +25,7 @@ const StyledHeading = styled.div`
     & p {
       font-size: var(--text-size6);
     }
-
   }
-
 `;
 
 export default StyledHeading;
