@@ -1,16 +1,29 @@
 import styled from "styled-components";
 
 export const StyledModalStudentContent = styled.div`
-  height: 410px;
-  width: 464px;
+  height: 660px;
+  width: 604px;
   border-radius: 10px;
   background-color: var(--color-white);
+
+  padding: 20px;
+
+  form {
+    label{
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
     border-bottom: solid 1px;
+    margin-bottom: 20px;
   }
   .containerButtonModal {
     width: 100%;
@@ -23,7 +36,7 @@ export const StyledModalStudentContent = styled.div`
 export const StyledCardOpenModal = styled.li`
   gap: 20px;
   display: flex;
-  padding: 15px;
+
   div {
     img {
       height: 250px;

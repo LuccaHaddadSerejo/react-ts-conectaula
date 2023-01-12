@@ -1,9 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher";
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
+
 import MainStyledContainer from "../../components/MainContainer/style";
-import { StyledContent } from "./style";
+
+import { StyledContent, StyledDashContainer } from "./style";
+
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
 import { CardStudent } from "../../components/CardStudent";
@@ -39,6 +42,7 @@ const DashBoardTeacher = () => {
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean);
   };
+  console.log(studentMessage);
 
   const OpenModalCardStudent = () => {
     setModalCard(true);
@@ -66,24 +70,39 @@ const DashBoardTeacher = () => {
       {modalIsOpen === true && <ModalEditTeacher OpenModal={OpenModal} />}
       {modalStudant && <ModalDatasStudent data={dataStudent} />}
       <Header />
-      <MainStyledContainer>
+      <StyledDashContainer>
         <StyledContent>
           <div className="divDate">
             <h2 className="h2Solicitation">Solicitações de alunos</h2>
             <GradeFilter />
             <ul>
-              {studentMessage.map((elem) => (
-                <CardStudent
-                  key={elem.id}
-                  message={elem.message}
-                  title={elem.title}
-                  email={elem.email}
-                  name={elem.name}
-                  grades={elem.grades}
-                  setDataStudent={setDataStudent}
-                  data={elem}
-                />
-              ))}
+              {studentMessage.length === 0 ? (
+                <h2 className="h2Solicitation">
+                  Você ainda não possui nenhuma solicitação de aluno
+                </h2>
+              ) : (
+                studentMessage.map((elem) =>
+                  modalStudant ? (
+                    <ModalDatasStudent
+                      photo_url={elem.photo_url}
+                      message={elem.message}
+                      title={elem.title}
+                      email={elem.email}
+                      name={elem.name}
+                      grades={elem.grades}
+                    />
+                  ) : (
+                    <CardStudent
+                      photo_url={elem.photo_url}
+                      message={elem.message}
+                      title={elem.title}
+                      email={elem.email}
+                      name={elem.name}
+                      grades={elem.grades}
+                    />
+                  )
+                )
+              )}
             </ul>
           </div>
           <div className="divEdit">
@@ -91,7 +110,7 @@ const DashBoardTeacher = () => {
             <EditPreferencesTeacher />
           </div>
         </StyledContent>
-      </MainStyledContainer>
+      </StyledDashContainer>
     </>
   );
 };

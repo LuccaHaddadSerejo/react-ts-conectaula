@@ -86,10 +86,10 @@ export const StyledButton = styled.button<iStyledButtonProps>`
         return css`
           display: flex;
           gap: 10px;
-          font-family: "Inter";
+
           font-style: normal;
           font-weight: var(--weight1);
-          font-size: var(--text-size8: 0.75rem);
+          font-size: var(--text-size7);
           line-height: 15px;
           color: var(--color-secondary);
           width: 90px;
@@ -98,7 +98,6 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           border: 2px solid var(--color-secondary);
           border-radius: 15px;
         `;
-
       case "defaultButton":
         return css`
           padding: 0.5em;
@@ -144,6 +143,7 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-weight: 700;
           font-family: "Open Sans";
         `;
+
     }
   }}
 `;

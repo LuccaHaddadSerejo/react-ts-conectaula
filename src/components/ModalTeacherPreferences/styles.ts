@@ -1,24 +1,6 @@
 import styled from "styled-components";
 
 export const StyledModalTeacherPreferences = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  padding: 0 10px;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  .modalTeacherBox {
-    width: 658px;
-    background-color: var(--color-white);
-    border-radius: var(--radius3);
-    padding: 0 0 15px;
-    max-width: 100%;
-  }
 
   .modalTeacherBox label {
     font-family: "Roboto Slab";
@@ -44,6 +26,12 @@ export const StyledModalTeacherPreferences = styled.div`
     font-size: var(--text-size4);
     line-height: 26px;
   }
+
+
+  & h3 {
+     font-family: var(--font-family2);
+  }
+
 
   .modalTeacherPrefHeader button {
     font-family: "Nunito";
@@ -76,10 +64,11 @@ export const StyledModalTeacherPreferences = styled.div`
     align-items: flex-start;
   }
 
-  .modalSchoolPrefCheckbox div {
+
+  .modalSchoolPrefCheckbox div,
+  .modalTeacherGradesCheckbox div {
     display: flex;
-    flex-direction: row-reverse;
-    gap: 5px;
+    align-items: center;
   }
 
   .modalTeacherGrades {
@@ -97,61 +86,51 @@ export const StyledModalTeacherPreferences = styled.div`
     margin-top: 10px;
     gap: 10px;
     align-items: flex-start;
-    height: 190px;
-  }
 
-  .modalTeacherGradesCheckbox div {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 5px;
+    height: 230px;
   }
 
   .modalTeacherPrefButtons {
-    display: flex;
     width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
-    max-width: 100%;
     margin-top: 10px;
+    gap: 25px;
   }
 
   .modalTeacherPrefButtons button:nth-child(1) {
-    width: 159px;
-    height: 60px;
     background-color: var(--color-gray200);
-    border-radius: var(--radius3);
-    border: none;
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: var(--weight2);
-    font-size: var(--text-size5);
-    line-height: 25px;
-    color: #64748b;
+    color: var(--color-gray600);
   }
 
   .modalTeacherPrefButtons button:nth-child(2) {
-    width: 100px;
     background: linear-gradient(180deg, #66bce6 0%, #a995e8 100%);
-    width: 173px;
+    color: var(--color-white);
+  }
+
+  .modalTeacherPrefButtons button {
+    width: 100%;
     height: 60px;
     border: none;
-    font-family: "Open Sans";
-    font-style: normal;
+    font-family: var(--font-family3);
     font-weight: var(--weight2);
-    font-size: var(--text-size5);
-    line-height: 25px;
-    color: var(--color-white);
+    font-size: var(--text-size6);
     border-radius: var(--radius3);
   }
 
-  .erroYupSchool {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
+  & span {
     color: var(--color-error);
+    font-size: var(--text-size6);
+    font-weight: var(--weight2);
   }
 
-  .erroYupGrades {
-    color: var(--color-error);
+  @media (min-width: 600px) {
+    max-width: 500px;
+
+    .modalTeacherPrefButtons {
+      flex-direction: row;
+    }
   }
 `;

@@ -55,7 +55,9 @@ export const StyledInput = styled.div`
       font-size: var(--text-size6);
     }
 
-    input[type="checkbox"] {
+
+    label {
+      font-size: var(--font-size6);
     }
   }
 `;

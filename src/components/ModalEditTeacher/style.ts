@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledModalContent = styled.div`
-  width: 453px;
+  width: 90%;
   border: 1px solid transparent;
   border-radius: 10px;
   background-color: var(--color-white);
@@ -9,6 +9,7 @@ export const StyledModalContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
 
   header {
     display: flex;
@@ -30,6 +31,10 @@ export const StyledModalContent = styled.div`
     gap: 10px;
   }
 
+  .inputDiv label {
+    display: none;
+  }
+
   input {
     border: none;
     border-bottom: 1.5px solid var(--color-primary);
@@ -37,21 +42,15 @@ export const StyledModalContent = styled.div`
     padding: 0 10px;
   }
 
-  /* input, textarea, label {
-        font-family: var(--font-family3);
-        font-size: var(--text-size6);
-        font-weight: var( --weight2);
-    } */
-
-  /* .labelInput {
-        padding: 5px 10px 0;
-        color: var( --color-gray500);
-       
-    } */
-
   .divButton {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      width: 100%;
+    }
   }
 
   span {
@@ -60,5 +59,16 @@ export const StyledModalContent = styled.div`
     font-size: var(--text-size8);
     font-weight: bold;
     color: var(--color-tertiary);
+  }
+
+  @media (min-width: 500px) {
+    .divButton {
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width: 600px) {
+    max-width: 500px;
+
   }
 `;

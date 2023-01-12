@@ -24,36 +24,42 @@ export const StyledTeacherCard = styled.div`
     color: var(--color-gray900);
   }
 
-  .teacherNameEmail {
-    margin-bottom: 0.5em;
-    & h2 {
-      font-size: var(--text-size7);
-      font-weight: 700;
-      font-family: "Roboto Slab";
-      color: var(--color-gray900);
-    }
+    .teacherNameEmail {
+        margin: 0.5em 0;
 
-    & p {
-      font-weight: 400;
+        & h2 {
+            font-size: var(--text-size7);
+            font-weight: 700;
+            font-family: 'Roboto Slab';
+            color: var(--color-gray900);
+        }
+
+        & p {
+            font-weight: 400;
+        }
     }
   }
 
-  .teacherGrades {
-    margin-top: 0.3em;
-    height: 30px;
-    display: flex;
-    gap: 0.563em;
-    flex-wrap: wrap;
-    overflow-y: hidden;
 
-    & li {
-      font-size: var(--text-size9);
-      font-weight: 700;
-      font-family: "Nunito";
-      color: var(--color-tertiary);
-      border: 1px solid var(--color-tertiary);
-      border-radius: 15px;
-      padding: 0.3em;
+    .teacherGrades {
+        margin: 0.3em 0;
+        height: 30px;
+        display: flex;
+        gap: 0.563em;
+        flex-wrap: wrap;
+        overflow-y: hidden;
+
+        & li {
+            display: flex;
+            align-items: center;
+            font-size: var(--text-size9);
+            font-weight: 700;
+            font-family: 'Nunito';
+            color: var(--color-tertiary);
+            border: 1px solid var(--color-tertiary);
+            border-radius: 15px;
+            padding: 0.3em;
+        }
     }
   }
 

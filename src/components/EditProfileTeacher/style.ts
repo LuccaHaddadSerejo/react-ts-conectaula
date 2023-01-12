@@ -46,15 +46,19 @@ export const StyledEditProfile = styled.aside`
   button:nth-child(1) {
     height: 29px;
     width: 90px;
+
+    background-color: var(--color-white);
     border-radius: 15px;
     color: var(--color-secondary);
-    border: 1px solid var(--color-secondary);
+    border: 2px solid var(--color-secondary);
     display: flex;
     align-items: center;
     gap: 15px;
+    font-size: var(--text-size7);
+    font-weight: var(--weight1);
     img {
-      position: relative;
-      top: 2px;
+      vertical-align: middle;
+
     }
   }
 

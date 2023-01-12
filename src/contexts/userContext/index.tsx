@@ -24,6 +24,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -202,7 +203,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   // ----------------
 
-  const createMessage = async (formData: iMessagesObj) => {
+  const createMessage = async (formData: iMessagesObj ) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
@@ -220,7 +221,17 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitMessage = (data: iMessagesObj) => {
-    createMessage(data);
+    const userData = user;
+    const { message, title } = data;
+    const newData = {
+      name: userData?.name,
+      email: userData?.email,
+      message: message,
+      title: title,
+      userId: userData?.id,
+    };
+
+    // createMessage(newData);
   };
 
   return (
@@ -244,6 +255,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         studentMessage,
         modalStudant,
         setModalStudant,
+        createMessage,
       }}
     >
       {children}

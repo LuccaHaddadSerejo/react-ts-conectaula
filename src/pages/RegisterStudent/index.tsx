@@ -11,6 +11,7 @@ import MainStyledContainer from "../../components/MainContainer/style";
 import linkArrow from "../../assets/img/linkArrow.svg";
 import StyledRegisterContainer from "./style";
 import RegisterHeading from "../../components/RegisterHeading";
+import { StyledBottomDiv } from "../../components/FormContainer/style";
 
 interface iFormRegisterStudentValues {
   name: string;
@@ -94,12 +95,12 @@ const RegisterStudent = () => {
             </p>
           </div>
 
-          <div>
+          <StyledBottomDiv>
             <Button disabled={globalLoading} type={"submit"} buttonVariation="register">
               {globalLoading ? "Cadastrando..." : "Finalizar Cadastro"}
             </Button>
             <Link to={"/login"}>Ir para o login <span><img src={linkArrow} alt="" /></span></Link>
-          </div>
+          </StyledBottomDiv>
         </Form>
       </StyledRegisterContainer>
       <div className="imgDiv"></div>
