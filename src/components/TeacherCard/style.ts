@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTeacherCard = styled.div`
+export const StyledTeacherCard = styled.li`
     width: 325px;
     height: 205px;
     display: flex;

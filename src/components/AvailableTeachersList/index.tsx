@@ -27,7 +27,7 @@ export const AvailableTeachersList = () => {
             return teachersParam.map(teacher => <TeacherCard user={teacher} />)
         }
 
-        return <h1>Ainda não há professores cadastrados</h1>
+        return <h1>Carregando professores...</h1>
     }
     
     const filteredTeachers = teachers.filter(teacher => {
