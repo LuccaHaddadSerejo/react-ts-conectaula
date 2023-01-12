@@ -15,7 +15,6 @@ export const StyledHeader = styled.header`
   align-items: center;
   margin: 0 auto;
 
-  
   @media (min-width: 800px) {
     padding: none;
   }

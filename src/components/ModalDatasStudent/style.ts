@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
 export const StyledModalStudentContent = styled.div`
-  height: 680px;
-  width: 604px;
+  width: 100%;
+  max-width: 90%;
   border-radius: 10px;
   background-color: var(--color-white);
   padding: 20px;
   max-width: 90%;
-  
-ul{
- 
-}
+
+  & h3 {
+    font-family: var(--font-family2);
+  }
+
+  & li {
+    width: 100%;
+  }
+
   form {
-    label {
-      display: none;
-    }
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -33,9 +35,9 @@ ul{
     div:nth-child(5) {
       display: none;
     }
-        div:nth-child(6){
-        display: none;
-      }
+    div:nth-child(6) {
+      display: none;
+    }
   }
   header {
     display: flex;
@@ -51,6 +53,10 @@ ul{
     justify-content: flex-end;
     padding: 15px;
   }
+
+  @media (min-width: 700px) {
+    max-width: 600px;
+  }
 `;
 
 export const StyledCardOpenModal = styled.li`
@@ -59,11 +65,11 @@ export const StyledCardOpenModal = styled.li`
 
   div {
     img {
-      height: 250px;
-      border-radius: 10px 0 0 10px;
       width: 100%;
+      height: 100%;
+      border-radius: 10px 0 0 10px;
+      max-width: 150px;
     }
-    width: 400px;
   }
 
   .dataUserModal {

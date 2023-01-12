@@ -2,7 +2,7 @@ import styled from "styled-components";
 import MainStyledContainer from "../../components/MainContainer/style";
 
 export const StyledDashContainer = styled(MainStyledContainer)`
-  height: 100%;
+  height: 100vh;
   padding: 30px 0;
   display: flex;
   flex-direction: column;
@@ -35,18 +35,17 @@ export const StyledContent = styled.section`
     align-items: center;
 
     ul {
+      width: 100%;
       margin-top: 30px;
       display: flex;
       flex-wrap: wrap;
       gap: 2em;
       padding-bottom: 2em;
-      overflow-y: auto;
-      max-width: 100%;
 
       @media (max-width: 1045px) {
-          height: 90%;
-          width: 100%;
-          justify-content: center;
+        height: 90%;
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -75,7 +74,6 @@ export const StyledContent = styled.section`
       justify-content: space-between;
     }
   }
-
 
   @media (min-width: 850px) {
     width: 60%;

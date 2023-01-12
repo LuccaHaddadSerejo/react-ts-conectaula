@@ -1,10 +1,9 @@
-import { useContext, useState } from "react"
-import { GradesContext } from "../../contexts/gradesContext"
-import { iUserState } from "../../contexts/userContext/types"
-import { getAllTeachers } from "../../services/api"
-import { TeacherCard } from "../TeacherCard"
-import { StyledAvailableTeachersList } from "./style"
-
+import { useContext, useState } from "react";
+import { GradesContext } from "../../contexts/gradesContext";
+import { iUserState } from "../../contexts/userContext/types";
+import { getAllTeachers } from "../../services/api";
+import { TeacherCard } from "../TeacherCard";
+import { StyledAvailableTeachersList } from "./style";
 
 export const AvailableTeachersList = () => {
   const { grade } = useContext(GradesContext);
@@ -18,7 +17,6 @@ export const AvailableTeachersList = () => {
     setLoadedTechers(true);
   };
 
-
   if (!teachersLoaded) {
     getTeachers();
   }
@@ -28,16 +26,19 @@ export const AvailableTeachersList = () => {
       return teachersParam.map((teacher) => <TeacherCard user={teacher} />);
     }
 
- return <h1>Carregando professores...</h1>
+    return <h1>Carregando professores...</h1>;
   };
 
   const filteredTeachers = teachers.filter((teacher) => {
-    console.log(teacher.grades);
     return teacher.grades?.includes(grade);
   });
 
   const teachersList = parseteachers(teachers);
   const filteredTeachersList = parseteachers(filteredTeachers);
 
-  return <StyledAvailableTeachersList>{grade ? filteredTeachersList : teachersList}</StyledAvailableTeachersList>;
+  return (
+    <StyledAvailableTeachersList>
+      {grade ? filteredTeachersList : teachersList}
+    </StyledAvailableTeachersList>
+  );
 };

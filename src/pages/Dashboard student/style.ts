@@ -2,7 +2,7 @@ import styled from "styled-components";
 import MainStyledContainer from "../../components/MainContainer/style";
 
 export const StyledDashContainer = styled(MainStyledContainer)`
-  height: 100%;
+  height: 100vh;
   padding: 30px 0;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,6 @@ export const StyledContent = styled.section`
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-
   .h2Solicitation {
     color: var(--color-gray0);
   }

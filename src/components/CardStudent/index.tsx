@@ -47,7 +47,7 @@ export const CardStudent = ({ data, setDataStudent }: any) => {
         <p className="messageStudent">{""}</p>
         <div className="containerButton">
           <Button
-            buttonVariation="showMore"
+            buttonVariation="showStudentMessage"
             type={"button"}
             onClick={() => getData()}
           >
