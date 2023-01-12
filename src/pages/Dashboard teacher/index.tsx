@@ -11,8 +11,9 @@ import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
 import { CardStudent } from "../../components/CardStudent";
 import { ModalDatasStudent } from "../../components/ModalDatasStudent";
-import { getAllMessages } from "../../services/api";
+import { getAllMessages, iMessagesObj } from "../../services/api";
 import { UserContext } from "../../contexts/userContext";
+import { GradesContext } from "../../contexts/gradesContext";
 
 export interface iModalProps {
   OpenModal: (boolean: boolean) => void;
@@ -38,8 +39,8 @@ const DashBoardTeacher = () => {
   const [modalCardOpen, setModalCard] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dataStudent, setDataStudent] = useState<any>(null);
-  const { studentMessage, setStudentMessage, modalStudant } =
-    useContext(UserContext);
+  const { studentMessage, setStudentMessage, modalStudant } = useContext(UserContext);
+  const { grade } = useContext(GradesContext)
 
   const OpenModal = (boolean: boolean) => {
     setModalIsOpen(boolean);
@@ -67,6 +68,24 @@ const DashBoardTeacher = () => {
     fillterMessages();
   }, []);
 
+  const parseMessage = (studentMessageParam : iMessagesObj[]) => {
+    return studentMessageParam.map(message => <CardStudent
+      photo_url={message.photo_url}
+      message={message.message}
+      title={message.title}
+      email={message.email}
+      name={message.name}
+      grades={message.grades}
+      data={message}
+      setDataStudent={setDataStudent}
+    />)
+  }
+  console.log(grade)
+
+  const filteredMessagesByGrade = studentMessage.filter(message => message.grades === grade)
+  const studentMessagesList = parseMessage(studentMessage)
+  const filteredMessagesList = parseMessage(filteredMessagesByGrade)
+
   return (
     <>
       {modalIsOpen === true && <ModalEditTeacher OpenModal={OpenModal} />}
@@ -83,18 +102,7 @@ const DashBoardTeacher = () => {
                   Você ainda não possui nenhuma solicitação de aluno
                 </h2>
               ) : (
-                studentMessage.map((elem) => (
-                  <CardStudent
-                    photo_url={elem.photo_url}
-                    message={elem.message}
-                    title={elem.title}
-                    email={elem.email}
-                    name={elem.name}
-                    grades={elem.grades}
-                    data={elem}
-                    setDataStudent={setDataStudent}
-                  />
-                ))
+                grade ? filteredMessagesList : studentMessagesList
               )}
             </ul>
           </div>
