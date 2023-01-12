@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const StyledTeacherCard = styled.div`
+export const StyledTeacherCard = styled.li`
   width: 325px;
   height: 205px;
   display: flex;
   gap: 1em;
   overflow: hidden;
   background-color: var(--color-gray0);
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   position: relative;
 
   img {
@@ -39,15 +39,17 @@ export const StyledTeacherCard = styled.div`
     }
   }
 
-  .teacherGrades {
+  #teacherGrades {
     margin: 0.3em 0;
-    height: 30px;
+    max-height: 30px;
     display: flex;
     gap: 0.563em;
     flex-wrap: wrap;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    padding: 0;
 
     & li {
+      max-height: 30px;
       display: flex;
       align-items: center;
       font-size: var(--text-size9);

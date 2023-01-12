@@ -2,7 +2,6 @@ import { Button } from "../Button"
 import { StyledTeacherCard } from "./style"
 import { iUserState } from "../../contexts/userContext/types";
 import { useState } from "react";
-import { iModalProps } from "../../pages/Dashboard teacher";
 import { ModalDatasTeacher } from "../ModalDatasTeacher";
 
 interface iTeacherCardProps {
@@ -40,7 +39,7 @@ export const TeacherCard = ({ user }: iTeacherCardProps) => {
           <p>{user.email}</p>
         </div>
         <p>Matérias relacionadas:</p>
-        <ul className="teacherGrades">{teacherGrades}</ul>
+        <ul id="teacherGrades">{teacherGrades}</ul>
         <div className="teacherBio">
           <p>Biografia:</p>
           <p>{user.bio}</p>
