@@ -2,11 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher";
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
-
 import MainStyledContainer from "../../components/MainContainer/style";
-
 import { StyledContent, StyledDashContainer } from "./style";
-
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
 import { CardStudent } from "../../components/CardStudent";

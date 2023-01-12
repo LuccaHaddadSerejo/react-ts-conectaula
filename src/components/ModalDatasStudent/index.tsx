@@ -1,9 +1,9 @@
 import { Button } from "../Button";
 import { StyledModalContainer } from "../ModalContainer/style";
 import { StyledCardOpenModal, StyledModalStudentContent } from "./style";
-import AlunoModal from "../../assets/img/AlunoModal.jpg";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
+import avatarImgCard from "../../assets/img/avatarImgCard.gif";
 
 export const ModalDatasStudent = ({ data }: any) => {
   const { setModalStudant } = useContext(UserContext);
@@ -24,7 +24,11 @@ export const ModalDatasStudent = ({ data }: any) => {
         <ul>
           <StyledCardOpenModal>
             <div>
-              <img src={AlunoModal} alt="Foto do estudante" />
+            {!data.photo_url ? (
+          <img src={avatarImgCard} alt="" className="imgAvatarCard" />
+        ) : (
+          <img src={data.photo_url} alt="" className="imgAvatarCard" />
+        )}
             </div>
             <div className="dataUserModal">
               <h3>{data.name}</h3>

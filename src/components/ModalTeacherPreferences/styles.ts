@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledModalTeacherPreferences = styled.div`
-
   .modalTeacherBox label {
     font-family: "Roboto Slab";
     font-style: normal;
