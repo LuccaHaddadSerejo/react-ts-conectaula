@@ -16,8 +16,25 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { iMessagesObj } from "../../services/api";
 import { SubmitHandler } from "react-hook-form/dist/types";
+export interface iUserDataTeacher {
+  age: number;
+  bio: string;
+  email: string;
+  grades: string;
+  id: number;
+  name: string;
+  photo_url: string;
+  school_year_preference: string[];
+  type: string;
+}
+export interface iTeacher {
+  userProps?: iUserDataTeacher;
+  CloseModalTeacher: any;
+  OpenModalTeacher: () => void;
+}
 
-export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
+export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
+  console.log(userProps);
   const { submitMessage, createMessage, user } = useContext(UserContext);
 
   const {
@@ -29,7 +46,8 @@ export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
   const submitMessageTeacher: SubmitHandler<iMessagesObj> = (data) => {
     const userToken = localStorage.getItem("@TOKEN");
     console.log(data);
-    createMessage(data, userToken);
+    console.log(userToken)
+    createMessage(data);
   };
 
   return (
@@ -40,7 +58,7 @@ export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
           <Button
             type={"button"}
             buttonVariation="closeModal"
-            onClick={() => OpenModalTeacher(false)}
+            onClick={CloseModalTeacher}
           >
             X
           </Button>
@@ -49,18 +67,13 @@ export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
         <ul>
           <StyledCardOpenModal>
             <div>
-              <img src={AlunoModal} alt="Foto do estudante" />
+              <img src={userProps.photo_url} alt="Foto do professor" />
             </div>
             <div className="dataUserModal">
-              <h3>Nome</h3>
-              <span>Email</span>
-              <p>Matéria</p>
-              <p className="messageStudentModal">
-                Olá, eu gostaria de contratar o seu seviço, para reforçar meu
-                aprendizado em algumas matérias que estou com dificuldade em
-                assimilar,sou dedicada e gosto muito de estudar, aguardo seu
-                retorno
-              </p>
+              <h3>{userProps.name}</h3>
+              <span>{userProps.email}</span>
+              <p>{userProps.grades}</p>
+              <p className="messageStudentModal">{userProps.bio}</p>
             </div>
           </StyledCardOpenModal>
         </ul>
@@ -74,8 +87,26 @@ export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
           <Input
             type={"hidden"}
             id={""}
+            defaultValue={user?.id}
+            register={register("userId")}
+          />
+          <Input
+            type={"hidden"}
+            id={""}
+            defaultValue={userProps.id}
+            register={register("teacher_id")}
+          />
+          <Input
+            type={"hidden"}
+            id={""}
             defaultValue={user?.email}
             register={register("email")}
+          />
+           <Input
+            type={"hidden"}
+            id={""}
+            defaultValue={userProps.grades}
+            register={register("grades")}
           />
           <h3>Mensagem para o professor:</h3>
           <Input
@@ -92,11 +123,7 @@ export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
             register={register("message")}
           />
           <div className="containerButtonModal">
-            <Button
-              buttonVariation="conclude"
-              type={"submit"}
-              // onClick={() => OpenModalCardStudent(false)}
-            >
+            <Button buttonVariation="conclude" type={"submit"}>
               Enviar Mensagem
             </Button>
           </div>

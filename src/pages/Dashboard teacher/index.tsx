@@ -21,6 +21,9 @@ export interface iModalProps {
   OpenModalStudent: (boolean: boolean) => void;
   modalStudentIsOpen: boolean;
   setModalStudentIsOpen: (value: boolean) => void;
+  OpenModalTeacher:(value:boolean)=>void;
+  setModalCardTeacherOpen:(value:boolean)=>void;
+  
 }
 
 export interface iEditProps {
@@ -57,7 +60,7 @@ const DashBoardTeacher = () => {
         const idString = elem.teacher_id.toString();
         return idTeste === idString;
       });
-      console.log(filtrado);
+    
       if (filtrado) {
         setStudentMessage(filtrado);
       }
