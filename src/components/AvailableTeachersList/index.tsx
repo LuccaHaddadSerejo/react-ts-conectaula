@@ -1,4 +1,3 @@
-import { iModalProps } from "../../pages/Dashboard teacher";
 import { useContext, useState } from "react"
 import { GradesContext } from "../../contexts/gradesContext"
 import { iUserState } from "../../contexts/userContext/types"
@@ -40,5 +39,5 @@ export const AvailableTeachersList = () => {
   const teachersList = parseteachers(teachers);
   const filteredTeachersList = parseteachers(filteredTeachers);
 
-  return <ul>{grade ? filteredTeachersList : teachersList}</ul>;
+  return <StyledAvailableTeachersList>{grade ? filteredTeachersList : teachersList}</StyledAvailableTeachersList>;
 };
