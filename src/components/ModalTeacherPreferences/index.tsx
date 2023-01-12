@@ -46,7 +46,6 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
   // }
 
   return (
-
     <StyledModalContainer>
       <StyledModalTeacherPreferences>
         <Form onSubmit={handleSubmit(submit)}>
@@ -87,7 +86,6 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
                 />
               </div>
               {errors.school_year_preference?.message && (
-
                 <span className="erroYupSchool">
                   {errors.school_year_preference.message}
                 </span>
@@ -96,7 +94,6 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
             <hr />
           </div>
           <div className="modalTeacherGrades">
-
             <h3>Escolha de matérias</h3>
 
             <div className="modalTeacherGradesCheckbox">
@@ -242,10 +239,7 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
               </div>
             </div>
             {errors.grades?.message && (
-
-
               <span className="erroYupGrades">{errors.grades.message}</span>
-
             )}
             <div className="modalTeacherPrefButtons">
               <Button onClick={closeModal} type="button">
@@ -257,9 +251,7 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
             </div>
           </div>
         </Form>
-
       </StyledModalTeacherPreferences>
     </StyledModalContainer>
-
   );
 };

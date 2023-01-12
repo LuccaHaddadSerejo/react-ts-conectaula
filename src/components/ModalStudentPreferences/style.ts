@@ -1,24 +1,11 @@
 import styled from "styled-components";
 
 export const StyledModalStudentPreferences = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  padding: 0 10px;
-  background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  .modalStudentBox {
-    width: 658px;
-    background-color: var(--color-white);
-    border-radius: var(--radius3);
-    padding: 0 0 15px;
-    max-width: 100%;
-  }
+  width: 90%;
+  background-color: var(--color-white);
+  border-radius: var(--radius3);
+  padding: 0 0 15px;
+  max-width: 600px;
 
   .modalStudentBox label {
     font-family: "Roboto Slab";
@@ -43,6 +30,10 @@ export const StyledModalStudentPreferences = styled.div`
     font-weight: --weight4;
     font-size: var(--text-size4);
     line-height: 26px;
+  }
+
+  & h3 {
+    font-family: var(--font-family2);
   }
 
   .modalStudentPrefHeader button {
@@ -76,12 +67,6 @@ export const StyledModalStudentPreferences = styled.div`
     align-items: flex-start;
   }
 
-  .modalSchoolPrefCheckbox div {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 5px;
-  }
-
   .modalStudentGrades {
     display: flex;
     flex-direction: column;
@@ -92,55 +77,45 @@ export const StyledModalStudentPreferences = styled.div`
 
   .modalStudentGradesCheckbox {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
+    flex-direction: column;
     margin-top: 10px;
     gap: 10px;
-    align-items: flex-start;
-    height: 190px;
+    height: 230px;
   }
 
+  .modalSchoolPrefCheckbox div,
   .modalStudentGradesCheckbox div {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 5px;
+    align-items: center;
   }
 
   .modalStudentPrefButtons {
-    display: flex;
     width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
-    max-width: 100%;
     margin-top: 10px;
+    gap: 25px;
   }
 
   .modalStudentPrefButtons button:nth-child(1) {
-    width: 159px;
-    height: 60px;
     background-color: var(--color-gray200);
-    border-radius: var(--radius3);
-    border: none;
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: var(--weight2);
-    font-size: var(--text-size5);
-    line-height: 25px;
-    color: #64748b;
+    color: var(--color-gray600);
   }
 
   .modalStudentPrefButtons button:nth-child(2) {
-    width: 100px;
     background: linear-gradient(180deg, #66bce6 0%, #a995e8 100%);
-    width: 173px;
+    color: var(--color-white);
+  }
+
+  .modalStudentPrefButtons button {
+    width: 100%;
     height: 60px;
     border: none;
-    font-family: "Open Sans";
-    font-style: normal;
+    font-family: var(--font-family3);
     font-weight: var(--weight2);
-    font-size: var(--text-size5);
-    line-height: 25px;
-    color: var(--color-white);
+    font-size: var(--text-size6);
     border-radius: var(--radius3);
   }
 
@@ -153,5 +128,13 @@ export const StyledModalStudentPreferences = styled.div`
 
   .erroYupGrades {
     color: var(--color-error);
+  }
+
+  @media (min-width: 600px) {
+    max-width: 500px;
+
+    .modalStudentPrefButtons {
+      flex-direction: row;
+    }
   }
 `;

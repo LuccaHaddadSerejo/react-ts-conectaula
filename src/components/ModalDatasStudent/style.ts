@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const StyledModalStudentContent = styled.div`
-  height: 660px;
-  width: 604px;
+  /* height: 660px; */
+  width: 90%;
+  max-width: 600px;
   border-radius: 10px;
   background-color: var(--color-white);
 
@@ -39,8 +40,10 @@ export const StyledCardOpenModal = styled.li`
 
   div {
     img {
+      width: 100%;
       height: 250px;
-      border-radius: 10px 0 0 10px;
+      border-radius: 10px;
+      object-fit: cover;
     }
   }
   .dataUserModal {
