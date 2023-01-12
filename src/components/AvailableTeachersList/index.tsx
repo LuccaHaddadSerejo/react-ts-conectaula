@@ -1,9 +1,11 @@
-import { useContext, useState } from "react";
-import { GradesContext } from "../../contexts/gradesContext";
-import { iUserState } from "../../contexts/userContext/types";
 import { iModalProps } from "../../pages/Dashboard teacher";
-import { getAllTeachers } from "../../services/api";
-import { TeacherCard } from "../TeacherCard";
+import { useContext, useState } from "react"
+import { GradesContext } from "../../contexts/gradesContext"
+import { iUserState } from "../../contexts/userContext/types"
+import { getAllTeachers } from "../../services/api"
+import { TeacherCard } from "../TeacherCard"
+import { StyledAvailableTeachersList } from "./style"
+
 
 export const AvailableTeachersList = () => {
   const { grade } = useContext(GradesContext);
@@ -17,6 +19,7 @@ export const AvailableTeachersList = () => {
     setLoadedTechers(true);
   };
 
+
   if (!teachersLoaded) {
     getTeachers();
   }
@@ -26,7 +29,7 @@ export const AvailableTeachersList = () => {
       return teachersParam.map((teacher) => <TeacherCard user={teacher} />);
     }
 
-    return <h1>Ainda não há professores cadastrados</h1>;
+ return <h1>Carregando professores...</h1>
   };
 
   const filteredTeachers = teachers.filter((teacher) => {

@@ -20,10 +20,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [studentMessage, setStudentMessage] = useState([] as iMessagesObj[]);
   const [globalLoading, setGlobalLoading] = useState(false);
   const [dashboardLoading, setDashboardLoading] = useState(true);
+  const [modalStudant, setModalStudant] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
-  const [modalStudant, setModalStudant] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -202,7 +203,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   // ----------------
 
-  const createMessage = async (formData: iMessagesObj ) => {
+  const createMessage = async (formData: iMessagesObj) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     const token2 = token.replaceAll("\"", "\\\"");
  
@@ -257,7 +258,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         modalStudant,
         setModalStudant,
         createMessage,
-       
       }}
     >
       {children}

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const StyledModalTeacherPreferences = styled.div`
+
   width: 90%;
   background-color: var(--color-white);
   border-radius: var(--radius3);
   padding: 0 0 15px;
-  color: var(--color-gray600);
+  max-width: 600px;
 
 
   .modalTeacherBox label {
@@ -34,7 +35,7 @@ export const StyledModalTeacherPreferences = styled.div`
   }
 
   & h3 {
-     font-family: var(--font-family2);
+    font-family: var(--font-family2);
   }
 
   .modalTeacherPrefHeader button {
@@ -70,7 +71,6 @@ export const StyledModalTeacherPreferences = styled.div`
 
   .modalSchoolPrefCheckbox div,
   .modalTeacherGradesCheckbox div {
-    display: flex;
     align-items: center;
   }
 

@@ -5,14 +5,12 @@ interface iRegisterHeadingProps {
 }
 
 const RegisterHeading = ({ children }: iRegisterHeadingProps) => {
-
   return (
     <StyledHeading>
       <h1>Faça seu cadastro</h1>
-      { children }
+      {children}
     </StyledHeading>
-  )
-
-}
+  );
+};
 
 export default RegisterHeading;

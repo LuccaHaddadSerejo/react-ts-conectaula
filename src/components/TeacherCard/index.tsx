@@ -1,5 +1,5 @@
-import { Button } from "../Button";
-import { StyledTeacherCard } from "./style";
+import { Button } from "../Button"
+import { StyledTeacherCard } from "./style"
 import { iUserState } from "../../contexts/userContext/types";
 import { useState } from "react";
 import { iModalProps } from "../../pages/Dashboard teacher";
@@ -56,3 +56,4 @@ export const TeacherCard = ({ user }: iTeacherCardProps) => {
     </StyledTeacherCard>
   );
 };
+

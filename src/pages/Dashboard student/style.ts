@@ -4,8 +4,8 @@ import MainStyledContainer from "../../components/MainContainer/style";
 export const StyledDashContainer = styled(MainStyledContainer)`
   height: 100%;
   padding: 30px 0;
+  display: flex;
   flex-direction: column;
-  background-image: none;
   background: linear-gradient(
     90deg,
     rgba(102, 188, 230, 1) 0%,
@@ -15,8 +15,6 @@ export const StyledDashContainer = styled(MainStyledContainer)`
 
 export const StyledContent = styled.section`
   width: 90%;
-  height: 100vh;
-  margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -29,15 +27,10 @@ export const StyledContent = styled.section`
 
   .divDate {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
-    ul {
-      margin-top: 30px;
-    }
 
     .h2Solicitation {
       width: 100%;

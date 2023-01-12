@@ -95,6 +95,7 @@ export const ModalTeacherPreferences = ({ closeModal }: any) => {
           </div>
           <div className="modalTeacherGrades">
             <h3>Escolha de matérias</h3>
+
             <div className="modalTeacherGradesCheckbox">
               <div>
                 <Input
