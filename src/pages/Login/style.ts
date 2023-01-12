@@ -82,6 +82,11 @@ export const StyledLoginPage = styled.div`
         color: var(--color-secondary);
     }
 
+    a {
+        width: 150px;
+        height: 50px;
+    }
+
     .bottomWave {
         position: fixed;
         bottom: -40px;    
