@@ -27,6 +27,8 @@ const MainStyledContainer = styled.main`
   }
 
   @media (min-width: 1000px) {
+    height: 100vh;
+
     & {
       padding: 0;
       background-image: none;

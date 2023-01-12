@@ -13,7 +13,6 @@ import backArrowIcon from "../../assets/img/registerBackArrow.svg";
 import RegisterHeading from "../../components/RegisterHeading";
 import { StyledRegisterTeacher, StyledTeacherRegisterContainer } from "./style";
 import { StyledBottomDiv } from "../../components/FormContainer/style";
-import waveTeacher from "../../assets/img/wavesDesktop/waveTeacherRegister.svg";
 
 interface iFormRegisterTeacherValues {
   email: string;
@@ -141,7 +140,11 @@ const RegisterTeacher = () => {
           ) : (
             <>
               <div>
-                <Button type={"button"} onClick={handleClick}>
+                <Button
+                  type={"button"}
+                  onClick={handleClick}
+                  buttonVariation="goBack"
+                >
                   <img src={backArrowIcon} alt="backArrowIcon" />
                   Voltar
                 </Button>

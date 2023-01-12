@@ -90,16 +90,25 @@ const RegisterStudent = () => {
 
           <div>
             <p className="warning">
-              Aviso: Para utilizar nossos serviços o estudante deve ser maior de idade
-              ou estar acompanhado de um responsável.
+              Aviso: Para utilizar nossos serviços o estudante deve ser maior de
+              idade ou estar acompanhado de um responsável.
             </p>
           </div>
 
           <StyledBottomDiv>
-            <Button disabled={globalLoading} type={"submit"} buttonVariation="register">
+            <Button
+              disabled={globalLoading}
+              type={"submit"}
+              buttonVariation="register"
+            >
               {globalLoading ? "Cadastrando..." : "Finalizar Cadastro"}
             </Button>
-            <Link to={"/login"}>Ir para o login <span><img src={linkArrow} alt="" /></span></Link>
+            <Link to={"/login"}>
+              Ir para o login{" "}
+              <span>
+                <img src={linkArrow} alt="" />
+              </span>
+            </Link>
           </StyledBottomDiv>
         </Form>
       </StyledRegisterContainer>

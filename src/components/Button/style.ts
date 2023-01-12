@@ -143,7 +143,48 @@ export const StyledButton = styled.button<iStyledButtonProps>`
           font-weight: 700;
           font-family: "Open Sans";
         `;
+      case "showStudentMessage":
+        return css`
+          width: 100%;
+          max-width: 100px;
+          height: 40px;
+          background: linear-gradient(
+            180deg,
+            var(--color-primary) 0%,
+            var(--color-secondary) 100%
+          );
+          border: none;
+          border-radius: var(--radius3);
+          color: var(--color-white);
+          font-size: var(--text-size7);
+          font-weight: var(--weight2);
+        `;
+      case "concludeStudentMessage":
+        return css`
+          width: 100%;
+          max-width: 100px;
+          height: 40px;
+          background: linear-gradient(
+            180deg,
+            var(--color-primary) 0%,
+            var(--color-secondary) 100%
+          );
+          border: none;
+          border-radius: var(--radius3);
+          color: var(--color-white);
+          font-size: var(--text-size7);
+          font-weight: var(--weight2);
+        `;
+      case "goBack":
+        return css`
+          border: none;
+          background: none;
 
+          font-size: var(--font-size5);
+          font-family: var(--font-family2);
+          font-weight: var(--weight2);
+          text-decoration: underline;
+        `;
     }
   }}
 `;

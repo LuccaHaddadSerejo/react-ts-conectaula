@@ -4,14 +4,10 @@ import {
   StyledCardOpenModal,
   StyledModalStudentContent,
 } from "../ModalDatasStudent/style";
-import AlunoModal from "../../assets/img/AlunoModal.jpg";
-import { iModalEditProps } from "../../pages/Dashboard student";
 import { Input } from "../Input";
 import TextArea from "../TextArea";
 import { Form } from "../Form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { iEditProfileStudent } from "../../contexts/userContext/types";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { iMessagesObj } from "../../services/api";
@@ -34,22 +30,18 @@ export interface iTeacher {
 }
 
 export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
-  console.log(userProps);
-  const { submitMessage, createMessage, user, modalLoading, setModalLoading, globalLoading } = useContext(UserContext);
+  const { createMessage, user, modalLoading, setModalLoading, globalLoading } =
+    useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<iMessagesObj>({});
+  const { register, handleSubmit } = useForm<iMessagesObj>({});
 
   const submitMessageTeacher: SubmitHandler<iMessagesObj> = (data) => {
     createMessage(data);
   };
 
-  if(!modalLoading){
-     CloseModalTeacher()
-     setModalLoading(true)
+  if (!modalLoading) {
+    CloseModalTeacher();
+    setModalLoading(true);
   }
 
   return (
@@ -104,7 +96,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
             defaultValue={user?.email}
             register={register("email")}
           />
-           <Input
+          <Input
             type={"hidden"}
             id={""}
             defaultValue={userProps.grades}
@@ -117,15 +109,16 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
             placeholder="Título"
             value={user?.title}
             register={register("title")}
+            hidden={true}
           />
-          <span>Mensagem</span>
           <TextArea
-            id={""}
+            id={"messageTextArea"}
             value={user?.message}
             register={register("message")}
+            label="Mensagem"
           />
           <div className="containerButtonModal">
-            <Button buttonVariation="conclude" type={"submit"}>
+            <Button buttonVariation="concludeStudentMessage" type={"submit"}>
               {!globalLoading ? "Enviar Mensagem" : "Enviando..."}
             </Button>
           </div>

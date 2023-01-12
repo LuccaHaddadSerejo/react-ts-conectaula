@@ -10,7 +10,7 @@ interface iTextAreaProps {
   cols?: string;
   children?: React.ReactNode;
   defaultValue?: string;
-  value?:string;
+  value?: string;
 }
 
 export const TextArea = ({

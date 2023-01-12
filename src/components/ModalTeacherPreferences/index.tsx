@@ -20,7 +20,7 @@ interface iEditPreferencesTeacher {
 }
 
 export const ModalTeacherPreferences = ({ closeModal }: any) => {
-  const { user, editProfile, globalLoading, modalLoading, setModalLoading } =
+  const { editProfile, globalLoading, modalLoading, setModalLoading } =
     useContext(UserContext);
   const {
     register,
