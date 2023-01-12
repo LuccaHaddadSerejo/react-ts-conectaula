@@ -65,6 +65,7 @@ export const StyledContent = styled.section`
     }
   }
 
+
   @media (min-width: 850px) {
     width: 60%;
   }
@@ -87,6 +88,5 @@ export const StyledContent = styled.section`
         text-align: left;
       }
     }
-   
   }
 `;

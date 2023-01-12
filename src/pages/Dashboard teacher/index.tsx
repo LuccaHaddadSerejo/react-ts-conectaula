@@ -2,7 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { EditPreferencesTeacher } from "../../components/EditPreferencesTeacher";
 import EditProfileTeacher from "../../components/EditProfileTeacher";
 import Header from "../../components/Header";
+
+import MainStyledContainer from "../../components/MainContainer/style";
+
 import { StyledContent, StyledDashContainer } from "./style";
+
 import { ModalEditTeacher } from "../../components/ModalEditTeacher";
 import GradeFilter from "../../components/GradeFilter";
 import { CardStudent } from "../../components/CardStudent";
@@ -31,8 +35,8 @@ export interface iDatasStudent {
 const DashBoardTeacher = () => {
   const [modalIsOpen, setModalIsOpen] = useState<iModalProps | boolean>(false);
   const [modalCardOpen, setModalCard] = useState(false);
-
-  const { studentMessage, setStudentMessage, modalStudant, setModalStudant } =
+  const [dataStudent, setDataStudent] = useState<any>(null);
+  const { studentMessage, setStudentMessage, modalStudant } =
     useContext(UserContext);
 
   const OpenModal = (boolean: boolean) => {
@@ -64,6 +68,7 @@ const DashBoardTeacher = () => {
   return (
     <>
       {modalIsOpen === true && <ModalEditTeacher OpenModal={OpenModal} />}
+      {modalStudant && <ModalDatasStudent data={dataStudent} />}
       <Header />
       <StyledDashContainer>
         <StyledContent>
@@ -71,7 +76,6 @@ const DashBoardTeacher = () => {
             <h2 className="h2Solicitation">Solicitações de alunos</h2>
             <GradeFilter />
             <ul>
-
               {studentMessage.length === 0 ? (
                 <h2 className="h2Solicitation">
                   Você ainda não possui nenhuma solicitação de aluno

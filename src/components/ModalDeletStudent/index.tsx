@@ -4,29 +4,44 @@ import { StyledModalContainer } from "../ModalContainer/style";
 import { UserContext } from "../../contexts/userContext";
 import { StyledModalContentDelet } from "./style";
 
-export const ModalDeletStudent = ({closeModal}:any) => {
+export const ModalDeletStudent = ({ closeModal }: any) => {
+  const { deleteUser } = useContext(UserContext);
 
-    const {deleteUser} = useContext(UserContext)
+  const userDelete = () => {
+    const userId = localStorage.getItem("@USERID");
+    deleteUser(userId);
+  };
 
-    const userDelete = () => {
-        const userId = (localStorage.getItem("@USERID"))
-        deleteUser(userId)
-
-    }
-    
-    return (
-        <StyledModalContainer>
-            <StyledModalContentDelet>
-                <header>
-                <h3>Deseja mesmo exluir sua conta?</h3>
-            <Button type={"button"} onClick={closeModal} buttonVariation="closeModal">X</Button>
-
-                </header>
-                <div className="divButton">
-                <Button type={"button"} onClick={closeModal} buttonVariation="cancelEditions">Cancelar</Button>
-                <Button type={"button"} onClick={userDelete} buttonVariation="deletUser">Confirmar</Button>
-                </div>
-            </StyledModalContentDelet>
-        </StyledModalContainer>
-    )
-}
+  return (
+    <StyledModalContainer>
+      <StyledModalContentDelet>
+        <header>
+          <h3>Deseja mesmo exluir sua conta?</h3>
+          <Button
+            type={"button"}
+            onClick={closeModal}
+            buttonVariation="closeModal"
+          >
+            X
+          </Button>
+        </header>
+        <div className="divButton">
+          <Button
+            type={"button"}
+            onClick={closeModal}
+            buttonVariation="cancelEditions"
+          >
+            Cancelar
+          </Button>
+          <Button
+            type={"button"}
+            onClick={userDelete}
+            buttonVariation="deletUser"
+          >
+            Confirmar
+          </Button>
+        </div>
+      </StyledModalContentDelet>
+    </StyledModalContainer>
+  );
+};

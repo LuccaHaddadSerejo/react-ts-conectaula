@@ -31,6 +31,7 @@ export const ModalDatasTeacher = ({ OpenModalTeacher }: iModalEditProps) => {
     console.log(data);
     createMessage(data, userToken);
   };
+
   return (
     <StyledModalContainer>
       <StyledModalStudentContent>

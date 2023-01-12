@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
 export const StyledModalTeacherPreferences = styled.div`
-  width: 90%;
-  background-color: var(--color-white);
-  border-radius: var(--radius3);
-  padding: 0 0 15px;
-  color: var(--color-gray600);
-
 
   .modalTeacherBox label {
     font-family: "Roboto Slab";
@@ -33,9 +27,11 @@ export const StyledModalTeacherPreferences = styled.div`
     line-height: 26px;
   }
 
+
   & h3 {
      font-family: var(--font-family2);
   }
+
 
   .modalTeacherPrefHeader button {
     font-family: "Nunito";
@@ -68,6 +64,7 @@ export const StyledModalTeacherPreferences = styled.div`
     align-items: flex-start;
   }
 
+
   .modalSchoolPrefCheckbox div,
   .modalTeacherGradesCheckbox div {
     display: flex;
@@ -89,6 +86,7 @@ export const StyledModalTeacherPreferences = styled.div`
     margin-top: 10px;
     gap: 10px;
     align-items: flex-start;
+
     height: 230px;
   }
 

@@ -1,14 +1,11 @@
 import * as yup from "yup";
 
-export const modalEditStudentSchema  = yup.object().shape({
+export const modalEditStudentSchema = yup.object().shape({
   email: yup
     .string()
     .required("O email é obrigatório")
     .email("Email inválido."),
-  age: yup
-    .number()
-    .positive("A idade precisa ser positiva")
-    .integer(),
+  age: yup.number().positive("A idade precisa ser positiva").integer(),
   password: yup
     .string()
     .required("A senha é obrigatória")
@@ -24,7 +21,5 @@ export const modalEditStudentSchema  = yup.object().shape({
     .string()
     .required("A confirmação de senha é obrigatória")
     .oneOf([yup.ref("password"), null], "As senhas não são idênticas"),
-    photo_url: yup
-    .string()
-    .url("Formato inválido"),
+  photo_url: yup.string().url("Formato inválido"),
 });
