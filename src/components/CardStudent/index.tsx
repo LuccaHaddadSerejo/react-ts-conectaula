@@ -1,11 +1,12 @@
 import { StyledCard } from "./style";
-import andreaStudent from "../../assets/img/andreaStudent.png";
+import avatarImgCard from "../../assets/img/avatarImgCard.gif"
 import { Button } from "../Button";
 import { useContext} from "react";
 import { UserContext } from "../../contexts/userContext";
 
 
 export interface imessageInfo {
+  photo_url:string;
   message: string;
   title: string;
   email: string;
@@ -17,6 +18,7 @@ export interface imessageInfo {
 }
 
 export const CardStudent = ({
+  photo_url,
   message,
   title,
   email,
@@ -30,8 +32,11 @@ export const CardStudent = ({
 
   return (
     <StyledCard>
-      <div>
-        <img src={andreaStudent} alt="Foto do estudante" />
+      <div >
+         {!photo_url ? (
+            <img src={avatarImgCard} alt="" className="imgAvatarCard"/>
+           ):(<img src={photo_url} alt="" className="imgAvatarCard"/>)}
+   
       </div>
       <div className="dataUser">
         <h3>{name}</h3>

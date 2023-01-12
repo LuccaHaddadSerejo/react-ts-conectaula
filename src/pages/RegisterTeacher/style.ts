@@ -11,7 +11,7 @@ export const StyledTeacherRegisterContainer = styled(MainStyledContainer)`
       rgba(169, 149, 232, 0.45) 100%
     ),
     url(${registerPageImg2}) no-repeat center;
-    background-size: cover;
+  background-size: cover;
 
   & div.imgDiv {
     width: 50vw;
@@ -21,16 +21,13 @@ export const StyledTeacherRegisterContainer = styled(MainStyledContainer)`
   @media (min-width: 1000px) {
     background: none;
   }
-
 `;
 
 export const StyledRegisterTeacher = styled(StyledRegisterContainer)`
-
-  height: 100%;
-  justify-content: center;
-
-  & span {
-    padding: 0;
+  & h2 {
+    margin: 10px 0;
+    font-size: var(--title-size8);
+    font-family: var(--font-family2);
   }
 
   @media (min-width: 1100px) {
@@ -51,4 +48,16 @@ export const StyledBottomDiv = styled.div`
     flex-direction: row;
   }
 
+  & hr {
+    margin: 10px 0;
+  }
+
+  @media (min-width: 1000px) {
+    height: 100%;
+    justify-content: center;
+
+    & span {
+      padding: 0;
+    }
+  }
 `;

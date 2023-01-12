@@ -23,12 +23,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalLoading, setModalLoading] = useState(true);
   const [user, setUser] = useState<null | iUserState>(null);
-  const [modalStudant,setModalStudant]=useState(false)
+  const [modalStudant, setModalStudant] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-
       const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
       const id = localStorage.getItem("@USERID") || "";
 
@@ -111,7 +110,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitRegisterStudent = (data: iFormRegisterStudentData) => {
-    const { name, email, age, password, photo_url} = data;
+    const { name, email, age, password, photo_url } = data;
     const newData = {
       name: name,
       email: email,
@@ -203,7 +202,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   // ----------------
 
-  const createMessage = async (formData: iMessagesObj) => {
+  const createMessage = async (formData: iMessagesObj ) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "");
     try {
       setGlobalLoading(true);
@@ -221,7 +220,17 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const submitMessage = (data: iMessagesObj) => {
-    createMessage(data);
+    const userData = user;
+    const { message, title } = data;
+    const newData = {
+      name: userData?.name,
+      email: userData?.email,
+      message: message,
+      title: title,
+      userId: userData?.id,
+    };
+
+    // createMessage(newData);
   };
 
   return (
@@ -244,7 +253,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         setStudentMessage,
         studentMessage,
         modalStudant,
-        setModalStudant
+        setModalStudant,
+        createMessage,
+       
       }}
     >
       {children}

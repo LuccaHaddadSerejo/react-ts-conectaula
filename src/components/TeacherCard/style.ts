@@ -25,7 +25,8 @@ export const StyledTeacherCard = styled.div`
     }
 
     .teacherNameEmail {
-        margin-bottom: 0.5em;
+        margin: 0.5em 0;
+
         & h2 {
             font-size: var(--text-size7);
             font-weight: 700;
@@ -39,7 +40,7 @@ export const StyledTeacherCard = styled.div`
     }
 
     .teacherGrades {
-        margin-top: 0.3em;
+        margin: 0.3em 0;
         height: 30px;
         display: flex;
         gap: 0.563em;
@@ -47,6 +48,8 @@ export const StyledTeacherCard = styled.div`
         overflow-y: hidden;
 
         & li {
+            display: flex;
+            align-items: center;
             font-size: var(--text-size9);
             font-weight: 700;
             font-family: 'Nunito';

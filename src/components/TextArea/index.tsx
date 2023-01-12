@@ -10,6 +10,7 @@ interface iTextAreaProps {
   cols?: string;
   children?: React.ReactNode;
   defaultValue?: string;
+  value?:string;
 }
 
 export const TextArea = ({
@@ -20,6 +21,7 @@ export const TextArea = ({
   cols,
   children,
   defaultValue,
+  value,
 }: iTextAreaProps) => {
   return (
     <StyledTextArea>

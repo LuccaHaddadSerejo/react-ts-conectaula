@@ -11,7 +11,9 @@ import { TextArea } from "../../components/TextArea";
 import arrowIcon from "../../assets/img/linkArrow.svg";
 import backArrowIcon from "../../assets/img/registerBackArrow.svg";
 import RegisterHeading from "../../components/RegisterHeading";
-import { StyledBottomDiv, StyledRegisterTeacher, StyledTeacherRegisterContainer } from "./style";
+import { StyledRegisterTeacher, StyledTeacherRegisterContainer } from "./style";
+import { StyledBottomDiv } from "../../components/FormContainer/style";
+import waveTeacher from "../../assets/img/wavesDesktop/waveTeacherRegister.svg";
 
 interface iFormRegisterTeacherValues {
   email: string;
@@ -82,7 +84,9 @@ const RegisterTeacher = () => {
                 register={register("photo_url")}
                 placeholder={"Foto"}
               />
-              {errors.photo_url?.message && <span>{errors.photo_url.message}</span>}
+              {errors.photo_url?.message && (
+                <span>{errors.photo_url.message}</span>
+              )}
               <Input
                 id={"teacherEmail"}
                 hidden={true}
@@ -100,7 +104,9 @@ const RegisterTeacher = () => {
                 register={register("password")}
                 placeholder={"Senha"}
               />
-              {errors.password?.message && <span>{errors.password.message}</span>}
+              {errors.password?.message && (
+                <span>{errors.password.message}</span>
+              )}
               <Input
                 id={"teacherConfirmPassword"}
                 hidden={true}
@@ -119,6 +125,7 @@ const RegisterTeacher = () => {
               ></TextArea>
               {errors.bio?.message && <span>{errors.bio.message}</span>}
               <StyledBottomDiv>
+              <StyledBottomDiv>
                 <Button
                   type={"button"}
                   onClick={handleClick}
@@ -126,11 +133,10 @@ const RegisterTeacher = () => {
                 >
                   Próximo
                 </Button>
-                <div>
-                  <Link to={"/login"}>
-                    Ir para o login <img src={arrowIcon} alt="ArrowIcon" />
-                  </Link>
-                </div>
+
+                <Link to={"/login"}>
+                  Ir para o login <img src={arrowIcon} alt="ArrowIcon" />
+                </Link>
               </StyledBottomDiv>
             </div>
           ) : (
@@ -143,7 +149,8 @@ const RegisterTeacher = () => {
               </div>
               <div>
                 <div>
-                  <p>Preferência de escolaridade</p>
+                  <hr />
+                  <h2>Preferência de escolaridade</h2>
 
                   <Input
                     id={"middleSchoolOne"}
@@ -176,7 +183,8 @@ const RegisterTeacher = () => {
                   )}
                 </div>
                 <div>
-                  <p>Escolha de matérias</p>
+                  <hr />
+                  <h2>Escolha de matérias</h2>
 
                   <Input
                     id={"gradeSpanish"}
@@ -300,26 +308,32 @@ const RegisterTeacher = () => {
                     register={register("grades")}
                   />
 
-                  {errors.grades?.message && <span>{errors.grades.message}</span>}
+                  {errors.grades?.message && (
+                    <span>{errors.grades.message}</span>
+                  )}
                 </div>
                 <StyledBottomDiv>
-                  <p className="warning">
-                    Não se preocupe, os dados de escolaridade e as matérias
-                    escolhidas podem ser modificadas depois
-                  </p>
-                  <Button
-                    disabled={globalLoading}
-                    type={"submit"}
-                    buttonVariation="register"
-                  >
-                    {globalLoading ? "Cadastrando..." : "Finalizar Cadastro"}
-                  </Button>
+                  <div className="secondForm">
+                    <p className="warning">
+                      Não se preocupe, os dados de escolaridade e as matérias
+                      escolhidas podem ser modificadas depois
+                    </p>
+                    <Button
+                      disabled={globalLoading}
+                      type={"submit"}
+                      buttonVariation="register"
+                    >
+                      {globalLoading ? "Cadastrando..." : "Finalizar Cadastro"}
+                    </Button>
+                  </div>
                 </StyledBottomDiv>
               </div>
             </>
           )}
         </Form>
       </StyledRegisterTeacher>
+
+      {/* <img src={waveTeacher} alt="" /> */}
     </StyledTeacherRegisterContainer>
   );
 };

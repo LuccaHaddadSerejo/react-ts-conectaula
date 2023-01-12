@@ -1,27 +1,34 @@
 // import { useState } from "react";
 
+import React, { useContext } from "react";
+import { GradesContext } from "../../contexts/gradesContext";
 import StyledSelect from "./style";
 
 const GradeFilter = () => {
   // const [dashType, setDashType] = useState('');
+  const { setGrade } = useContext(GradesContext)
+
+  const getGrade = ({target}: React.ChangeEvent<HTMLSelectElement>) => {
+    setGrade(target.value)
+  }
 
   return (
-    <StyledSelect name="" id="">
+    <StyledSelect name="" id="" onChange={getGrade}>
       <option value="">Selecione uma matéria</option>
-      <option value="espanhol">Espanhol</option>
-      <option value="inglês">Inglês</option>
-      <option value="sociologia">Sociologia</option>
-      <option value="filosofia">Filosofia</option>
-      <option value="história">História</option>
-      <option value="geografia">Geografia</option>
-      <option value="biologia">Biologia</option>
-      <option value="física">Física</option>
-      <option value="química">Química</option>
-      <option value="ciências">Ciências</option>
-      <option value="artes">Artes</option>
-      <option value="matemática">Matemática</option>
-      <option value="português">Português</option>
-      <option value="redação">Redação</option>
+      <option value="Espanhol">Espanhol</option>
+      <option value="Inglês">Inglês</option>
+      <option value="Sociologia">Sociologia</option>
+      <option value="Filosofia">Filosofia</option>
+      <option value="História">História</option>
+      <option value="Geografia">Geografia</option>
+      <option value="Biologia">Biologia</option>
+      <option value="Física">Física</option>
+      <option value="Química">Química</option>
+      <option value="Ciências">Ciências</option>
+      <option value="Artes">Artes</option>
+      <option value="Matemática">Matemática</option>
+      <option value="Português">Português</option>
+      <option value="Redação">Redação</option>
     </StyledSelect>
   );
 };

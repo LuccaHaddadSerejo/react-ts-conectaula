@@ -11,10 +11,11 @@ export const StyledCard = styled.li`
 
   .dataUser {
     display: flex;
-    gap: 10px;
+    gap: 4px;
     flex-direction: column;
     justify-content: end;
     width: 100%;
+  
 
     p {
       font-size: var(--text-size7);
@@ -29,5 +30,10 @@ export const StyledCard = styled.li`
         max-width: 240px;
       
     }
+    
   }
+  .imgAvatarCard{
+      height: 190px;
+      width: 90px;
+    }
 `;
