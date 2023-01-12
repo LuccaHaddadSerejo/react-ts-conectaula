@@ -80,7 +80,6 @@ const DashBoardTeacher = () => {
       setDataStudent={setDataStudent}
     />)
   }
-  console.log(grade)
 
   const filteredMessagesByGrade = studentMessage.filter(message => message.grades === grade)
   const studentMessagesList = parseMessage(studentMessage)

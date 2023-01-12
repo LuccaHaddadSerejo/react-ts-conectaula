@@ -6,6 +6,8 @@ export const StyledModalStudentContent = styled.div`
   border-radius: 10px;
   background-color: var(--color-white);
   padding: 20px;
+  max-width: 90%;
+  
 ul{
  
 }
