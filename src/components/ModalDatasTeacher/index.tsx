@@ -72,7 +72,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
             <div className="dataUserModal">
               <h3>{userProps.name}</h3>
               <span>{userProps.email}</span>
-              <p>{userProps.grades}</p>
+              <p>{userProps.grades.join(", ")}</p>
               <p className="messageStudentModal">{userProps.bio}</p>
             </div>
           </StyledCardOpenModal>
