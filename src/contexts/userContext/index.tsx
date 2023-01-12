@@ -214,6 +214,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         headers: { Authorization: `Bearer ${token2}` },
       });
       toast.success("Mensagem enviada com sucesso");
+      setModalLoading(false)
     } catch (error) {
       const currentError = error as AxiosError<iErrorMessage>;
       toast.error(currentError.message + "");

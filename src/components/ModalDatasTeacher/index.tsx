@@ -35,7 +35,7 @@ export interface iTeacher {
 
 export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
   console.log(userProps);
-  const { submitMessage, createMessage, user } = useContext(UserContext);
+  const { submitMessage, createMessage, user, modalLoading, setModalLoading, globalLoading } = useContext(UserContext);
 
   const {
     register,
@@ -44,11 +44,13 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
   } = useForm<iMessagesObj>({});
 
   const submitMessageTeacher: SubmitHandler<iMessagesObj> = (data) => {
-    const userToken = localStorage.getItem("@TOKEN");
-    console.log(data);
-    console.log(userToken)
     createMessage(data);
   };
+
+  if(!modalLoading){
+     CloseModalTeacher()
+     setModalLoading(true)
+  }
 
   return (
     <StyledModalContainer>
@@ -124,7 +126,7 @@ export const ModalDatasTeacher = ({ CloseModalTeacher, userProps }: any) => {
           />
           <div className="containerButtonModal">
             <Button buttonVariation="conclude" type={"submit"}>
-              Enviar Mensagem
+              {!globalLoading ? "Enviar Mensagem" : "Enviando..."}
             </Button>
           </div>
         </Form>
