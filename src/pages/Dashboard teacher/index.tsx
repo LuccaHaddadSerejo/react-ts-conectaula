@@ -34,7 +34,9 @@ export interface iDatasStudent {
 
 const DashBoardTeacher = () => {
   const [modalIsOpen, setModalIsOpen] = useState<iModalProps | boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [modalCardOpen, setModalCard] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [dataStudent, setDataStudent] = useState<any>(null);
   const { studentMessage, setStudentMessage, modalStudant } =
     useContext(UserContext);
@@ -81,27 +83,18 @@ const DashBoardTeacher = () => {
                   Você ainda não possui nenhuma solicitação de aluno
                 </h2>
               ) : (
-                studentMessage.map((elem) =>
-                  modalStudant ? (
-                    <ModalDatasStudent
-                      photo_url={elem.photo_url}
-                      message={elem.message}
-                      title={elem.title}
-                      email={elem.email}
-                      name={elem.name}
-                      grades={elem.grades}
-                    />
-                  ) : (
-                    <CardStudent
-                      photo_url={elem.photo_url}
-                      message={elem.message}
-                      title={elem.title}
-                      email={elem.email}
-                      name={elem.name}
-                      grades={elem.grades}
-                    />
-                  )
-                )
+                studentMessage.map((elem) => (
+                  <CardStudent
+                    photo_url={elem.photo_url}
+                    message={elem.message}
+                    title={elem.title}
+                    email={elem.email}
+                    name={elem.name}
+                    grades={elem.grades}
+                    data={elem}
+                    setDataStudent={setDataStudent}
+                  />
+                ))
               )}
             </ul>
           </div>
